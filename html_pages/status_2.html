@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- META -->
+	<title>Status</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0; user-scalable=0;"/>
+	<meta name="description" content="" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" media="all" /> 
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.slimscroll.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</head>
+<body>
+
+	<header class="main-header">
+		<div class="header-wrapper">
+			<div class="header-content">
+				<a href="index.html" class="header_mobile_logo"></a>
+				<a class="mobile_icon" onclick="toggle_mobile_nav();"></a>
+				<nav class="top-nav" role="navigation">
+					<ul id="navigation">
+					<li class="home">
+						<a href="index.html" title=""><h1>Karnataka Learning Partnership</h1></a>
+					</li>
+					<li class="school_map">
+						<a href="map.html" title="">School Map</a>
+					</li>
+					<li class="programmes">
+						<a href="programmes.html" title="">Programmes</a>
+						<ul>
+							<li><a href="reading_programme.html" title=""><span></span>Reading</a></li>
+							<li><a href="maths_programme.html" title=""><span></span>Math</a></li>
+							<li><a href="library_programme.html" title=""><span></span>Library</a></li>
+							<li><a href="preschool_programme.html" title=""><span></span>Pre-School</a></li>
+						</ul>
+					</li>
+					<li class="volunteer"><a href="volunteer.html" title="">Volunteer</a></li>
+					<li class="database">
+						<a href="status_1.html" title="">Database</a>
+						<ul>
+							<li><a href="status_1.html" title=""><span></span>Status 1</a></li>
+							<li><a href="status_2.html" title=""><span></span>Status 2</a></li>
+							<li><a href="status_3.html" title=""><span></span>Status 3</a></li>
+							<li><a href="#" title=""><span></span>Raw Data</a></li>
+							<li><a href="#" title=""><span></span>Github</a></li>
+						</ul>
+					</li>
+					<li class="reports"><a href="#" title="">Reports</a></li>
+					<li class="about">
+						<a href="about.html" title="">About</a>
+						<ul>
+							<li><a href="about.html" title=""><span></span>About</a></li>
+							<li><a href="partners.html" title=""><span></span>Partners</a></li>
+							<li><a href="disclaimer.html" title=""><span></span>Disclaimer</a></li>
+						</ul>
+					</li>
+				</ul>
+				</nav>
+				<div class="clr"></div>
+			</div>
+		</div>
+
+		<div class="subheader-wrapper">
+			<div class="subheader-content">
+				<div class="breadcrumb">
+			    	<a href="">Home</a><span></span>
+			    	<a href="">About</a>
+			    </div>
+			</div>
+		</div>
+	</header>
+
+	<div class="page-status">
+		<div class="container">
+			<h1>Status<span></span></h1>
+
+			<p class="ta_c">
+				This data is collected and maintained by Karnataka Learning Partnership for providing people a holistic view of the public education profile of their respective regions.
+			</p>			
+		</div>
+		<section>
+			<div class="section-data-type">
+				<div class="data-types-wrapper">
+					<div class="container">
+						<div class="heading"><h2>Select a data type</h2></div>
+						<ul>
+							<li class="active">
+								<a href="" title="">Pre-School</a>
+								<span class="arrow"></span>
+							</li>
+							<li>
+								<a href="" title="">School</a>
+								<span class="arrow"></span>
+							</li>
+							<li>
+								<a href="" title="">SSLC</a>
+								<span class="arrow"></span>
+							</li>
+							<li>
+								<a href="" title="">Current Programmes</a>
+								<span class="arrow"></span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="clr"></div>
+				<div class="options-wrapper">
+					<div class="option_item">
+						<div>
+							<span class="label">District</span>
+							<span class="value">All</span>
+						</div>
+						<div class="item_values">
+							<ul>
+								<li><a href="">Bangalore 1</a></li>
+								<li><a href="">Bangalore 2</a></li>
+								<li><a href="">Bangalore 3</a></li>
+								<li><a href="">Bangalore 4</a></li>
+								<li><a href="">Bangalore 5</a></li>
+								<li><a href="">Bangalore 6</a></li>
+								<li><a href="">Bangalore 7</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="option_item inactive">
+						<div>
+							<span class="label">Block</span>
+							<span class="value">All</span>
+						</div>
+						<div class="item_values">
+							<ul>
+								<li><a href="">Bangalore 1</a></li>
+								<li><a href="">Bangalore 2</a></li>
+								<li><a href="">Bangalore 3</a></li>
+								<li><a href="">Bangalore 4</a></li>
+								<li><a href="">Bangalore 5</a></li>
+								<li><a href="">Bangalore 6</a></li>
+								<li><a href="">Bangalore 7</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="option_item inactive">
+						<div>
+							<span class="label">Cluster</span>
+							<span class="value">All</span>
+						</div>
+					</div>
+					<div class="option_item inactive">
+						<div>
+							<span class="label">Pre-School</span>
+							<span class="value">All</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="container">
+				<div class="table_header">
+					Counts
+					<div class="year_selector">
+						<div class="selection" onclick="$(this).parent().toggleClass('open');">
+							<span class="label">Year:</span> <span class="value">2011 - 2012</span>
+						</div>
+						<ul>
+							<li onclick="$(this).parent().parent().toggleClass('open');return false;"><a href="">2010-2011</a></li>
+							<li onclick="$(this).parent().parent().toggleClass('open');return false;"><a href="">2011-2012</a></li>
+							<li onclick="$(this).parent().parent().toggleClass('open');return false;"><a href="">2012-2013</a></li>
+						</ul>
+					</div>
+				</div>
+				<table class="break_in_mobile">
+					<tr>
+						<th class="sub_title" colspan="4">Pre-School</th>
+					</tr>
+					<tr>
+						<td class="circular_count_item">
+							<p>Active Pre-school Count</p>
+							<p class="value">1992</p>
+						</td>
+						<td class="circular_count_item">
+							<p>Active Pre-school with Students Count</p>
+							<p class="value">1992</p>
+						</td>
+						<td class="circular_count_item">
+							<p>Active Students Count</p>
+							<p class="value">1992</p>
+						</td>
+						<td>
+							<div class="stats_gender_item boy">
+								<span class="icon"></span>
+								<p class="label"><span>5400</span> boys</p>
+								<p class="value">65%</p>
+								<div class="clr"></div>
+							</div>
+							<div class="stats_gender_item girl">
+								<span class="icon"></span>
+								<p class="label"><span>2700</span> girls</p>
+								<p class="value">35%</p>
+								<div class="clr"></div>
+							</div>
+						</td>
+					</tr>
+				</table>
+
+				
+				<div class="table_header">
+					Assessment Counts
+					<div class="year_selector">
+						<div class="selection" onclick="$(this).parent().toggleClass('open');">
+							<span class="label">Year:</span> <span class="value">2011 - 2012</span>
+						</div>
+						<ul>
+							<li onclick="$(this).parent().parent().toggleClass('open');return false;"><a href="">2010-2011</a></li>
+							<li onclick="$(this).parent().parent().toggleClass('open');return false;"><a href="">2011-2012</a></li>
+							<li onclick="$(this).parent().parent().toggleClass('open');return false;"><a href="">2012-2013</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="assessment_table_wrapper">
+					<table>
+						<tr>
+							<th class="sub_title lowercase">Boundary</th>
+							<th class="sub_title lowercase">Program Name</th>
+							<th class="sub_title lowercase">Assess Name</th>
+							<th class="sub_title lowercase">Schools Mapped</th>
+							<th class="sub_title lowercase">Schools Assessed</th>
+							<th class="sub_title lowercase">Students Assessed</th>
+						</tr>
+						<tr class="tabular_item">
+							<td class="tabular_item">Dharwad</td>
+							<td class="tabular_item">Anganwadi</td>
+							<td class="tabular_item">Pretest<br/>(2.5 - 4.5)</td>
+							<td class="tabular_item">109</td>
+							<td class="tabular_item">0</td>
+							<td class="tabular_item">0</td>
+						</tr>
+						<tr class="tabular_item">
+							<td >Bangalore</td>
+							<td>Anganwadi</td>
+							<td>Pretest<br/>(2.5 - 4.5)</td>
+							<td>109</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+					</table>
+				</div>
+
+				<p class="last_updated">Last updated on <span>23 September 2013</span></p>
+			</div>
+	</section>
+
+	</div>
+
+	<footer class="main-footer">
+		<div class="footer-wrapper">
+			<nav class="nav">
+				<ul>
+					<li><a href="" title="">About</a></li>
+					<li><a href="" title="">Press</a></li>
+					<li><a href="" title="">Contact</a></li>
+					<li class="hidden-phone hidden-tablet"><a href="" title="">School Map</a></li>
+					<li class="hidden-phone hidden-tablet"><a href="" title="">Programmes</a></li>
+					<li class="hidden-phone hidden-tablet"><a href="" title="">Databases</a></li>
+					<li class="hidden-phone hidden-tablet"><a href="" title="">Reports</a></li>
+					<div class="clr"></div>
+				</ul>
+			</nav>
+			<div class="copyright">Copyright 2013. All Rights Reserved.</div>
+		</div>
+	</footer>
+
+	<script type="text/javascript">
+		$(function(){
+		    $('.option_item .item_values ul').slimScroll({
+		        height: '200px',
+		        size: '6px',
+		        color: '#8d8d8d',
+		        railVisible: true,
+      			railColor: '#f6f6f6',
+      			railOpacity: 1
+		    });
+		});
+	</script>
+
+</body>
+</html>

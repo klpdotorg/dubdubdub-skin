@@ -1,0 +1,3003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- META -->
+	<title>Map</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="description" content="" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" media="all" /> 
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.slimscroll.min.js"></script>
+	<script type="text/javascript" src="js/zebra_datepicker.js"></script>
+
+	<!-- <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js'></script> -->
+
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	<script type="text/javascript" src="http://hpneo.github.io/gmaps/gmaps.js"></script>  
+	
+
+	<link type="text/css" rel="stylesheet" href="js/lib/iCheck/skins/minimal/minimal.css" media="all"/>
+	<script type="text/javascript" src="js/lib/iCheck/jquery.icheck.min.js"></script>
+	<script type="text/javascript" src="js/lib/jquery.easydropdown.min.js"></script>
+
+	<script src="js/highcharts/highcharts.js"></script>
+
+    <script type="text/javascript" src="js/map.js"></script>
+    <script type="text/javascript" src="js/swig.min.js"></script>
+    <script type="text/javascript" src="js/swig.filters.js"></script>
+
+
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<![endif]-->
+
+	<!--[if IE 6]>
+	<script src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+	<script>
+	  DD_belatedPNG.fix('.nav, a ,img, .png24');
+	</script>
+	<![endif]-->
+</head>
+<body>
+	<script type="text/template" class="tpl-raw" data-tpl="marker_overlay" id="tpl_marker_overlay">
+		<section class="map-pin-details">
+			<div class="content">
+				<div class="info school">
+					<div class="icon fr">S</div>
+					<h2 class="name">Gian Jyoti Public School</h2>
+					<div class="item">
+						<div class="label">District</div>
+						<div class="value">Bangalore</div>
+					</div>
+					<div class="item">
+						<div class="label">Block</div>
+						<div class="value">North-2</div>
+					</div>
+					<div class="item">
+						<div class="label">Cluster</div>
+						<div class="value">Malleswaram</div>
+					</div>
+					<div class="clr"></div>
+				</div>
+				<div class="details">
+					<div class="triangle2"></div>
+					<div  class="detail-item">
+						<h4 class="purple-heading">Students</h4>
+						<div class="gender_icons">
+							<div class="stats_gender_item no_width boy">
+								<span class="icon"></span>
+								<p class="label">Boys</p>
+								<p class="value">120</p>
+								<div class="clr"></div>
+							</div>
+							<div class="stats_gender_item no_width girl">
+								<span class="icon"></span>
+								<p class="label">Girls</p>
+								<p class="value">130</p>
+								<div class="clr"></div>
+							</div>
+							<div class="stats_gender_item no_width total last">
+								<span class="icon"></span>
+								<p class="label">Total</p>
+								<p class="value">250</p>
+								<div class="clr"></div>
+							</div>
+						</div>
+					</div>
+					<div  class="detail-item mar_top_20">
+						<h4 class="purple-heading">Facilities</h4>
+						<div class="facility-items ta-c">
+							<div class="icon computer"></div>
+							<div class="icon books"></div>
+							<div class="icon events"></div>
+							<div class="icon football last"></div>
+							<div class="clr"></div>
+						</div>
+					</div>
+					<a class="button blue mar_top_20" href="">Volunteer here</a>
+					<div class="mar_top_10">
+						<a class="button dark_grey fl js-trigger-compare" href="">Compare to</a>
+						<a class="button dark_grey last fr js-trigger-info" href="">More Information</a>
+						<div class="clr"></div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+	</script>
+	<script type="text/template" class="tpl-raw" data-tpl="overlay_content" id="tpl_overlay_content">
+		<div class="info">
+			<div class="fl">
+				<h2 class="en-{{entity_type}}">{{school}}</h2>
+				<div class="item">
+					<div class="label">District</div>
+					<div class="value">Bangalore</div>
+				</div>
+				<div class="item">
+					<div class="label">Block</div>
+					<div class="value">North-2</div>
+				</div>
+				<div class="item">
+					<div class="label">Cluster</div>
+					<div class="value">Malleswaram</div>
+				</div>
+			</div>
+			<div class="fr">
+				<a class="button dark_grey js-trigger-compare" href="">Compare to</a>
+				<a class="button js-trigger-volunteer" href="">Volunteer here</a>
+			</div>
+			<div class="clr"></div>
+		</div>
+		<ul class="tabs">
+			<li data-tab="tab-info" class="current js-place-tab">Info</li>
+			<li data-tab="tab-demographics" class="js-place-tab">Demographics</li>
+			<li data-tab="tab-programmes" class="js-place-tab">Programmes</li>
+			<li data-tab="tab-finances" class="js-place-tab">Finances</li>
+			<li data-tab="tab-infrastructure" class="js-place-tab">Infrastructure</li>
+			<li data-tab="tab-library" class="js-place-tab">Library</li>
+			<li data-tab="tab-nutrition" class="js-place-tab">Nutrition</li>
+			<li data-tab="tab-share-story" class="js-place-tab">Share your story</li>
+		</ul>
+
+		<!-- Info Tab BEGIN -->
+		<div id="tab-info" class="tab_content current">
+			<div class="fl">
+				<h4>Address</h4>
+				<p>1st Main Road, 2nd Cross, Yeshwanthura, <strong>Bangalore</strong> - 560022</p>
+				
+				<h4 class="mar_top_25">Landmark</h4>
+				<p>Near St. Francis Church</p>
+
+				<h4 class="mar_top_25">School Information</h4>
+				<table class="info_data_table">
+					<tr>
+						<td>Category</td>
+						<td>Model Primary</td>
+					</tr>
+					<tr>
+						<td>Buses</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td>Gender</td>
+						<td>Co-ed</td>
+					</tr>
+					<tr>
+						<td>Medium</td>
+						<td>Kannada</td>
+					</tr>
+					<tr>
+						<td>DSIE</td>
+						<td>290200050050007</td>
+					</tr>
+				</table>
+
+				<h4 class="mar_top_25">Constituency Information</h4>
+				<table class="info_data_table">
+					<tr>
+						<td>MLA Constituency</td>
+						<td>Malleswaram</td>
+					</tr>
+					<tr>
+						<td>MLA Details</td>
+						<td>Dr. Ashwath Narayan (BJP)</td>
+					</tr>
+					<tr>
+						<td>MLA Constituency</td>
+						<td>Malleswaram</td>
+					</tr>
+					<tr>
+						<td>MLA Details</td>
+						<td>DB Chandre Gowada (BJP)</td>
+					</tr>
+				</table>
+			</div>
+			<div class="photos_block">
+				<h4>Photos</h4>
+				<a href=""><img src="images/map_photo.jpg" alt=""></a>
+				<a href=""><img src="images/map_photo.jpg" alt=""></a>
+				<a href=""><img src="images/map_photo.jpg" alt=""></a>
+				<a href=""><img src="images/map_photo.jpg" alt=""></a>
+				<a href=""><img src="images/map_photo.jpg" alt=""></a>
+				<a href=""><img src="images/map_photo.jpg" alt=""></a>
+				<a href=""><img src="images/map_photo.jpg" alt=""></a>
+				<a href=""><img src="images/map_photo.jpg" alt=""></a>
+				<div class="clr"></div>
+			</div>
+			<div class="clr"></div>
+		</div>
+		<!-- Info Tab END -->
+		
+		<!-- Demographics Tab BEGIN -->
+		<div id="tab-demographics" class="tab_content">
+			<div class="fl">
+				<h4>Student Information</h4>
+
+				<div class="pie_chart_wrapper">
+					<div id="pie_chart_1" class="chart fl"></div>
+					<div class="gender_icons fl">
+						<div class="stats_gender_item no_width boy">
+							<span class="icon"></span>
+							<p class="label">Boys</p>
+							<p class="value">65%</p>
+							<div class="clr"></div>
+						</div>
+						<div class="stats_gender_item no_width girl">
+							<span class="icon"></span>
+							<p class="label">Girls</p>
+							<p class="value">65%</p>
+							<div class="clr"></div>
+						</div>
+					</div>
+					<div class="clr"></div>
+				</div>
+			</div>
+			<div class="fr">
+				<h4>Languages</h4>
+				<div class="bar_graph_hor">
+					<div class="item">
+						<div class="label fl">English</div>
+						<div class="bar fr"><div class="value" style="width:35%;"></div></div>
+						<div class="clr"></div>
+					</div>
+					<div class="item">
+						<div class="label fl">Kannada</div>
+						<div class="bar fr"><div class="value" style="width:60%;"></div></div>
+						<div class="clr"></div>
+					</div>
+					<div class="item">
+						<div class="label fl">Urdu</div>
+						<div class="bar fr"><div class="value" style="width:35%;"></div></div>
+						<div class="clr"></div>
+					</div>
+					<div class="item">
+						<div class="label fl">Others</div>
+						<div class="bar fr"><div class="value" style="width:20%;"></div></div>
+						<div class="clr"></div>
+					</div>
+				</div>
+			</div>
+			<div class="clr"></div>
+
+			<h4 class="mar_top_25">DISE Student Profile</h4>
+			<table class="info_data_table label_small">
+				<tr>
+					<td>Source</td>
+					<td>KLP Database (2011-2012), <strong>NUEPA-DISE</strong></td>
+				</tr>
+			</table>
+
+			<div class="top_bordered_block">
+				<p>
+					Directly access this page from here <a href=""><b>http://klp.org.in/schoolpage/school/33175?tab=demographics</b></a>
+				</p>
+			</div>
+		</div>
+		<!-- Demographics Tab END -->
+
+		<!-- Programme Tab BEGIN -->
+		<div id="tab-programmes" class="tab_content">
+			<h4>Programme Information</h4>
+			<a href="" class="black external"><b>Akshara Foundation-Reading (2006)</b></a><br/>
+			<a href="" class="black external"><b>Akshara Foundation-Remedial_Math_Level2 (2008)</b></a>
+
+			<table class="info_data_table label_small mar_top_25">
+				<tr>
+					<td>Source</td>
+					<td>KLP Database (2011-2012), <strong>NUEPA-DISE</strong></td>
+				</tr>
+			</table>
+			<div class="top_bordered_block">
+				<p>
+					Directly access this page from here <a href=""><b>http://klp.org.in/schoolpage/school/33175?tab=programmes</b></a>
+				</p>
+			</div>
+		</div>
+		<!-- Programme Tab END -->
+
+		<!-- Finances Tab BEGIN -->
+		<div id="tab-finances" class="tab_content">
+			<h4>SSA GRANTS ALLOCATION</h4>
+
+			<div class="ta_c" id="pie_chart_finance">{ Chart here }</div>
+
+			<table class="info_data_table label_longer mar_top_25 mar_btm_25">
+				<tr>
+					<td>School Maintence Grant (SMG)</td>
+					<td>₹ 5,000 for upto 3 classrooms and ₹ 10,000 for more than 3 classrooms.</td>
+				</tr>
+				<tr>
+					<td>School Grant (SG)</td>
+					<td>₹ 5,000 for lower primary schools and ₹ 7,000 for upper and model primary schools.</td>
+				</tr>
+				<tr>
+					<td>Teacher Learning Material Grant (TLM)</td>
+					<td>₹ 500 per teacher.</td>
+				</tr>
+			</table>
+
+			<p>
+				This school with 3 classrooms or fewer has 3 teachers as per DISE sources.<br/>
+				It is known to receive a total annual SSA grant of ₹ 13,500.
+			</p>
+
+			<div class="top_bordered_block">
+				<p>
+					Directly access this page from here <a href=""><b>http://klp.org.in/schoolpage/school/33175?tab=finances</b></a>
+				</p>
+			</div>
+		</div>
+		<!-- Finances Tab END -->
+
+		<!-- Infrastructure Tab BEGIN -->
+		<div id="tab-infrastructure" class="tab_content">
+			<h4>Infrastructure</h4>
+
+			<table class="infra_data_table mar_btm_25 fl">
+				<tr>
+					<td>Toilet Facilities</td>
+					<td>
+						<div class="green">Has Usable Toilets</div>
+						<div class="red">Has Toilets</div>
+						<div class="grey">Has Toilets</div>
+					</td>
+				</tr>
+				<tr>
+					<td>Nutrition and Hygine</td>
+					<td>
+						<div class="green">Has Drinking Water Facilities</div>
+						<div class="red">Has Handwash Facilities</div>
+						<div class="grey">Has Clean and Timely Meals</div>
+					</td>
+				</tr>
+				<tr>
+					<td>Basic Infrastructure</td>
+					<td>
+						<div class="green">Has Spacious Classrooms and Play Class</div>
+						<div class="red">Has Walls Intact</div>
+						<div class="grey">Has Flooring Intact</div>
+						<div class="red">Has Roofs Intact</div>
+						<div class="grey">Is in a Designated Building by DWCD</div>
+						<div class="red">Has Water Supply</div>
+						<div class="green">Has Waste Baskets</div>
+					</td>
+				</tr>
+			</table>
+
+			<div class="infra_data_indicators fr">
+				<div class="green item">Indicates infrastructure present</div>
+				<div class="red item">Indicates infrastructure absent</div>
+				<div class="grey item">Indicates information unavailable</div>
+			</div>
+			<div class="clr"></div>
+
+			<div class="top_bordered_block">
+				<p>
+					Directly access this page from here <a href=""><b>http://klp.org.in/schoolpage/school/33175?tab=infrastructure</b></a>
+				</p>
+			</div>
+		</div>
+		<!-- Infrastructure Tab END -->
+
+		<!-- Library Tab BEGIN -->
+		<div id="tab-library" class="tab_content">
+
+			<div class="options_wrapper">
+
+				<div class="select_pseudo">
+					<select name="language">
+						<option value="hindi">Hindi</option>
+						<option value="english">English</option>
+					</select>
+					<div class="button_wrapper"><button><span>Browse by language</span></button></div>
+					<ul>
+						<li>Hindi</li>
+						<li>English</li>
+						<li>Hindi</li>
+						<li>English</li>
+						<li>Hindi</li>
+						<li>English</li>
+					</ul>
+				</div>
+
+				<div class="select_pseudo">
+					<select name="language">
+					</select>
+					<div class="button_wrapper"><button>Year <span>2012-2013</span></button></div>
+					<ul>
+						<li>2012-2013</li>
+						<li>2011-2012</li>
+						<li>2010-2011</li>
+					</ul>
+				</div>
+
+				<div class="select_pseudo">
+					<select name="language">
+					</select>
+					<div class="button_wrapper"><button>Class <span>1</span></button></div>
+					<ul>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+					</ul>
+				</div>
+
+				<button class="styled">Switch to Graph View</button>
+
+			</div>
+
+			<div class="ta_c pad_10" id="graph_library">{ Graph here }</div>
+
+			<!-- <div class="option_item dropdown">
+				Browse by language
+				<ul>
+					<li>option</li>
+					<li>option</li>
+					<li>option</li>
+					<li>option</li>
+					<li>option</li>
+				</ul>
+			</div> -->
+
+			<table class="basic_table mar_top_25">
+				<tr>
+					<th>Month</th>
+					<th>Kannada</th>
+					<th>Urdu</th>
+					<th>Telugu</th>
+					<th>Tamil</th>
+					<th>Hindi</th>
+					<th>English</th>
+				</tr>
+				<tr>
+					<td>Jan</td>
+					<td>0.4</td>
+					<td>1</td>
+					<td>1</td>
+					<td>0.4</td>
+					<td>1</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>Feb</td>
+					<td>1</td>
+					<td>0.4</td>
+					<td>1</td>
+					<td>0.4</td>
+					<td>1</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>Mar</td>
+					<td>0.4</td>
+					<td>1</td>
+					<td>1</td>
+					<td>0.4</td>
+					<td>1</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>Apr</td>
+					<td>1</td>
+					<td>0.4</td>
+					<td>1</td>
+					<td>0.4</td>
+					<td>1</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>May</td>
+					<td>0.4</td>
+					<td>1</td>
+					<td>1</td>
+					<td>0.4</td>
+					<td>1</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>Jun</td>
+					<td>1</td>
+					<td>0.4</td>
+					<td>1</td>
+					<td>0.4</td>
+					<td>1</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>Jul</td>
+					<td>0.4</td>
+					<td>1</td>
+					<td>1</td>
+					<td>0.4</td>
+					<td>1</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>Aug</td>
+					<td>1</td>
+					<td>0.4</td>
+					<td>1</td>
+					<td>0.4</td>
+					<td>1</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>Sep</td>
+					<td>0.4</td>
+					<td>1</td>
+					<td>1</td>
+					<td>0.4</td>
+					<td>1</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>Oct</td>
+					<td>1</td>
+					<td>0.4</td>
+					<td>1</td>
+					<td>0.4</td>
+					<td>1</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>Nov</td>
+					<td>0.4</td>
+					<td>1</td>
+					<td>1</td>
+					<td>0.4</td>
+					<td>1</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>Dec</td>
+					<td>1</td>
+					<td>0.4</td>
+					<td>1</td>
+					<td>0.4</td>
+					<td>1</td>
+					<td>1</td>
+				</tr>
+			</table>
+
+			<h4>Akshara Library Details</h4>
+
+			<table class="info_data_table label_long mar_top_25 mar_btm_25">
+				<tr>
+					<td>Number of Chairs</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>Number of Books</td>
+					<td>1006</td>
+				</tr>
+				<tr>
+					<td>Number of UPS(s)</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>Status Library</td>
+					<td>Handed over</td>
+				</tr>
+				<tr>
+					<td>Number of Tables</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>Number of Racks</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>Number of Computers</td>
+					<td>-</td>
+				</tr>
+			</table>
+
+			<p>DISE Reports Number of Books as : <strong>175</strong></p>
+
+			<table class="info_data_table label_small">
+				<tr>
+					<td>Source</td>
+					<td>KLP Database (2011-2012), <strong>NUEPA-DISE</strong></td>
+				</tr>
+			</table>
+
+
+			<div class="top_bordered_block">
+				<p>
+					Directly access this page from here <a href=""><b>http://klp.org.in/schoolpage/school/33175?tab=nutrition</b></a>
+				</p>
+			</div>
+			
+		</div>
+		<!-- Library Tab END -->
+
+		<!-- Nutrition Tab BEGIN -->
+		<div id="tab-nutrition" class="tab_content">
+			<h4>Mid-day Meal Summary</h4>
+
+			<div class="ta_c" id="graph_nutrition">{ Graph here }</div>
+
+			<div class="top_bordered_block">
+				<p>
+					Directly access this page from here <a href=""><b>http://klp.org.in/schoolpage/school/33175?tab=nutrition</b></a>
+				</p>
+			</div>
+			
+		</div>
+		<!-- Nutrition Tab END -->
+
+		<!-- Share you story Tab BEGIN -->
+		<div id="tab-share-story" class="tab_content">
+			<div class="fl width-48p">
+				<h4>Information from schools visits</h4>
+
+				<p>
+					This data is gathered from vistors sharing their experiences. It indicates whether or not the school has facilities under the headings below:
+				</p>
+
+				<table class="info_data_table label_longer mar_top_25 mar_btm_25">
+					<tr>
+						<td>Play Material or Sports Equipment</td>
+						<td class="green">Yes</td>
+					</tr>
+					<tr>
+						<td>Separate Room For Headmaster</td>
+						<td class="red">No or Unknown</td>
+					</tr>
+					<tr>
+						<td>Separate Toilet for Boys and Girls</td>
+						<td class="green">Yes</td>
+					</tr>
+					<tr>
+						<td>Library</td>
+						<td class="green">Yes</td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="fr width-48p">
+				<div class="share-your-story">
+					<a href="" id="trigger_share_story_modal" class="button orange">Share you story</a>
+					<br/>
+					<div class="stats first">
+						<div class="number">4</div>
+						<div class="text">Number of School Visits</div>
+					</div>
+					<div class="stats">
+						<div class="number">4</div>
+						<div class="text">Shared Stories</div>
+					</div>
+				</div>
+				<div class="comments mar_top_25">
+					<h4>Visitor Comments</h4>
+					<div class="comment-item first">
+						<div class="name">Saheem Fatima</div>
+						<p class="text">No electricity and no water supply.</p>
+						<div class="timestamp">Shared on : July,21 2013</div>
+					</div>
+					<div class="comment-item">
+						<div class="name">Saheem Fatima</div>
+						<p class="text">No electricity and no water supply.</p>
+						<div class="timestamp">Shared on : July,21 2013</div>
+					</div>
+					<div class="comment-item last">
+						<div class="name">Saheem Fatima</div>
+						<p class="text">No electricity and no water supply.</p>
+						<div class="timestamp">Shared on : July,21 2013</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="clr"></div>
+
+			<div class="top_bordered_block">
+				<p>
+					Directly access this page from here <a href=""><b>http://klp.org.in/schoolpage/school/33175?tab=nutrition</b></a>
+				</p>
+			</div>
+			
+		</div>
+		<!-- Share your story Tab END -->
+	</script>
+	<script type="text/template" class="tpl-raw" data-tpl="comparison_result">
+		<div class="comparison-result gender-distribution">
+			<div class="result-header">
+				<div class="heading">Gender Distribution</div>
+				<select class="dropdown">
+				    <option value="1" selected>Year: 2011 -2012</option>
+				    <option value="2">Year: 2012 -2013</option>
+				    <option value="3">Year: 2013 -2014</option>
+				</select>
+				<div class="clr"></div>
+			</div>
+
+			<div class="width-48p fl ta-c">
+				<div class="pie-chart-wrapper">
+					<div class="chart" id="comparison_pie_chart_1"></div>
+					<div class="gender_icons">
+						<div class="stats_gender_item no_width boy">
+							<span class="icon"></span>
+							<p class="label">Boys</p>
+							<p class="value">65%</p>
+							<div class="clr"></div>
+						</div>
+						<div class="stats_gender_item no_width girl">
+							<span class="icon"></span>
+							<p class="label">Girls</p>
+							<p class="value">35%</p>
+							<div class="clr"></div>
+						</div>
+					</div>
+				</div>
+				<div class="text mar_btm_25">Total Number of students <span class="bold">7100</span></div>
+				<div class="stat-ratio">
+					<div class="stat-item boy">
+						Boys<br>
+						<span>2</span>
+					</div>
+					<div class="fl">:</div>
+					<div class="stat-item girl">
+						Girls<br>
+						<span>1</span>
+					</div>
+					<div class="clr"></div>
+				</div>
+			</div>
+
+			<div class="width-48p fr ta-c">
+				<div class="pie-chart-wrapper">
+					<div class="chart" id="comparison_pie_chart_2"></div>
+					<div class="gender_icons">
+						<div class="stats_gender_item no_width boy">
+							<span class="icon"></span>
+							<p class="label">Boys</p>
+							<p class="value">65%</p>
+							<div class="clr"></div>
+						</div>
+						<div class="stats_gender_item no_width girl">
+							<span class="icon"></span>
+							<p class="label">Girls</p>
+							<p class="value">35%</p>
+							<div class="clr"></div>
+						</div>
+					</div>
+				</div>
+				<div class="text mar_btm_25">Total Number of students <span class="bold">7100</span></div>
+				<div class="stat-ratio">
+					<div class="stat-item boy">
+						Boys<br>
+						<span>2</span>
+					</div>
+					<div class="fl">:</div>
+					<div class="stat-item girl">
+						Girls<br>
+						<span>1</span>
+					</div>
+					<div class="clr"></div>
+				</div>
+			</div>
+
+			<div class="clr"></div>
+
+			<div class="aggregate-stats width-400">
+				<div class="label">Aggregate stats</div>
+				<div class="text mar_top_10">
+					<span class="bold">Students</span> in a District <span class="bold">9500</span>
+				</div>
+				<div class="text">
+					<span class="bold boy">Boys</span> in a District <span class="bold">4400</span>
+				</div>
+				<div class="text">
+					<span class="bold girl">Girls</span> in a District <span class="bold">2400</span>
+				</div>
+			</div>
+		</div>
+		<!-- Comparison Result ends -->
+
+		<div class="comparison-result language-distribution">
+			<div class="result-header">
+				<div class="heading">Language Distribution</div>
+				<select class="dropdown">
+				    <option value="1" selected>Year: 2011 -2012</option>
+				    <option value="2">Year: 2012 -2013</option>
+				    <option value="3">Year: 2013 -2014</option>
+				</select>
+				<div class="clr"></div>
+			</div>
+
+			<div class="result-content">
+				<div class="comparison-item">
+
+					<div class="comparison-heading purple">
+						<div class="heading-text">Kannada</div>
+					</div>
+
+					<div class="col-left ta-c">
+						<div class="bar_graph_hor green">
+							<div class="item">
+								<div class="label fr">65%</div>
+								<div class="bar fl">
+									<div class="value fr" style="width:35%;"></div>
+									<div class="clr"></div>
+									<div class="count">20,343 students</div>
+								</div>
+								<div class="clr"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-right ta-c">
+						<div class="bar_graph_hor grey">
+							<div class="item">
+								<div class="label fl">65%</div>
+								<div class="bar fr">
+									<div class="value" style="width:35%;"></div>
+									<div class="count">20,343 students</div>
+								</div>
+								<div class="clr"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="clr"></div>
+				</div>
+				<!-- Bar item ends here -->
+
+				<div class="comparison-item">
+
+					<div class="comparison-heading purple">
+						<div class="heading-text">English</div>
+					</div>
+
+					<div class="col-left ta-c">
+						<div class="bar_graph_hor green">
+							<div class="item">
+								<div class="label fr">65%</div>
+								<div class="bar fl">
+									<div class="value fr" style="width:35%;"></div>
+									<div class="clr"></div>
+									<div class="count">20,343 students</div>
+								</div>
+								<div class="clr"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-right ta-c">
+						<div class="bar_graph_hor grey">
+							<div class="item">
+								<div class="label fl">65%</div>
+								<div class="bar fr">
+									<div class="value" style="width:35%;"></div>
+									<div class="count">20,343 students</div>
+								</div>
+								<div class="clr"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="clr"></div>
+				</div>
+				<!-- Bar item ends here -->
+
+				<div class="comparison-item">
+
+					<div class="comparison-heading purple">
+						<div class="heading-text">Urdu</div>
+					</div>
+
+					<div class="col-left ta-c">
+						<div class="bar_graph_hor green">
+							<div class="item">
+								<div class="label fr">65%</div>
+								<div class="bar fl">
+									<div class="value fr" style="width:35%;"></div>
+									<div class="clr"></div>
+									<div class="count">20,343 students</div>
+								</div>
+								<div class="clr"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-right ta-c">
+						<div class="bar_graph_hor grey">
+							<div class="item">
+								<div class="label fl">65%</div>
+								<div class="bar fr">
+									<div class="value" style="width:35%;"></div>
+									<div class="count">20,343 students</div>
+								</div>
+								<div class="clr"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="clr"></div>
+				</div>
+				<!-- Bar item ends here -->
+				<div class="comparison-item mar_top_60">
+
+					<div class="comparison-heading purple width-25p">
+						<div class="heading-text">Medium of instruction</div>
+					</div>
+
+					<div class="col-left width-37p ta-c">
+						<div class="text grey bold">Kannada</div>
+					</div>
+
+					<div class="col-right width-37p ta-c">
+						<div class="text grey bold">English</div>
+					</div>
+
+					<div class="clr"></div>
+				</div>
+				<!-- Bar item ends here -->
+
+				<div class="aggregate-stats width-400">
+					<div class="label">Aggregate stats</div>
+					<div class="text mar_top_10">
+						The medium of instruction in <span class="bold">Schools</span> of Karnataka
+					</div>
+					<div class="text">
+						<span class="bold green uppercase">Kannada</span> <span class="bold">65%</span>
+					</div>
+					<div class="text">
+						<span class="bold uppercase">English</span> <span class="bold">30%</span>
+					</div>
+					<div class="text">
+						<span class="bold uppercase">Urdu</span> <span class="bold">5%</span>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!-- Comparison Result ends -->
+
+		<div class="comparison-result score-distribution">
+			<div class="result-header">
+				<div class="heading">Score Distribution</div>
+				<select class="dropdown">
+				    <option value="1" selected>Year: 2011 -2012</option>
+				    <option value="2">Year: 2012 -2013</option>
+				    <option value="3">Year: 2013 -2014</option>
+				</select>
+				<div class="clr"></div>
+			</div>
+
+			<div class="result-content">
+				<div class="width-48p fl ta-c">
+					<div class="pie-chart-wrapper">
+						
+					</div>
+					<div class="gender_icons">
+						<div class="stats_gender_item no_width boy">
+							<span class="icon"></span>
+							<p class="label">Boys</p>
+							<p class="value">65%</p>
+							<div class="clr"></div>
+						</div>
+						<div class="stats_gender_item no_width girl">
+							<span class="icon"></span>
+							<p class="label">Girls</p>
+							<p class="value">65%</p>
+							<div class="clr"></div>
+						</div>
+						<div class="clr"></div>
+					</div>
+				</div>
+
+				<div class="width-48p fr ta-c">
+					<div class="pie-chart-wrapper">
+						
+					</div>
+					<div class="gender_icons">
+						<div class="stats_gender_item no_width boy">
+							<span class="icon"></span>
+							<p class="label">Boys</p>
+							<p class="value">65%</p>
+							<div class="clr"></div>
+						</div>
+						<div class="stats_gender_item no_width girl">
+							<span class="icon"></span>
+							<p class="label">Girls</p>
+							<p class="value">65%</p>
+							<div class="clr"></div>
+						</div>
+						<div class="clr"></div>
+					</div>
+				</div>
+
+				<div class="clr"></div>
+
+				<div class="aggregate-stats width-400">
+					<div class="label">Aggregate stats</div>
+					<div class="text mar_top_10">
+						<span class="bold">Students</span> in a District <span class="bold">9500</span>
+					</div>
+					<div class="text">
+						<span class="bold boy">Boys</span> in a District <span class="bold">4400</span>
+					</div>
+					<div class="text">
+						<span class="bold girl">Girls</span> in a District <span class="bold">2400</span>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!-- Comparison Result ends -->
+
+		<div class="comparison-result grade-distribution">
+			<div class="result-header">
+				<div class="heading">Grade Distribution</div>
+				<select class="dropdown">
+				    <option value="1" selected>Year: 2011 -2012</option>
+				    <option value="2">Year: 2012 -2013</option>
+				    <option value="3">Year: 2013 -2014</option>
+				</select>
+				<div class="clr"></div>
+			</div>
+
+			<div class="result-content">
+				<div class="comparison-item">
+
+					<div class="comparison-heading very-good">
+						<div class="heading-text with-sub-text">
+							Grade A
+							<div class="sub-text">% &#62; 90</div>
+						</div>
+					</div>
+
+					<div class="col-left ta-c">
+						<div class="bar_graph_hor very-good">
+							<div class="item">
+								<div class="label fr">65%</div>
+								<div class="bar fl">
+									<div class="value fr" style="width:35%;"></div>
+									<div class="clr"></div>
+								</div>
+								<div class="clr"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-right ta-c">
+						<div class="bar_graph_hor very-good">
+							<div class="item">
+								<div class="label fl">65%</div>
+								<div class="bar fr">
+									<div class="value" style="width:35%;"></div>
+								</div>
+								<div class="clr"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="clr"></div>
+				</div>
+				<!-- Bar item ends here -->
+
+				<div class="comparison-item">
+
+					<div class="comparison-heading good">
+						<div class="heading-text with-sub-text">
+							Grade B
+							<div class="sub-text">90 &#62; % &#62; 80</div>
+						</div>
+					</div>
+
+					<div class="col-left ta-c">
+						<div class="bar_graph_hor good">
+							<div class="item">
+								<div class="label fr">65%</div>
+								<div class="bar fl">
+									<div class="value fr" style="width:35%;"></div>
+									<div class="clr"></div>
+								</div>
+								<div class="clr"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-right ta-c">
+						<div class="bar_graph_hor good">
+							<div class="item">
+								<div class="label fl">65%</div>
+								<div class="bar fr">
+									<div class="value" style="width:35%;"></div>
+								</div>
+								<div class="clr"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="clr"></div>
+				</div>
+				<!-- Bar item ends here -->
+
+				<div class="comparison-item">
+
+					<div class="comparison-heading average">
+						<div class="heading-text with-sub-text">
+							Grade C
+							<div class="sub-text">80 &#62; % &#62; 65</div>
+						</div>
+					</div>
+
+					<div class="col-left ta-c">
+						<div class="bar_graph_hor average">
+							<div class="item">
+								<div class="label fr">65%</div>
+								<div class="bar fl">
+									<div class="value fr" style="width:35%;"></div>
+									<div class="clr"></div>
+								</div>
+								<div class="clr"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-right ta-c">
+						<div class="bar_graph_hor average">
+							<div class="item">
+								<div class="label fl">65%</div>
+								<div class="bar fr">
+									<div class="value" style="width:35%;"></div>
+								</div>
+								<div class="clr"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="clr"></div>
+				</div>
+				<!-- Bar item ends here -->
+
+				<div class="comparison-item">
+
+					<div class="comparison-heading bad">
+						<div class="heading-text with-sub-text">
+							Grade D
+							<div class="sub-text">65 &#62; % &#62; 40</div>
+						</div>
+					</div>
+
+					<div class="col-left ta-c">
+						<div class="bar_graph_hor bad">
+							<div class="item">
+								<div class="label fr">65%</div>
+								<div class="bar fl">
+									<div class="value fr" style="width:35%;"></div>
+									<div class="clr"></div>
+								</div>
+								<div class="clr"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-right ta-c">
+						<div class="bar_graph_hor bad">
+							<div class="item">
+								<div class="label fl">65%</div>
+								<div class="bar fr">
+									<div class="value" style="width:35%;"></div>
+								</div>
+								<div class="clr"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="clr"></div>
+				</div>
+				<!-- Bar item ends here -->
+
+				<div class="comparison-item">
+
+					<div class="comparison-heading very-bad">
+						<div class="heading-text with-sub-text">
+							Grade E
+							<div class="sub-text">40 &#62; % </div>
+						</div>
+					</div>
+
+					<div class="col-left ta-c">
+						<div class="bar_graph_hor very-bad">
+							<div class="item">
+								<div class="label fr">65%</div>
+								<div class="bar fl">
+									<div class="value fr" style="width:35%;"></div>
+									<div class="clr"></div>
+								</div>
+								<div class="clr"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-right ta-c">
+						<div class="bar_graph_hor very-bad">
+							<div class="item">
+								<div class="label fl">65%</div>
+								<div class="bar fr">
+									<div class="value" style="width:35%;"></div>
+								</div>
+								<div class="clr"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="clr"></div>
+				</div>
+				<!-- Bar item ends here -->
+
+				<div class="aggregate-stats width-400">
+					<div class="label">Aggregate stats</div>
+					<div class="text mar_top_10">
+						Grades in Karnataka
+					</div>
+					<div class="text">
+						<span class="bold">Students</span> <span class="bold">B</span>
+					</div>
+					<div class="text">
+						<span class="bold boy">Boys</span> <span class="bold">C</span>
+					</div>
+					<div class="text">
+						<span class="bold girl">Girls</span> <span class="bold">A</span>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!-- Comparison Result ends -->
+
+		<div class="comparison-result teacher-student-ratio">
+			<div class="result-header">
+				<div class="heading">Teacher student ratio</div>
+				<select class="dropdown">
+				    <option value="1" selected>Year: 2011 -2012</option>
+				    <option value="2">Year: 2012 -2013</option>
+				    <option value="3">Year: 2013 -2014</option>
+				</select>
+				<div class="clr"></div>
+			</div>
+			<div class="result-content">
+				<div class="width-48p fl ta-c">
+					<div class="stat-ratio">
+						<div class="stat-item teacher">
+							Teacher<br>
+							<span>2</span>
+						</div>
+						<div class="fl">:</div>
+						<div class="stat-item student">
+							Student<br>
+							<span>1</span>
+						</div>
+						<div class="clr"></div>
+					</div>
+				</div>
+
+				<div class="width-48p fr ta-c">
+					<div class="stat-ratio">
+						<div class="stat-item teacher">
+							Teacher<br>
+							<span>2</span>
+						</div>
+						<div class="fl">:</div>
+						<div class="stat-item student">
+							Student<br>
+							<span>1</span>
+						</div>
+						<div class="clr"></div>
+					</div>
+				</div>
+
+				<div class="clr"></div>
+
+				<div class="aggregate-stats width-400">
+					<div class="label">Aggregate stats</div>
+					<div class="text mar_top_10">
+						Teacher Student Ration in Karnataka is <span class="bold">1:25</span>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!-- Comparison Result ends -->
+
+		<div class="comparison-result infrastructure">
+			<div class="result-header">
+				<div class="heading">Infrastructure</div>
+				<select class="dropdown">
+				    <option value="1" selected>Year: 2011 -2012</option>
+				    <option value="2">Year: 2012 -2013</option>
+				    <option value="3">Year: 2013 -2014</option>
+				</select>
+				<div class="clr"></div>
+			</div>
+
+			<div class="result-content">
+				<div class="comparison-item">
+					<div class="comparison-heading purple width-25p">
+						<div class="heading-text">Toilet Facilities</div>
+					</div>
+
+					<div class="infra-indicator col-left width-37p">
+						<div class="infra-indicator-item green">Has Usable Toilets</div>
+						<div class="infra-indicator-item red">Doesn't have Sheltered Toilets</div>
+						<div class="infra-indicator-item grey">Has Shelters for Toilets</div>
+					</div>
+
+					<div class="infra-indicator col-right width-37p">
+						<div class="infra-indicator-item green">Has Usable Toilets</div>
+						<div class="infra-indicator-item red">Doesn't have Sheltered Toilets</div>
+						<div class="infra-indicator-item grey">Has Shelters for Toilets</div>
+					</div>
+
+					<div class="clr"></div>
+				</div>
+				<!-- Infra Item ends -->
+
+				<div class="comparison-item">
+					<div class="comparison-heading purple width-25p">
+						<div class="heading-text">Nutrition and Hygine</div>
+					</div>
+
+					<div class="infra-indicator col-left width-37p">
+						<div class="infra-indicator-item green">Has Usable Toilets</div>
+						<div class="infra-indicator-item red">Doesn't have Sheltered Toilets</div>
+						<div class="infra-indicator-item grey">Has Shelters for Toilets</div>
+					</div>
+
+					<div class="infra-indicator col-right width-37p">
+						<div class="infra-indicator-item green">Has Usable Toilets</div>
+						<div class="infra-indicator-item red">Doesn't have Sheltered Toilets</div>
+						<div class="infra-indicator-item grey">Has Shelters for Toilets</div>
+					</div>
+
+					<div class="clr"></div>
+				</div>
+				<!-- Infra Item ends -->
+
+				<div class="comparison-item">
+					<div class="comparison-heading purple width-25p">
+						<div class="heading-text">Basic Infrastructure</div>
+					</div>
+
+					<div class="infra-indicator col-left width-37p">
+						<div class="infra-indicator-item green">Has Usable Toilets</div>
+						<div class="infra-indicator-item red">Doesn't have Sheltered Toilets</div>
+						<div class="infra-indicator-item grey">Has Shelters for Toilets</div>
+					</div>
+
+					<div class="infra-indicator col-right width-37p">
+						<div class="infra-indicator-item green">Has Usable Toilets</div>
+						<div class="infra-indicator-item red">Doesn't have Sheltered Toilets</div>
+						<div class="infra-indicator-item grey">Has Shelters for Toilets</div>
+					</div>
+
+					<div class="clr"></div>
+				</div>
+				<!-- Infra Item ends -->
+
+			</div>
+		</div>
+		<!-- Comparison Result ends -->
+
+		<div class="comparison-result basic-infrastructure">
+			<div class="result-header">
+				<div class="heading">Basic Infrastructure</div>
+				<select class="dropdown">
+				    <option value="1" selected>Year: 2011 -2012</option>
+				    <option value="2">Year: 2012 -2013</option>
+				    <option value="3">Year: 2013 -2014</option>
+				</select>
+				<div class="clr"></div>
+			</div>
+
+			<div class="result-content">
+
+				<div class="comparison-item">
+
+					<div class="comparison-heading purple width-25p">
+						<div class="heading-text with-img">
+							<img src="images/infrastructure/computer.png" class="image"/>
+							Computer labs
+						</div>
+					</div>
+
+					<div class="col-left width-37p ta-c">
+						<div class="text big red">No</div>
+					</div>
+
+					<div class="col-right width-37p ta-c">
+						<div class="text big green">Yes</div>
+					</div>
+
+					<div class="clr"></div>
+				</div>
+				<!-- Infratstructure Item ends -->
+
+				<div class="comparison-item">
+
+					<div class="comparison-heading purple width-25p">
+						<div class="heading-text with-img">
+							<img src="images/infrastructure/library.png" class="image"/>
+							Library
+						</div>
+					</div>
+
+					<div class="col-left width-37p ta-c">
+						<div class="text big green">Yes</div>
+					</div>
+
+					<div class="col-right width-37p ta-c">
+						<div class="text big red">No</div>
+					</div>
+
+					<div class="clr"></div>
+				</div>
+				<!-- Infratstructure Item ends -->
+
+			</div>
+		</div>
+		<!-- Comparison Result ends -->
+
+		<div class="comparison-result grants-distribution">
+			<div class="result-header">
+				<div class="heading">Grants Distribution</div>
+				<select class="dropdown">
+				    <option value="1" selected>Year: 2011 -2012</option>
+				    <option value="2">Year: 2012 -2013</option>
+				    <option value="3">Year: 2013 -2014</option>
+				</select>
+				<div class="clr"></div>
+			</div>
+
+			<div class="width-48p fl ta-c">
+				<div class="pie-chart-wrapper">
+					<div class="chart" id="comparison_pie_chart_3"></div>
+				</div>
+			</div>
+
+			<div class="width-48p fr ta-c">
+				<div class="pie-chart-wrapper">
+					<div class="chart" id="comparison_pie_chart_4"></div>
+				</div>
+			</div>
+
+			<div class="clr"></div>
+
+			<div class="aggregate-stats width-400">
+				<div class="label">Legend</div>
+				<div class="text bold uppercase grant-teacher-learning mar_top_10">
+					TLM - Teacher Learning Material Grant
+				</div>
+				<div class="text bold grant-school-maitainence uppercase">
+					SMG - School Maintainence Grant
+				</div>
+				<div class="text bold grant-school uppercase">
+					SG - School Grant
+				</div>
+			</div>
+		</div>
+		<!-- Comparison Result ends -->
+	</script>
+
+	<div id="modal_overlay" class="modal-overlay"></div>
+	<div id="modal_share_your_story" class="modal modal-share-story">
+    	<div class="content">
+    		<a href="" class="button-close fr btn-modal-close"></a>
+    		<h2 class="modal-heading orange">Share your story</h2>
+    		<div class="bordered-heading green">Gian Jyoti Public School<span></span></div>
+    		<div class="ta-c">
+	    		<div class="instruction">
+	    			<span class="tick"></span>
+	    			Check boxes to indicate whether you observed or found the following in the school ( Multiple boxes can be checked )
+	    			<div class="clr"></div>
+	    		</div>
+	    	</div>
+	    	<form method="POST" class="width-75p mar_top_20 mar_auto">
+	    		
+    			<div class="purple-heading">Answer the queries on the basis of your visit</div>
+    			<label class="form-item">
+    				<input type="checkbox"  class="checkbox" />
+    				<div class="label green">An all weather (Pucca) building </div>
+    				<div class="clr"></div>
+    			</label>
+    			<label class="form-item">
+    				<input type="checkbox" class="checkbox" />
+    				<div class="label">Boundary wall / fencing</div>
+    				<div class="clr"></div>
+    			</label>
+    			<label class="form-item">
+    				<input type="checkbox" class="checkbox" />
+    				<div class="label green">Playground</div>
+    				<div class="clr"></div>
+    			</label>
+    			<label class="form-item">
+    				<input type="checkbox" class="checkbox" />
+    				<div class="label green">Separate toilets for boys and girls</div>
+    				<div class="clr"></div>
+    			</label>
+    			<label class="form-item">
+    				<input type="checkbox" class="checkbox" />
+    				<div class="label">Drinking water facility</div>
+    				<div class="clr"></div>
+    			</label>
+    			<label class="form-item">
+    				<input type="checkbox" class="checkbox" />
+    				<div class="label">Separate office for headmaster</div>
+    				<div class="clr"></div>
+    			</label>
+    			<label  class="form-item">
+    				<input type="checkbox" class="checkbox" />
+    				<div class="label">Separate room as Kitchen / Store for mid-day meals</div>
+    				<div class="clr"></div>
+    			</label>
+    			<label class="form-item">
+    				<input type="checkbox" class="checkbox" />
+    				<div class="label">Accessibility to students with disabilities</div>
+    				<div class="clr"></div>
+    			</label>
+
+    			<div class="hr"></div>
+
+    			<label class="form-item">
+    				<input type="checkbox" class="checkbox" />
+    				<div class="label green">Library</div>
+    				<div class="clr"></div>
+    			</label>
+    			<label class="form-item">
+    				<input type="checkbox" class="checkbox" />
+    				<div class="label">Designated Librarian / Teacher</div>
+    				<div class="clr"></div>
+    			</label>
+    			<label class="form-item">
+    				<input type="checkbox" class="checkbox" />
+    				<div class="label green">Class-wise timetable for the Library</div>
+    				<div class="clr"></div>
+    			</label>
+    			<label class="form-item">
+    				<input type="checkbox" class="checkbox" />
+    				<div class="label green">Play material and sports equipment</div>
+    				<div class="clr"></div>
+    			</label>
+    			<label class="form-item">
+    				<input type="checkbox" class="checkbox" />
+    				<div class="label">Teaching and learning material</div>
+    				<div class="clr"></div>
+    			</label>
+    			<label class="form-item">
+    				<input type="checkbox" class="checkbox" />
+    				<div class="label">Sufficient number of class rooms</div>
+    				<div class="clr"></div>
+    			</label>
+    			<label class="form-item">
+    				<input type="checkbox" />
+    				<div class="label">Teachers sharing a single classroom</div>
+    				<div class="clr"></div>
+    			</label>
+
+    			<div class="hr"></div>
+
+    			<label class="form-item">
+    				<input type="checkbox" class="checkbox" />
+    				<div class="label green">Did you see any evidence of mid day meal being servered ( food being cooked, food wasted, etc ) on the day you visted the school?</div>
+    				<div class="clr"></div>
+    			</label>
+    			<label class="form-item">
+    				<input type="checkbox" class="checkbox" />
+    				<div class="label">Were atleast 50% of the children enrolled present on the day you visited the school?</div>
+    				<div class="clr"></div>
+    			</label>
+    			<label class="form-item">
+    				<input type="checkbox" class="checkbox" />
+    				<div class="label">Were all teachers present on the day you visited the school?</div>
+    				<div class="clr"></div>
+    			</label>
+
+    			<div class="hr"></div>
+
+    			<div class="fl width-48p mar_top_15 mar_btm_15">
+	    			<div class="purple-heading">Upload Photos</div>
+	    			<div class="block-upload-photos">
+	    				<div class="photo">
+	    					<i class="icon-plus"></i>
+	    				</div>
+	    				<div class="photo">
+	    					<i class="icon-plus"></i>
+	    				</div>
+	    				<div class="photo">
+	    					<i class="icon-plus"></i>
+	    				</div>
+	    				<div class="photo">
+	    					<i class="icon-plus"></i>
+	    				</div>
+	    				<div class="clr"></div>
+	    			</div>
+	    		</div>
+    			<div class="fr width-48p mar_top_15 mar_btm_15">
+	    			<div class="purple-heading">For additional comments or observation</div>
+	    			<textarea class="textarea width-100p" placeholder="Comments"></textarea> 
+	    		</div>
+	    		<div class="clr"></div>
+
+    			<div class="hr"></div>
+
+    			<div class="contact-block mar_top_25">
+	    			<div class="purple-heading">Contact Information</div>
+	    			<div class="fl width-48p">
+	    				<input type="text" class="input-text width-100p" placeholder="Name"/>
+	    				<input type="text" class="input-text width-100p mar_top_15" placeholder="Phone"/> 
+	    			</div>
+	    			<div class="fr width-48p">
+	    				<input type="text" class="input-text width-100p" placeholder="Email"/>
+	    				<input type="text" class="input-text width-100p mar_top_15" placeholder="Date of visit  "/> 
+	    			</div>
+	    			<div class="clr"></div>
+    			</div>
+    			<div class="ta-c">
+    				<a href="" class="button green mar_auto">Submit</a>
+    			</div>
+
+	    	</form>
+    	</div>
+    </div>
+
+    <div id="modal_volunteer_flow" class="modal modal-volunteer-flow">
+    	<a href="" class="button-close fr btn-modal-close"></a>
+    	<div class="content">
+    		<h2 class="modal-heading">Volunteer</h2>
+
+    		<div class="steps-wrapper">
+		    	<div class="step-item" data-step="1">
+		    		<div class="step-date">
+		    			<h3 class="bordered-heading blue">Select Date & Location<span></span></h3>
+		    			<div class="cal">
+		    				<input id="datepicker-input" type="hidden" readonly="readonly">
+		    				<div id="datepicker-wrapper"></div>
+		    			</div>
+		    			<div class="input-wrapper">
+		    				<input type="text" class="input-text width-100p" placeholder="Whitefield, Bangalore">
+		    				<a href="" class="icon-location"></a>
+		    			</div>
+		    			<div class="ta-c">
+		    				<a href="" class="button blue clickable js-volunteer-next-step">Next</a>
+		    			</div>
+		    		</div> 
+		    	</div> <!-- Step End -->
+
+		    	<div class="step-item" data-step="2">
+	    			<div class="step-opportunities">
+	    			<h3 class="bordered-heading blue">Opportunities Available <span></span></h3>
+	    			<div class="opportunities-list">
+	    				<a class="list-item teaching js-volunteer-next-step">
+	    					<div class="left-col fl">
+		    					<div class="title">Teaching Based</div>
+		    					<p>
+		    						Truffaut occupy Vice you probably haven't heard of them, selfies roof.
+		    					</p>
+		    				</div>
+	    					<div class="available fr">
+	    						<span>Available</span>
+	    						26
+	    					</div>
+		    				<div class="clr"></div>
+	    				</a>
+
+	    				<a class="list-item activity js-volunteer-next-step">
+	    					<div class="left-col fl">
+		    					<div class="title">Activity Based</div>
+		    					<p>
+		    						Truffaut occupy Vice you probably haven't heard of them, selfies roof.
+		    					</p>
+		    				</div>
+	    					<div class="available fr">
+	    						<span>Available</span>
+	    						26
+	    					</div>
+		    				<div class="clr"></div>
+	    				</a>
+
+	    				<a class="list-item skill js-volunteer-next-step">
+	    					<div class="left-col fl">
+		    					<div class="title">Skill Based</div>
+		    					<p>
+		    						Truffaut occupy Vice you probably haven't heard of them, selfies roof.
+		    					</p>
+		    				</div>
+	    					<div class="available fr">
+	    						<span>Available</span>
+	    						26
+	    					</div>
+		    				<div class="clr"></div>
+	    				</a>
+
+	    				<p class="or-text">or</p>
+
+	    				<a class="list-item show-all js-volunteer-next-step">Show all</a>
+
+	    				<div class="ta-c">
+		    				<!-- <a href="" class="button blue js-volunteer-next-step">Show Selected</a> -->
+		    			</div>
+	    			</div>
+	    			</div> 
+	    		</div> <!-- Step End -->
+
+	    		<div class="step-item" data-step="3">
+		    		<div class="step-details">
+		    			<h3 class="bordered-heading blue">Fill Details<span></span></h3>
+		    			<input type="text" class="input-text width-100p" placeholder="Name">
+		    			<input type="text" class="input-text width-100p mar_top_30" placeholder="Email">
+		    			<input type="text" class="input-text width-100p mar_top_30" placeholder="Qualification">
+		    			<input type="text" class="input-text width-100p mar_top_30" placeholder="Phone Number">
+		    			<div class="ta-c mar_top_100">
+		    				<a href="" class="button blue js-volunteer-next-step">Next</a>
+		    			</div>
+		    		</div> 
+		    	</div> <!-- Step End -->
+
+		    	<div class="step-item" data-step="4">
+		    		<div class="step-confirmation ta-c">
+		    			<h3 class="bordered-heading blue">Teacher Based<span></span></h3>
+		    			<div class="address en-school">
+		    				<div class="en-icon bigger en-school">s</div>
+		    				<div class="name">Govt. School for Girls</div>
+		    				<div class="details">
+			    				27th Street, Koramangala,<br>
+			    				Bangalore
+		    				</div>
+		    			</div>
+		    			<div class="date">
+		    				<div class="icon-cal"></div>
+		    				<div class="value">7th June, 2014</div>
+		    			</div>
+		    			<div class="message">
+		    				Thank You  for Volunteering.
+		    				<div class="text">You will soon receive a confirmation email and sms.</div>
+		    			</div>
+		    			<div class="mar_top_40">
+		    				<a href="" class="button blue">Confirm</a>
+		    			</div>
+		    		</div>
+		    	</div> <!-- Step End -->
+    		</div>
+    	</div>
+    </div>
+
+	<div class="map_page">
+
+		<header class="main-header full_width fixed">
+			<div class="header-wrapper">
+				<div class="header-content">
+					<nav class="top-nav" role="navigation">
+						<ul id="navigation">
+					<li class="home">
+						<a href="index.php" title=""><h1>Karnataka Learning Partnership</h1></a>
+					</li>
+					<li class="school_map">
+						<a href="map.html" title="">School Map</a>
+					</li>
+					<li class="programmes">
+						<a href="programmes.php" title="">Programmes</a>
+						<ul>
+							<li><a href="reading_programme.php" title=""><span></span>Reading</a></li>
+							<li><a href="maths_programme.php" title=""><span></span>Math</a></li>
+							<li><a href="library_programme.php" title=""><span></span>Library</a></li>
+							<li><a href="preschool_programme.php" title=""><span></span>Pre-School</a></li>
+						</ul>
+					</li>
+					<li class="volunteer"><a href="volunteer.php" title="">Volunteer</a></li>
+					<li class="database">
+						<a href="status_1.php" title="">Database</a>
+						<ul>
+							<li><a href="status_1.php" title=""><span></span>Status 1</a></li>
+							<li><a href="status_2.php" title=""><span></span>Status 2</a></li>
+							<li><a href="status_3.php" title=""><span></span>Status 3</a></li>
+							<li><a href="#" title=""><span></span>Raw Data</a></li>
+							<li><a href="#" title=""><span></span>Github</a></li>
+						</ul>
+					</li>
+					<li class="reports"><a href="#" title="">Reports</a></li>
+					<li class="about">
+						<a href="about.php" title="">About</a>
+						<ul>
+							<li><a href="about.php" title=""><span></span>About</a></li>
+							<li><a href="partners.php" title=""><span></span>Partners</a></li>
+							<li><a href="disclaimer.php" title=""><span></span>Disclaimer</a></li>
+						</ul>
+					</li>
+				</ul>
+					</nav>
+					<div class="clr"></div>
+				</div>
+			</div>
+
+			<div class="subheader-wrapper">
+				<div class="subheader-content">
+					<div class="breadcrumb">
+				    	<a href="">Home</a><span></span>
+				    	<a href="">School map</a>
+				    </div>
+				</div>
+			</div>
+		</header>
+
+		<section class="map_canvas_full">
+			<div id="map_canvas"></div>
+		</section>
+
+		<section id="sidebar_wrapper" class="sidebar_wrapper">
+			<ul>
+				<li class="place_item Xjs-trigger-marker-overlay js-trigger-info" data-name="Gian Jyoti Public School" data-entity-type="school">
+					<div class="details">
+						<h3 class="en-school">Gian Jyoti Public School</h3>
+						<div class="info">
+							Street No-4, Banasawadi<br/>
+							Bangalore
+						</div>
+					</div>
+					<div class="stats ta-r">
+						<div class="en-icon small en-school">s</div>
+						<span class="distance">400m</span>
+						<div class="clr"></div>
+					</div>
+				</li>
+				<li class="place_item Xjs-trigger-marker-overlay js-trigger-info" data-name="Bangalore" data-entity-type="school-district">
+					<div class="details">
+						<h3 class="en-school-district">Bangalore</h3>
+						<div class="info">
+							Street No-4, Banasawadi<br/>
+							Bangalore
+						</div>
+					</div>
+					<div class="stats ta-r">
+						<div class="en-icon small en-school-district">sd</div>
+						<span class="distance">400m</span>
+						<div class="clr"></div>
+					</div>
+				</li>
+				<li class="place_item Xjs-trigger-marker-overlay js-trigger-info" data-name="North - 2" data-entity-type="school-block">
+					<div class="details">
+						<h3 class="en-school-block">North - 2</h3>
+						<div class="info">
+							Street No-4, Banasawadi<br/>
+							Bangalore
+						</div>
+					</div>
+					<div class="stats ta-r">
+						<div class="en-icon small en-school-block">sb</div>
+						<span class="distance">400m</span>
+						<div class="clr"></div>
+					</div>
+				</li>
+				<li class="place_item Xjs-trigger-marker-overlay js-trigger-info" data-name="Malleswaram" data-entity-type="school-cluster">
+					<div class="details">
+						<h3 class="en-school-cluster">Malleswaram</h3>
+						<div class="info">
+							Street No-4, Banasawadi<br/>
+							Bangalore
+						</div>
+					</div>
+					<div class="stats ta-r">
+						<div class="en-icon small en-school-cluster">sc</div>
+						<span class="distance">400m</span>
+						<div class="clr"></div>
+					</div>
+				</li>
+				<li class="place_item Xjs-trigger-marker-overlay js-trigger-info" data-name="Gian Jyoti Public School" data-entity-type="preschool">
+					<div class="details">
+						<h3 class="en-preschool">Gian Jyoti Public School</h3>
+						<div class="info">
+							Street No-4, Banasawadi<br/>
+							Bangalore
+						</div>
+					</div>
+					<div class="stats ta-r">
+						<div class="en-icon small en-preschool">p</div>
+						<span class="distance">400m</span>
+						<div class="clr"></div>
+					</div>
+				</li>
+				<li class="place_item Xjs-trigger-marker-overlay js-trigger-info" data-name="Malleswaram" data-entity-type="preschool-circle">
+					<div class="details">
+						<h3 class="en-preschool-circle">Malleswaram</h3>
+						<div class="info">
+							Street No-4, Banasawadi<br/>
+							Bangalore
+						</div>
+					</div>
+					<div class="stats ta-r">
+						<div class="en-icon small en-preschool-circle">pc</div>
+						<span class="distance">400m</span>
+						<div class="clr"></div>
+					</div>
+				</li>
+				<li class="place_item Xjs-trigger-marker-overlay js-trigger-info" data-name="Bangalore" data-entity-type="preschool-district">
+					<div class="details">
+						<h3 class="en-preschool-district">Bangalore</h3>
+						<div class="info">
+							Street No-4, Banasawadi<br/>
+							Bangalore
+						</div>
+					</div>
+					<div class="stats ta-r">
+						<div class="en-icon small en-preschool-district">pd</div>
+						<span class="distance">400m</span>
+						<div class="clr"></div>
+					</div>
+				</li>
+				<li class="place_item js-trigger-info" data-name="Gian Jyoti Public School" data-entity-type="preschool-project">
+					<div class="details">
+						<h3 class="en-preschool-project">Gian Jyoti Public School</h3>
+						<div class="info">
+							Street No-4, Banasawadi<br/>
+							Bangalore
+						</div>
+					</div>
+					<div class="stats ta-r">
+						<div class="en-icon small en-preschool-project">pp</div>
+						<span class="distance">400m</span>
+						<div class="clr"></div>
+					</div>
+				</li>
+			</ul>
+			</ul>
+		</section>
+
+		<section class="map-legend hide">
+			<div class="content">
+				<div class="legend">
+					<label class="legend-item first">
+						<input type="checkbox" class="checkbox" />
+						<div class="en-icon small en-school">s</div>
+						<div class="label en-school">School</div>
+						<div class="clr"></div>
+					</label>
+
+					<div class="hr"></div>
+
+					<label class="legend-item">
+						<input type="checkbox"  class="checkbox" />
+						<div class="en-icon small en-school-block">sb</div>
+						<div class="label en-school-block">School Block</div>
+						<div class="clr"></div>
+					</label>
+					
+					<div class="hr"></div>
+
+					<label class="legend-item">
+						<input type="checkbox"  class="checkbox" />
+						<div class="en-icon small en-school-cluster">sc</div>
+						<div class="label en-school-cluster">School Cluster</div>
+						<div class="clr"></div>
+					</label>
+
+					<div class="hr"></div>
+
+					<label class="legend-item">
+						<input type="checkbox"  class="checkbox" />
+						<div class="en-icon small en-school-district">sd</div>
+						<div class="label en-school-district">School District</div>
+						<div class="clr"></div>
+					</label>
+
+					<div class="hr"></div>
+
+					<label class="legend-item">
+						<input type="checkbox"  class="checkbox" />
+						<div class="en-icon small en-preschool">p</div>
+						<div class="label en-preschool">Preschool</div>
+						<div class="clr"></div>
+					</label>
+
+					<div class="hr"></div>
+
+					<label class="legend-item">
+						<input type="checkbox" class="checkbox" />
+						<div class="en-icon small en-preschool-circle">pc</div>
+						<div class="label en-preschool-circle">Preschool Circles</div>
+						<div class="clr"></div>
+					</label>
+
+					<div class="hr"></div>
+
+					<label class="legend-item">
+						<input type="checkbox" class="checkbox" />
+						<div class="en-icon small en-preschool-district">pd</div>
+						<div class="label en-preschool-district">Preschool District</div>
+						<div class="clr"></div>
+					</label>
+
+					<div class="hr"></div>
+
+					<label class="legend-item">
+						<input type="checkbox" class="checkbox" />
+						<div class="en-icon small en-preschool-project">pp</div>
+						<div class="label en-preschool-project">Preschool Project</div>
+						<div class="clr"></div>
+					</label>
+
+					<div class="hr last"></div>
+
+				</div>
+				<div class="tool">
+					<a href="" class="tool-item first">
+						<div class="tool-icon">f</div>
+						<div class="label">Filter</div>
+						<div class="clr"></div>
+					</a>
+					<a href="" class="tool-item">
+						<div class="tool-icon">r</div>
+						<div class="label">Radius</div>
+						<div class="clr"></div>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<section id="compare_flow" class="compare-flow hide">
+			<div class="content">
+				<div class="compare-box">
+					<a href="#" class="button-close js-comparison-close" title="Close"><span></span></a>
+
+					<div class="vs-separator">
+						<a href="" class="label fl js-comparison-clear-left">clear</a>
+						<div class="label bg fl">Comparing</div>
+						<a href="" class="label fl js-comparison-clear-right">clear</a>
+						<div class="vr"></div>
+						<div class="vs-label">vs</div>
+					</div>
+
+					<div class="info school left-align js-comparison-option-left">
+						<div class="en-icon big en-school fl">S</div>
+						<div class="ml">
+							<h2 class="name en-school">Gian Jyoti Public School</h2>
+							<div class="item">
+								<div class="label">District</div>
+								<div class="value">Bangalore</div>
+							</div>
+							<div class="item">
+								<div class="label">Block</div>
+								<div class="value">North-2</div>
+							</div>
+							<div class="item">
+								<div class="label">Cluster</div>
+								<div class="value">Malleswaram</div>
+							</div>
+						</div>
+						<div class="clr"></div>
+					</div>
+
+					<div class="info school-district right-align hide js-comparison-option-right">
+						<div class="en-icon big en-school-district fr">SD</div>
+						<div class="mr">
+							<h2 class="name en-school-district ta-r">Bangalore</h2>
+							<div class="item">
+								<div class="label">State</div>
+								<div class="value">Karnataka</div>
+							</div>
+						</div>
+						<div class="clr"></div>
+					</div>
+
+					<div class="info default right-align js-comparison-default-right">
+						<a href="" class="title-select ta-r mar_top_15 js-comparison-show-options-right">Click to select an entity</a>
+						<div class="text-select ta-r">or select one by clicking a pin on the map below</div>
+
+						<div class="clr"></div>
+					</div>
+					<div class="clr"></div>
+
+					<a href="" class="btn compare-now js-btn-compare">Compare now</a>
+					<a href="" class="btn cancel js-btn-cancel js-comparison-close show">Cancel</a>
+				</div>
+
+				<div class="comparison-result-wrapper js-comparison-result-wrapper">
+
+				</div>
+					
+			</div>
+			
+			<div class="dropdown-wrapper" id="dropdown_wrapper">
+				<div class="triangle"></div>
+				<div class="search-box">
+					<input type="text" class="input-search" placeholder="Search"/>
+					<a href="" class="icon"><i class="icon-search"></i></a>
+					<div class="clr"></div>
+				</div>
+				
+				<a href="" class="info school js-dropdown-option-right">
+					<div class="en-icon small en-school fl">S</div>
+					<div class="name en-school">Delhi Public School</div>
+					<div class="clr"></div>
+				</a>
+				<a href="" class="info school-district js-dropdown-option-right">
+					<div class="en-icon small en-school-district fl">SD</div>
+					<div class="name en-school-district">Bangalore</div>
+					<div class="clr"></div>
+				</a>
+		</section>
+
+		<section class="map-pin-details sample hide">
+			<div class="content">
+				<div class="info school">
+					<div class="icon fr">S</div>
+					<h2 class="name">Gian Jyoti Public School</h2>
+					<div class="item">
+						<div class="label">District</div>
+						<div class="value">Bangalore</div>
+					</div>
+					<div class="item">
+						<div class="label">Block</div>
+						<div class="value">North-2</div>
+					</div>
+					<div class="item">
+						<div class="label">Cluster</div>
+						<div class="value">Malleswaram</div>
+					</div>
+					<div class="clr"></div>
+				</div>
+				<div class="details">
+					<div class="triangle2"></div>
+					<div  class="detail-item">
+						<h4 class="purple-heading">Students</h4>
+						<div class="gender_icons">
+							<div class="stats_gender_item no_width boy">
+								<span class="icon"></span>
+								<p class="label">Boys</p>
+								<p class="value">120</p>
+								<div class="clr"></div>
+							</div>
+							<div class="stats_gender_item no_width girl">
+								<span class="icon"></span>
+								<p class="label">Girls</p>
+								<p class="value">130</p>
+								<div class="clr"></div>
+							</div>
+							<div class="stats_gender_item no_width total last">
+								<span class="icon"></span>
+								<p class="label">Total</p>
+								<p class="value">250</p>
+								<div class="clr"></div>
+							</div>
+						</div>
+					</div>
+					<div  class="detail-item mar_top_20">
+						<h4 class="purple-heading">Facilities</h4>
+						<div class="facility-items ta-c">
+							<div class="icon computer"></div>
+							<div class="icon books"></div>
+							<div class="icon events"></div>
+							<div class="icon football last"></div>
+							<div class="clr"></div>
+						</div>
+					</div>
+					<a class="button blue mar_top_20" href="">Volunteer here</a>
+					<div class="mar_top_10">
+						<a class="button dark_grey fl" href="">Compare to</a>
+						<a class="button dark_grey last fr" href="">More Information</a>
+						<div class="clr"></div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+		<section id="map_overlay" class="map_overlay hide">
+			<a href="" class="button-close js-close-info" title="Close"><span></span></a>
+			
+			<div class="content">
+				<div class="effect_to_be_done"></div>
+				<div class="info">
+					<div class="fl">
+						<h2>Gian Jyoti Public School</h2>
+						<div class="item">
+							<div class="label">District</div>
+							<div class="value">Bangalore</div>
+						</div>
+						<div class="item">
+							<div class="label">Block</div>
+							<div class="value">North-2</div>
+						</div>
+						<div class="item">
+							<div class="label">Cluster</div>
+							<div class="value">Malleswaram</div>
+						</div>
+					</div>
+					<div class="fr">
+						<a class="button dark_grey js-trigger-compare" href="">Compare to</a>
+						<a class="button" href="">Volunteer here</a>
+					</div>
+					<div class="clr"></div>
+				</div>
+				<ul class="tabs">
+					<li data-tab="tab-info" class="current">Info</li>
+					<li data-tab="tab-demographics">Demographics</li>
+					<li data-tab="tab-programmes">Programmes</li>
+					<li data-tab="tab-finances">Finances</li>
+					<li data-tab="tab-infrastructure">Infrastructure</li>
+					<li data-tab="tab-library">Library</li>
+					<li data-tab="tab-nutrition">Nutrition</li>
+					<li data-tab="tab-share-story">Share your story</li>
+				</ul>
+
+				<!-- Info Tab BEGIN -->
+				<div id="tab-info" class="tab_content current">
+					<div class="fl">
+						<h4>Address</h4>
+						<p>1st Main Road, 2nd Cross, Yeshwanthura, <strong>Bangalore</strong> - 560022</p>
+						
+						<h4 class="mar_top_25">Landmark</h4>
+						<p>Near St. Francis Church</p>
+
+						<h4 class="mar_top_25">School Information</h4>
+						<table class="info_data_table">
+							<tr>
+								<td>Category</td>
+								<td>Model Primary</td>
+							</tr>
+							<tr>
+								<td>Buses</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>Gender</td>
+								<td>Co-ed</td>
+							</tr>
+							<tr>
+								<td>Medium</td>
+								<td>Kannada</td>
+							</tr>
+							<tr>
+								<td>DSIE</td>
+								<td>290200050050007</td>
+							</tr>
+						</table>
+
+						<h4 class="mar_top_25">Constituency Information</h4>
+						<table class="info_data_table">
+							<tr>
+								<td>MLA Constituency</td>
+								<td>Malleswaram</td>
+							</tr>
+							<tr>
+								<td>MLA Details</td>
+								<td>Dr. Ashwath Narayan (BJP)</td>
+							</tr>
+							<tr>
+								<td>MLA Constituency</td>
+								<td>Malleswaram</td>
+							</tr>
+							<tr>
+								<td>MLA Details</td>
+								<td>DB Chandre Gowada (BJP)</td>
+							</tr>
+						</table>
+					</div>
+					<div class="photos_block">
+						<h4>Photos</h4>
+						<a href=""><img src="images/map_photo.jpg" alt=""></a>
+						<a href=""><img src="images/map_photo.jpg" alt=""></a>
+						<a href=""><img src="images/map_photo.jpg" alt=""></a>
+						<a href=""><img src="images/map_photo.jpg" alt=""></a>
+						<a href=""><img src="images/map_photo.jpg" alt=""></a>
+						<a href=""><img src="images/map_photo.jpg" alt=""></a>
+						<a href=""><img src="images/map_photo.jpg" alt=""></a>
+						<a href=""><img src="images/map_photo.jpg" alt=""></a>
+						<div class="clr"></div>
+					</div>
+					<div class="clr"></div>
+				</div>
+				<!-- Info Tab END -->
+				
+				<!-- Demographics Tab BEGIN -->
+				<div id="tab-demographics" class="tab_content">
+					<div class="fl">
+						<h4>Student Information</h4>
+
+						<div class="pie_chart_wrapper">
+							<div id="pie_chart_1" class="chart fl"></div>
+							<div class="gender_icons fl">
+								<div class="stats_gender_item no_width boy">
+									<span class="icon"></span>
+									<p class="label">Boys</p>
+									<p class="value">65%</p>
+									<div class="clr"></div>
+								</div>
+								<div class="stats_gender_item no_width girl">
+									<span class="icon"></span>
+									<p class="label">Girls</p>
+									<p class="value">65%</p>
+									<div class="clr"></div>
+								</div>
+							</div>
+							<div class="clr"></div>
+						</div>
+					</div>
+					<div class="fr">
+						<h4>Languages</h4>
+						<div class="bar_graph_hor">
+							<div class="item">
+								<div class="label fl">English</div>
+								<div class="bar fr"><div class="value" style="width:35%;"></div></div>
+								<div class="clr"></div>
+							</div>
+							<div class="item">
+								<div class="label fl">Kannada</div>
+								<div class="bar fr"><div class="value" style="width:60%;"></div></div>
+								<div class="clr"></div>
+							</div>
+							<div class="item">
+								<div class="label fl">Urdu</div>
+								<div class="bar fr"><div class="value" style="width:35%;"></div></div>
+								<div class="clr"></div>
+							</div>
+							<div class="item">
+								<div class="label fl">Others</div>
+								<div class="bar fr"><div class="value" style="width:20%;"></div></div>
+								<div class="clr"></div>
+							</div>
+						</div>
+					</div>
+					<div class="clr"></div>
+
+					<h4 class="mar_top_25">DISE Student Profile</h4>
+					<table class="info_data_table label_small">
+						<tr>
+							<td>Source</td>
+							<td>KLP Database (2011-2012), <strong>NUEPA-DISE</strong></td>
+						</tr>
+					</table>
+
+					<div class="top_bordered_block">
+						<p>
+							Directly access this page from here <a href=""><b>http://klp.org.in/schoolpage/school/33175?tab=demographics</b></a>
+						</p>
+						<p>
+							Please read KLP's <a href=""><b>data-related disclaimer</b></a> . If you notice any errors or inaccuracies related to data or any other content found on this page, please click here to send us an email.
+						</p>
+					</div>
+				</div>
+				<!-- Demographics Tab END -->
+
+				<!-- Programme Tab BEGIN -->
+				<div id="tab-programmes" class="tab_content">
+					<h4>Programme Information</h4>
+					<a href="" class="black external"><b>Akshara Foundation-Reading (2006)</b></a><br/>
+					<a href="" class="black external"><b>Akshara Foundation-Remedial_Math_Level2 (2008)</b></a>
+
+					<table class="info_data_table label_small mar_top_25">
+						<tr>
+							<td>Source</td>
+							<td>KLP Database (2011-2012), <strong>NUEPA-DISE</strong></td>
+						</tr>
+					</table>
+					<div class="top_bordered_block">
+						<p>
+							Directly access this page from here <a href=""><b>http://klp.org.in/schoolpage/school/33175?tab=programmes</b></a>
+						</p>
+						<p>
+							Please read KLP's <a href=""><b>data-related disclaimer</b></a> . If you notice any errors or inaccuracies related to data or any other content found on this page, please click here to send us an email.
+						</p>
+					</div>
+				</div>
+				<!-- Programme Tab END -->
+
+				<!-- Finances Tab BEGIN -->
+				<div id="tab-finances" class="tab_content">
+					<h4>SSA GRANTS ALLOCATION</h4>
+
+					<div class="ta_c" id="pie_chart_finance">{ Chart here }</div>
+
+					<table class="info_data_table label_longer mar_top_25 mar_btm_25">
+						<tr>
+							<td>School Maintence Grant (SMG)</td>
+							<td>₹ 5,000 for upto 3 classrooms and ₹ 10,000 for more than 3 classrooms.</td>
+						</tr>
+						<tr>
+							<td>School Grant (SG)</td>
+							<td>₹ 5,000 for lower primary schools and ₹ 7,000 for upper and model primary schools.</td>
+						</tr>
+						<tr>
+							<td>Teacher Learning Material Grant (TLM)</td>
+							<td>₹ 500 per teacher.</td>
+						</tr>
+					</table>
+
+					<p>
+						This school with 3 classrooms or fewer has 3 teachers as per DISE sources.<br/>
+						It is known to receive a total annual SSA grant of ₹ 13,500.
+					</p>
+
+					<div class="top_bordered_block">
+						<p>
+							Directly access this page from here <a href=""><b>http://klp.org.in/schoolpage/school/33175?tab=finances</b></a>
+						</p>
+						<p>
+							Please read KLP's <a href=""><b>data-related disclaimer</b></a> . If you notice any errors or inaccuracies related to data or any other content found on this page, please click here to send us an email.
+						</p>
+					</div>
+				</div>
+				<!-- Finances Tab END -->
+
+				<!-- Infrastructure Tab BEGIN -->
+				<div id="tab-infrastructure" class="tab_content">
+					<h4>Infrastructure</h4>
+
+					<table class="infra_data_table mar_btm_25 fl">
+						<tr>
+							<td>Toilet Facilities</td>
+							<td>
+								<div class="green">Has Usable Toilets</div>
+								<div class="red">Has Toilets</div>
+								<div class="grey">Has Toilets</div>
+							</td>
+						</tr>
+						<tr>
+							<td>Nutrition and Hygine</td>
+							<td>
+								<div class="green">Has Drinking Water Facilities</div>
+								<div class="red">Has Handwash Facilities</div>
+								<div class="grey">Has Clean and Timely Meals</div>
+							</td>
+						</tr>
+						<tr>
+							<td>Basic Infrastructure</td>
+							<td>
+								<div class="green">Has Spacious Classrooms and Play Class</div>
+								<div class="red">Has Walls Intact</div>
+								<div class="grey">Has Flooring Intact</div>
+								<div class="red">Has Roofs Intact</div>
+								<div class="grey">Is in a Designated Building by DWCD</div>
+								<div class="red">Has Water Supply</div>
+								<div class="green">Has Waste Baskets</div>
+							</td>
+						</tr>
+					</table>
+
+					<div class="infra_data_indicators fr">
+						<div class="green item">Indicates infrastructure present</div>
+						<div class="red item">Indicates infrastructure absent</div>
+						<div class="grey item">Indicates information unavailable</div>
+					</div>
+					<div class="clr"></div>
+
+					<div class="top_bordered_block">
+						<p>
+							Directly access this page from here <a href=""><b>http://klp.org.in/schoolpage/school/33175?tab=infrastructure</b></a>
+						</p>
+						<p>
+							Please read KLP's <a href=""><b>data-related disclaimer</b></a> . If you notice any errors or inaccuracies related to data or any other content found on this page, please click here to send us an email.
+						</p>
+					</div>
+				</div>
+				<!-- Infrastructure Tab END -->
+
+				<!-- Library Tab BEGIN -->
+				<div id="tab-library" class="tab_content">
+
+					<div class="options_wrapper">
+
+						<div class="select_pseudo">
+							<select name="language">
+								<option value="hindi">Hindi</option>
+								<option value="english">English</option>
+							</select>
+							<div class="button_wrapper"><button><span>Browse by language</span></button></div>
+							<ul>
+								<li>Hindi</li>
+								<li>English</li>
+								<li>Hindi</li>
+								<li>English</li>
+								<li>Hindi</li>
+								<li>English</li>
+							</ul>
+						</div>
+
+						<div class="select_pseudo">
+							<select name="language">
+							</select>
+							<div class="button_wrapper"><button>Year <span>2012-2013</span></button></div>
+							<ul>
+								<li>2012-2013</li>
+								<li>2011-2012</li>
+								<li>2010-2011</li>
+							</ul>
+						</div>
+
+						<div class="select_pseudo">
+							<select name="language">
+							</select>
+							<div class="button_wrapper"><button>Class <span>1</span></button></div>
+							<ul>
+								<li>1</li>
+								<li>2</li>
+								<li>3</li>
+								<li>4</li>
+								<li>5</li>
+							</ul>
+						</div>
+
+						<button class="styled">Switch to Graph View</button>
+
+					</div>
+
+					<div class="ta_c pad_10">{ Graph here }</div>
+
+					<!-- <div class="option_item dropdown">
+						Browse by language
+						<ul>
+							<li>option</li>
+							<li>option</li>
+							<li>option</li>
+							<li>option</li>
+							<li>option</li>
+						</ul>
+					</div> -->
+
+					<table class="basic_table mar_top_25">
+						<tr>
+							<th>Month</th>
+							<th>Kannada</th>
+							<th>Urdu</th>
+							<th>Telugu</th>
+							<th>Tamil</th>
+							<th>Hindi</th>
+							<th>English</th>
+						</tr>
+						<tr>
+							<td>Jan</td>
+							<td>0.4</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0.4</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>Feb</td>
+							<td>1</td>
+							<td>0.4</td>
+							<td>1</td>
+							<td>0.4</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>Mar</td>
+							<td>0.4</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0.4</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>Apr</td>
+							<td>1</td>
+							<td>0.4</td>
+							<td>1</td>
+							<td>0.4</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>May</td>
+							<td>0.4</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0.4</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>Jun</td>
+							<td>1</td>
+							<td>0.4</td>
+							<td>1</td>
+							<td>0.4</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>Jul</td>
+							<td>0.4</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0.4</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>Aug</td>
+							<td>1</td>
+							<td>0.4</td>
+							<td>1</td>
+							<td>0.4</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>Sep</td>
+							<td>0.4</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0.4</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>Oct</td>
+							<td>1</td>
+							<td>0.4</td>
+							<td>1</td>
+							<td>0.4</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>Nov</td>
+							<td>0.4</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0.4</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>Dec</td>
+							<td>1</td>
+							<td>0.4</td>
+							<td>1</td>
+							<td>0.4</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+					</table>
+
+					<h4>Akshara Library Details</h4>
+
+					<table class="info_data_table label_long mar_top_25 mar_btm_25">
+						<tr>
+							<td>Number of Chairs</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>Number of Books</td>
+							<td>1006</td>
+						</tr>
+						<tr>
+							<td>Number of UPS(s)</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>Status Library</td>
+							<td>Handed over</td>
+						</tr>
+						<tr>
+							<td>Number of Tables</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>Number of Racks</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>Number of Computers</td>
+							<td>-</td>
+						</tr>
+					</table>
+
+					<p>DISE Reports Number of Books as : <strong>175</strong></p>
+
+					<table class="info_data_table label_small">
+						<tr>
+							<td>Source</td>
+							<td>KLP Database (2011-2012), <strong>NUEPA-DISE</strong></td>
+						</tr>
+					</table>
+
+
+					<div class="top_bordered_block">
+						<p>
+							Directly access this page from here <a href=""><b>http://klp.org.in/schoolpage/school/33175?tab=nutrition</b></a>
+						</p>
+						<p>
+							Please read KLP's <a href=""><b>data-related disclaimer</b></a> . If you notice any errors or inaccuracies related to data or any other content found on this page, please click here to send us an email.
+						</p>
+					</div>
+					
+				</div>
+				<!-- Library Tab END -->
+
+				<!-- Nutrition Tab BEGIN -->
+				<div id="tab-nutrition" class="tab_content">
+					<h4>Mid-day Meal Summary</h4>
+
+					{ Graph here }
+
+					<div class="top_bordered_block">
+						<p>
+							Directly access this page from here <a href=""><b>http://klp.org.in/schoolpage/school/33175?tab=nutrition</b></a>
+						</p>
+						<p>
+							Please read KLP's <a href=""><b>data-related disclaimer</b></a> . If you notice any errors or inaccuracies related to data or any other content found on this page, please click here to send us an email.
+						</p>
+					</div>
+					
+				</div>
+				<!-- Nutrition Tab END -->
+
+				<!-- Share you story Tab BEGIN -->
+				<div id="tab-share-story" class="tab_content">
+					<div class="fl width-48p">
+						<h4>Information from schools visits</h4>
+
+						<p>
+							This data is gathered from vistors sharing their experiences. It indicates whether or not the school has facilities under the headings below:
+						</p>
+
+						<table class="info_data_table label_longer mar_top_25 mar_btm_25">
+							<tr>
+								<td>Play Material or Sports Equipment</td>
+								<td class="green">Yes</td>
+							</tr>
+							<tr>
+								<td>Separate Room For Headmaster</td>
+								<td class="red">No or Unknown</td>
+							</tr>
+							<tr>
+								<td>Separate Toilet for Boys and Girls</td>
+								<td class="green">Yes</td>
+							</tr>
+							<tr>
+								<td>Library</td>
+								<td class="green">Yes</td>
+							</tr>
+						</table>
+					</div>
+
+					<div class="fr width-48p">
+						<div class="share-your-story">
+							<a href="" id="trigger_share_story_modal" class="button orange">Share you story</a>
+							<br/>
+							<div class="stats first">
+								<div class="number">4</div>
+								<div class="text">Number of School Visits</div>
+							</div>
+							<div class="stats">
+								<div class="number">4</div>
+								<div class="text">Shared Stories</div>
+							</div>
+						</div>
+						<div class="comments mar_top_25">
+							<h4>Visitor Comments</h4>
+							<div class="comment-item first">
+								<div class="name">Saheem Fatima</div>
+								<p class="text">No electricity and no water supply.</p>
+								<div class="timestamp">Shared on : July,21 2013</div>
+							</div>
+							<div class="comment-item">
+								<div class="name">Saheem Fatima</div>
+								<p class="text">No electricity and no water supply.</p>
+								<div class="timestamp">Shared on : July,21 2013</div>
+							</div>
+							<div class="comment-item last">
+								<div class="name">Saheem Fatima</div>
+								<p class="text">No electricity and no water supply.</p>
+								<div class="timestamp">Shared on : July,21 2013</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="clr"></div>
+
+					<div class="top_bordered_block">
+						<p xl>
+							Directly access this page from here <a href=""><b>http://klp.org.in/schoolpage/school/33175?tab=nutrition</b></a>
+						</p>
+						<p>
+							Please read KLP's <a href=""><b>data-related disclaimer</b></a> . If you notice any errors or inaccuracies related to data or any other content found on this page, please click here to send us an email.
+						</p>
+					</div>
+					
+				</div>
+				<!-- Share your story Tab END -->
+			</div>
+		</section>
+
+	</div>
+
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+
+			resize_pageElements();
+			load_map();
+			fill_pseudo_select();
+
+			// Tabs handler
+			// $('ul.tabs li').click(function(){
+			// 	var tab_id = $(this).attr('data-tab');
+
+			// 	$('ul.tabs li').removeClass('current');
+			// 	$('.tab_content').removeClass('current');
+
+			// 	$(this).addClass('current');
+			// 	$("#"+tab_id).addClass('current');
+			// });
+
+			$('input').iCheck({
+			    checkboxClass: 'icheckbox_minimal',
+			    radioClass: 'iradio_minimal',
+			    increaseArea: '20%' // optional
+			  });
+
+			$(document).on('click', ".js-trigger-marker-overlay", function(e){
+				e.preventDefault();
+
+				var $trigger = $(event.target).closest(".js-trigger-marker-overlay");
+				$(".js-trigger-marker-overlay").removeClass("active");
+				$trigger.addClass("active");
+				
+				console.log("Clicked");
+			});
+
+			
+
+			// $(document).on('click', ".js-trigger-compare", function(e){
+			// 	e.preventDefault();
+
+			// 	$("#compare_flow").show();
+			// });
+
+			// $("#trigger_open_details").click(function(e){
+		 //    	e.preventDefault();
+		 //    	$('#map_overlay').addClass("show");
+		 //    });
+
+		    // $("#trigger_open_dropdown").click(function(e){
+		    // 	e.preventDefault();
+		    // 	$('#dropdown_wrapper').toggleClass("show");
+		    // });
+
+		    // $("#trigger_share_story_modal").click(function(e){
+		    // 	e.preventDefault();
+		    // 	$('#modal_share_your_story').addClass("show");
+		    // 	$('#modal_overlay').addClass("show");
+		    // });
+		});
+
+		$(window).resize(function() {
+			resize_pageElements();
+		});
+
+		function load_map(){
+			var map = new GMaps({
+				div: '#map_canvas',
+				lat: 12.9702,
+				lng: 77.565,
+			});
+
+			var marker_icon = new google.maps.MarkerImage("images/map_marker@2x.png", null, null, null, new google.maps.Size(28,40));
+			var marker_overlay_html = $("#tpl_marker_overlay").html();
+
+			// var infowindow = new google.maps.InfoWindow({
+			//       content: marker_overlay_html,
+			//       maxWidth: 200
+			//   });
+
+			var marker = map.addMarker({
+			  lat: 12.9702,
+			  lng: 77.565,
+			  title: 'Lima',
+			  icon: marker_icon,
+			  click: function(e) {
+			  	// infowindow.open(map);
+			    // alert('You clicked in this marker');
+			  },
+			  infoWindow: {
+				  content: '<div style="width:400px; height: 345px;">'+marker_overlay_html+'</div>',
+				  maxWidth : 400
+				}
+			});
+
+			// var overlay2 = map.drawOverlay({
+			// 	lat: 12.9702,
+			// 	lng: 77.565,
+			// 	content: "test"
+			// });
+
+			// $(document).on('click', ".js-trigger-compare", function(e){
+			// 	e.preventDefault();
+
+			// 	map.hideInfoWindows();
+
+			// 	$("#compare_flow").show();
+
+			// 	// var latLng = new google.maps.LatLng(12.9702, 77.575);
+   //  			// map.panTo(latLng);
+			// });
+
+
+
+			
+
+			// map.drawOverlay({
+			// 	lat: map.getCenter().lat(),
+			// 	lng: map.getCenter().lng(),
+			// 	content: marker_overlay_html,
+			// 	verticalAlign: 'top',
+			// 	horizontalAlign: 'center'
+			// });
+
+			// var mapOptions = {
+	  //         center: new google.maps.LatLng(12.9702, 77.5603),
+	  //         zoom: 8
+	  //       };
+
+	  //       var map = new google.maps.Map(document.getElementById("map_canvas2"), mapOptions);
+
+			// $('#map_canvas2').gmap().bind('init', function(ev, map) {
+			// 	$('#map_canvas2').gmap('addMarker', {'position': '57.7973333,12.0502107', 'bounds': true}).click(function() {
+			// 		$('#map_canvas2').gmap('openInfoWindow', {'content': 'Hello World!'}, this);
+			// 	});
+			// });
+
+			// $('#map_canvas2').gmap().bind('init', function(ev, map) {
+			// 	$('#map_canvas2').gmap('addMarker', {'position': '57.7973333,12.0502107', 'bounds': true}).click(function() {
+			// 		$('#map_canvas2').gmap('openInfoWindow', {'content': 'Hello World!'}, this);
+			// 	});
+			// 	$('#map_canvas2').gmap('addMarker', {'position': '57.8099333,12.0519507', 'bounds': true}).click(function() {
+			// 		$('#map_canvas2').gmap('openInfoWindow', {'content': 'Hello World 2!'}, this);
+			// 	});
+			// });
+		}
+
+		function resize_pageElements(){
+			var sidebar_height = $(window).height() - $(".main-header").height();
+			$("#sidebar_wrapper").css({'height': sidebar_height + 'px'});
+			$("#sidebar_wrapper").css({'padding-top': '1px'}); 	// Extra 1px for fixing rounding off errors durng height calculation
+
+			// Sidebar scrolling
+			$('#sidebar_wrapper ul').slimScroll({
+		        height: sidebar_height+'px',
+		        size: '5px',
+		        color: '#8d8d8d',
+		        railVisible: false,
+		    });
+
+			// Map overlay
+		    var map_overlay_top = $(".main-header").height()+20+100;
+			$("#map_overlay").css({'top': map_overlay_top + 'px'});
+
+		    //var map_overlay_height = sidebar_height-40;
+		    //var map_overlay_width = $(window).width() - (320+40);
+		    //$("#map_overlay").css({'height': map_overlay_height + 'px'});
+		    //$("#map_overlay").css({'width': map_overlay_width + 'px'});
+		}
+
+		function fill_pseudo_select(){
+			$(".select_pseudo").each(function() { 
+				var options_list = new Array();
+				var options_list_html = '';
+				$("option").each(function(){ 
+					options_list[$(this).val()] = $(this).text();
+
+					options_list_html += '<li>'+$(this).text()+'</li>';
+					//alert($(this).text()); 
+				});
+				//$(this).("ul").html(options_list_html);
+				// console.log(options_list);
+			});
+		}
+	</script>
+
+
+</body>
+</html>

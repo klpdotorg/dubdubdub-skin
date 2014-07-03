@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- META -->
+	<title>Map</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="description" content="" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" media="all" /> 
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/libs.combined.js"></script>
+	<script type="text/javascript" src="js/jquery.slimscroll.min.js"></script>
+	<script type="text/javascript" src="js/zebra_datepicker.js"></script>
+	<script type="text/javascript" src="js/energize.min.js"></script>
+	<script type="text/javascript" src="js/map.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+
+	<script src="js/highcharts/highcharts.js"></script>
+
+    <script type="text/javascript" src="js/map.js"></script>
+    <script type="text/javascript" src="js/swig.min.js"></script>
+    <script type="text/javascript" src="js/swig.filters.js"></script>
+
+    
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+    <!---->
+
+
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<![endif]-->
+
+	<!--[if IE 6]>
+	<script src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+	<script>
+	  DD_belatedPNG.fix('.nav, a ,img, .png24');
+	</script>
+	<![endif]-->
+</head>
+<body>
+	<script type="text/template" class="tpl-raw" data-tpl="marker_overlay" id="tpl_marker_overlay">
+		<section class="map-pin-details">
+			<div class="content">
+				<div class="info school">
+					<div class="icon fr">S</div>
+					<h2 class="name">Gian Jyoti Public School</h2>
+					<div class="item">
+						<div class="label">District</div>
+						<div class="value">Bangalore</div>
+					</div>
+					<div class="item">
+						<div class="label">Block</div>
+						<div class="value">North-2</div>
+					</div>
+					<div class="item">
+						<div class="label">Cluster</div>
+						<div class="value">Malleswaram</div>
+					</div>
+					<div class="clr"></div>
+				</div>
+				<div class="details">
+					<div class="triangle2"></div>
+					<div  class="detail-item">
+						<h4 class="purple-heading">Students</h4>
+						<div class="gender_icons">
+							<div class="stats_gender_item no_width boy">
+								<span class="icon"></span>
+								<p class="label">Boys</p>
+								<p class="value">120</p>
+								<div class="clr"></div>
+							</div>
+							<div class="stats_gender_item no_width girl">
+								<span class="icon"></span>
+								<p class="label">Girls</p>
+								<p class="value">130</p>
+								<div class="clr"></div>
+							</div>
+							<div class="stats_gender_item no_width total last">
+								<span class="icon"></span>
+								<p class="label">Total</p>
+								<p class="value">250</p>
+								<div class="clr"></div>
+							</div>
+						</div>
+					</div>
+					<div  class="detail-item mar_top_20">
+						<h4 class="purple-heading">Facilities</h4>
+						<div class="facility-items ta-c">
+							<div class="icon computer"></div>
+							<div class="icon books"></div>
+							<div class="icon events"></div>
+							<div class="icon football last"></div>
+							<div class="clr"></div>
+						</div>
+					</div>
+					<a class="button blue mar_top_20" href="">Volunteer here</a>
+					<div class="mar_top_10">
+						<a class="button dark_grey fl js-trigger-compare" href="">Compare to</a>
+						<a class="button dark_grey last fr js-trigger-info" href="">More Information</a>
+						<div class="clr"></div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+	</script>
+
+	<div class="map_page">
+
+		<header class="main-header full_width fixed">
+			<div class="header-wrapper">
+				<div class="header-content">
+					<a href="index.php" class="header_mobile_logo"></a>
+					<a class="mobile_icon" onclick="toggle_mobile_nav();"></a>
+					<nav class="top-nav" role="navigation">
+						<ul id="navigation">
+							<li class="home">
+								<a href="index.php" title=""><h1>Karnataka Learning Partnership</h1></a>
+							</li>
+							<li class="school_map">
+								<a href="map.html" title="">School Map</a>
+							</li>
+							<li class="programmes">
+								<a href="programmes.php" title="">Programmes</a>
+								<ul>
+									<li><a href="reading_programme.php" title=""><span></span>Reading</a></li>
+									<li><a href="maths_programme.php" title=""><span></span>Math</a></li>
+									<li><a href="library_programme.php" title=""><span></span>Library</a></li>
+									<li><a href="preschool_programme.php" title=""><span></span>Pre-School</a></li>
+								</ul>
+							</li>
+							<li class="volunteer"><a href="volunteer.php" title="">Volunteer</a></li>
+							<li class="database">
+								<a href="status_1.php" title="">Database</a>
+								<ul>
+									<li><a href="status_1.php" title=""><span></span>Status 1</a></li>
+									<li><a href="status_2.php" title=""><span></span>Status 2</a></li>
+									<li><a href="status_3.php" title=""><span></span>Status 3</a></li>
+									<li><a href="#" title=""><span></span>Raw Data</a></li>
+									<li><a href="#" title=""><span></span>Github</a></li>
+								</ul>
+							</li>
+							<li class="reports"><a href="#" title="">Reports</a></li>
+							<li class="about">
+								<a href="about.php" title="">About</a>
+								<ul>
+									<li><a href="about.php" title=""><span></span>About</a></li>
+									<li><a href="partners.php" title=""><span></span>Partners</a></li>
+									<li><a href="disclaimer.php" title=""><span></span>Disclaimer</a></li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+					<div class="clr"></div>
+				</div>
+			</div>
+
+			<div class="subheader-wrapper">
+				<div class="subheader-content">
+					<div class="breadcrumb">
+				    	<a href="">Home</a><span></span>
+				    	<a href="">School map</a>
+				    </div>
+				</div>
+			</div>
+		</header>
+
+		<section class="map_canvas_full">
+			<div id="map_canvas"></div>
+		</section>
+
+		<section id="sidebar_wrapper" class="sidebar_wrapper">
+			<ul>
+				<li class="place_item Xjs-trigger-marker-overlay js-trigger-info" data-name="Gian Jyoti Public School" data-entity-type="school">
+					<div class="details">
+						<h3 class="en-school">Gian Jyoti Public School</h3>
+						<div class="info">
+							Street No-4, Banasawadi<br/>
+							Bangalore
+						</div>
+					</div>
+					<div class="stats ta-r">
+						<div class="en-icon small en-school">s</div>
+						<span class="distance">400m</span>
+						<div class="clr"></div>
+					</div>
+				</li>
+				<li class="place_item Xjs-trigger-marker-overlay js-trigger-info" data-name="Bangalore" data-entity-type="school-district">
+					<div class="details">
+						<h3 class="en-school-district">Bangalore</h3>
+						<div class="info">
+							Street No-4, Banasawadi<br/>
+							Bangalore
+						</div>
+					</div>
+					<div class="stats ta-r">
+						<div class="en-icon small en-school-district">sd</div>
+						<span class="distance">400m</span>
+						<div class="clr"></div>
+					</div>
+				</li>
+				<li class="place_item Xjs-trigger-marker-overlay js-trigger-info" data-name="North - 2" data-entity-type="school-block">
+					<div class="details">
+						<h3 class="en-school-block">North - 2</h3>
+						<div class="info">
+							Street No-4, Banasawadi<br/>
+							Bangalore
+						</div>
+					</div>
+					<div class="stats ta-r">
+						<div class="en-icon small en-school-block">sb</div>
+						<span class="distance">400m</span>
+						<div class="clr"></div>
+					</div>
+				</li>
+				<li class="place_item Xjs-trigger-marker-overlay js-trigger-info" data-name="Malleswaram" data-entity-type="school-cluster">
+					<div class="details">
+						<h3 class="en-school-cluster">Malleswaram</h3>
+						<div class="info">
+							Street No-4, Banasawadi<br/>
+							Bangalore
+						</div>
+					</div>
+					<div class="stats ta-r">
+						<div class="en-icon small en-school-cluster">sc</div>
+						<span class="distance">400m</span>
+						<div class="clr"></div>
+					</div>
+				</li>
+				<li class="place_item Xjs-trigger-marker-overlay js-trigger-info" data-name="Gian Jyoti Public School" data-entity-type="preschool">
+					<div class="details">
+						<h3 class="en-preschool">Gian Jyoti Public School</h3>
+						<div class="info">
+							Street No-4, Banasawadi<br/>
+							Bangalore
+						</div>
+					</div>
+					<div class="stats ta-r">
+						<div class="en-icon small en-preschool">p</div>
+						<span class="distance">400m</span>
+						<div class="clr"></div>
+					</div>
+				</li>
+				<li class="place_item Xjs-trigger-marker-overlay js-trigger-info" data-name="Malleswaram" data-entity-type="preschool-circle">
+					<div class="details">
+						<h3 class="en-preschool-circle">Malleswaram</h3>
+						<div class="info">
+							Street No-4, Banasawadi<br/>
+							Bangalore
+						</div>
+					</div>
+					<div class="stats ta-r">
+						<div class="en-icon small en-preschool-circle">pc</div>
+						<span class="distance">400m</span>
+						<div class="clr"></div>
+					</div>
+				</li>
+				<li class="place_item Xjs-trigger-marker-overlay js-trigger-info" data-name="Bangalore" data-entity-type="preschool-district">
+					<div class="details">
+						<h3 class="en-preschool-district">Bangalore</h3>
+						<div class="info">
+							Street No-4, Banasawadi<br/>
+							Bangalore
+						</div>
+					</div>
+					<div class="stats ta-r">
+						<div class="en-icon small en-preschool-district">pd</div>
+						<span class="distance">400m</span>
+						<div class="clr"></div>
+					</div>
+				</li>
+				<li class="place_item js-trigger-info" data-name="Gian Jyoti Public School" data-entity-type="preschool-project">
+					<div class="details">
+						<h3 class="en-preschool-project">Gian Jyoti Public School</h3>
+						<div class="info">
+							Street No-4, Banasawadi<br/>
+							Bangalore
+						</div>
+					</div>
+					<div class="stats ta-r">
+						<div class="en-icon small en-preschool-project">pp</div>
+						<span class="distance">400m</span>
+						<div class="clr"></div>
+					</div>
+				</li>
+			</ul>
+			</ul>
+		</section>
+
+		<div class="mobile-details-wrapper" id="mobile-details-wrapper">
+			this is content
+		</div>
+
+		<section class="map-pin-details sample hide">
+			<div class="content">
+				<div class="info school">
+					<div class="icon-close fr js-close-details"></div>
+					<!-- <div class="icon fr">S</div> -->
+					<h2 class="name">{{name}}</h2>
+					<div class="item">
+						<div class="label">District</div>
+						<div class="value">Bangalore</div>
+					</div>
+					<div class="item">
+						<div class="label">Block</div>
+						<div class="value">North-2</div>
+					</div>
+					<div class="item">
+						<div class="label">Cluster</div>
+						<div class="value">Malleswaram</div>
+					</div>
+					<div class="clr"></div>
+				</div>
+				<div class="details">
+					<div  class="detail-item">
+						<h4 class="purple-heading">Students</h4>
+						<div class="gender_icons">
+							<div class="stats_gender_item no_width boy">
+								<span class="icon"></span>
+								<p class="label">Boys</p>
+								<p class="value">120</p>
+								<div class="clr"></div>
+							</div>
+							<div class="stats_gender_item no_width girl">
+								<span class="icon"></span>
+								<p class="label">Girls</p>
+								<p class="value">130</p>
+								<div class="clr"></div>
+							</div>
+							<div class="stats_gender_item no_width total last">
+								<span class="icon"></span>
+								<p class="label">Total</p>
+								<p class="value">250</p>
+								<div class="clr"></div>
+							</div>
+						</div>
+					</div>
+					<div class="detail-item mar_top_20" style="display:none;">
+						<h4 class="purple-heading">Facilities</h4>
+						<div class="facility-items ta-c">
+							<div class="icon computer"></div>
+							<div class="icon books"></div>
+							<div class="icon events"></div>
+							<div class="icon football last"></div>
+							<div class="clr"></div>
+						</div>
+					</div>
+					<div class="mar_top_10">
+						<a class="button blue fl" href="volunteer_register.php">Volunteer</a>
+						<a class="button dark_grey last fr" href="school.php">More Info</a>
+						<div class="clr"></div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+	</div>
+
+	<script type="text/javascript">
+
+		var $mobile_details_wrapper;
+
+		var place_data = {
+			1:  {
+					name: "Gian Jyoti Public School",
+					latlong: [51.505, -0.09]
+				},
+			2:  {
+					name: "Karnataka Public School",
+					latlong: [51.500, -0.094]
+				}
+		};
+
+		$(document).ready(function(){
+
+			$mobile_details_wrapper = $("#mobile-details-wrapper");
+			$mobile_details_wrapper.on("click", ".js-close-details", function(e){
+				e.preventDefault();
+				$mobile_details_wrapper.removeClass("show");
+				// setTimeout(function(){
+				// 	$mobile_details_wrapper.html("");
+				// },200);
+			});
+			
+
+			resize_pageElements();
+			load_map();
+			fill_pseudo_select();
+
+			$(document).on('click', ".js-trigger-marker-overlay", function(e){
+				e.preventDefault();
+
+				var $trigger = $(event.target).closest(".js-trigger-marker-overlay");
+				$(".js-trigger-marker-overlay").removeClass("active");
+				$trigger.addClass("active");
+				
+				console.log("Clicked");
+			});
+
+		});
+
+		$(window).resize(function() {
+			resize_pageElements();
+		});
+
+		var map;
+
+		function load_map(){
+			map = L.map('map_canvas').setView([51.505, -0.09], 14);
+			L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+				maxZoom: 18,
+				attribution: '',
+				id: 'examples.map-i86knfo3'
+			}).addTo(map);
+
+			for (var place_id in place_data) {
+				if (place_data.hasOwnProperty(place_id)) {
+					add_place_marker(place_id);
+				}
+			}
+
+			// var marker = L.marker([51.505, -0.09],{
+			// 	clickable: true
+			// }).addTo(map);
+
+			// marker.on('click', function(e) {
+			// 	show_place_details(1);
+			// });
+		}
+
+		function add_place_marker(place_id){
+			var place = place_data[place_id];
+			var marker = L.marker( place.latlong, {
+				clickable: true
+			}).addTo(map);
+
+			marker.on('click', function(e) {
+				show_place_details(place_id);
+			});
+		}
+
+		function show_place_details(place_id){
+			
+			var latlong = place_data[place_id].latlong;
+			map.setView(latlong, 15);
+			
+			setTimeout(function(){
+				// var map_canvas_ht = $("#map_canvas").height();
+				var details_ht = $mobile_details_wrapper.height();
+				var pan_y = parseInt(details_ht/2.5);
+				map.panBy(L.point(0, pan_y));
+			},300);
+
+			var html = build_place_html(place_id);
+			$mobile_details_wrapper.html(html).addClass("show");
+		}
+
+		function build_place_html(place_id){
+			var name = place_data[place_id].name;
+
+			var html = $(".map-pin-details.sample").html();
+			html = html.replace("{{name}}", name);
+			html = '<div class="map-pin-details">' +html+ '</div>';
+			return html;
+		}
+
+		function resize_pageElements(){
+			var sidebar_height = $(window).height() - $(".main-header").height();
+			$("#sidebar_wrapper").css({'height': sidebar_height + 'px'});
+			$("#sidebar_wrapper").css({'padding-top': '1px'}); 	// Extra 1px for fixing rounding off errors durng height calculation
+
+			// Sidebar scrolling
+			$('#sidebar_wrapper ul').slimScroll({
+		        height: sidebar_height+'px',
+		        size: '5px',
+		        color: '#8d8d8d',
+		        railVisible: false,
+		    });
+
+			// Map overlay
+		    var map_overlay_top = $(".main-header").height()+20+100;
+			$("#map_overlay").css({'top': map_overlay_top + 'px'});
+
+		    //var map_overlay_height = sidebar_height-40;
+		    //var map_overlay_width = $(window).width() - (320+40);
+		    //$("#map_overlay").css({'height': map_overlay_height + 'px'});
+		    //$("#map_overlay").css({'width': map_overlay_width + 'px'});
+		}
+
+		function fill_pseudo_select(){
+			$(".select_pseudo").each(function() { 
+				var options_list = new Array();
+				var options_list_html = '';
+				$("option").each(function(){ 
+					options_list[$(this).val()] = $(this).text();
+
+					options_list_html += '<li>'+$(this).text()+'</li>';
+					//alert($(this).text()); 
+				});
+				//$(this).("ul").html(options_list_html);
+				// console.log(options_list);
+			});
+		}
+	</script>
+
+
+</body>
+</html>

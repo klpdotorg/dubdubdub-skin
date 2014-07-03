@@ -1,0 +1,231 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Status{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="page-status">
+		<div class="container">
+			<h1 class="bordered turquoise">Status</h1>
+
+			<p class="ta_c">
+				This data is collected and maintained by Karnataka Learning Partnership for providing people a holistic view of the public education profile of their respective regions.
+			</p>			
+		</div>
+		<section>
+			<div class="page-section-heading-with-menu">
+				<div class="container">
+					<div class="heading"><h2>Select a data type</h2></div>
+					<ul class="fix"></ul>
+				</div>
+
+				<div class="sub-sections-list">
+					<ul>
+						<li class="active">
+							<a href="" title="">Pre-School</a>
+						</li>
+						<li>
+							<a href="" title="">School</a>
+						</li>
+						<li>
+							<a href="" title="">SSLC</a>
+						</li>
+						<li>
+							<a href="" title="">Current Programmes</a>
+						</li>
+					</ul>
+				</div>
+				<div class="options-wrapper">
+					<div class="option_item">
+						<div onclick="option_value_list_toggle($(this));">
+							<span class="label">District</span>
+							<span class="value">All</span>
+						</div>
+						<div class="item_values">
+							<ul>
+								<li><a href="" onclick="option_item_select($(this));return false;">Bangalore 1</a></li>
+								<li><a href="" onclick="option_item_select($(this));return false;">Bangalore 2</a></li>
+								<li><a href="" onclick="option_item_select($(this));return false;">Bangalore 3</a></li>
+								<li><a href="" onclick="option_item_select($(this));return false;">Bangalore 4</a></li>
+								<li><a href="" onclick="option_item_select($(this));return false;">Bangalore 5</a></li>
+								<li><a href="" onclick="option_item_select($(this));return false;">Bangalore 6</a></li>
+								<li><a href="" onclick="option_item_select($(this));return false;">Bangalore 7</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="option_item inactive">
+						<div>
+							<span class="label">Block</span>
+							<span class="value">All</span>
+						</div>
+						<div class="item_values">
+							<ul>
+								<li><a href="">Bangalore 1</a></li>
+								<li><a href="">Bangalore 2</a></li>
+								<li><a href="">Bangalore 3</a></li>
+								<li><a href="">Bangalore 4</a></li>
+								<li><a href="">Bangalore 5</a></li>
+								<li><a href="">Bangalore 6</a></li>
+								<li><a href="">Bangalore 7</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="option_item inactive">
+						<div>
+							<span class="label">Cluster</span>
+							<span class="value">All</span>
+						</div>
+					</div>
+					<div class="option_item inactive">
+						<div>
+							<span class="label">Pre-School</span>
+							<span class="value">All</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="ie-z-index-fix">
+			<div class="container">
+				<div class="table_header">
+					Counts
+					<div class="year_selector">
+						<div class="selection" onclick="$(this).parent().toggleClass('open');">
+							<span class="label">Year:</span> <span class="value png24">2011 - 2012</span>
+						</div>
+						<ul>
+							<li onclick="$(this).parent().parent().toggleClass('open');return false;"><a href="">2010-2011</a></li>
+							<li onclick="$(this).parent().parent().toggleClass('open');return false;"><a href="">2011-2012</a></li>
+							<li onclick="$(this).parent().parent().toggleClass('open');return false;"><a href="">2012-2013</a></li>
+						</ul>
+					</div>
+				</div>
+				<table class="break_in_mobile">
+					<tr>
+						<th class="sub_title" colspan="4">Pre-School</th>
+					</tr>
+					<tr>
+						<td class="circular_count_item">
+							<p>Active Pre-school Count</p>
+							<p class="value">1992</p>
+						</td>
+						<td class="circular_count_item">
+							<p>Active Pre-school with Students Count</p>
+							<p class="value">1992</p>
+						</td>
+						<td class="circular_count_item">
+							<p>Active Students Count</p>
+							<p class="value">1992</p>
+						</td>
+						<td>
+							<div class="stats_gender_item boy">
+								<span class="icon png24"></span>
+								<p class="label"><span>5400</span> boys</p>
+								<p class="value">65%</p>
+								<div class="clr"></div>
+							</div>
+							<div class="stats_gender_item girl">
+								<span class="icon png24"></span>
+								<p class="label"><span>2700</span> girls</p>
+								<p class="value">35%</p>
+								<div class="clr"></div>
+							</div>
+						</td>
+					</tr>
+				</table>
+
+				
+				<div class="table_header non-breakable">
+					Assessment Counts
+					<div class="year_selector">
+						<div class="selection" onclick="$(this).parent().toggleClass('open');">
+							<span class="label">Year:</span> <span class="value png24">2011 - 2012</span>
+						</div>
+						<ul>
+							<li onclick="$(this).parent().parent().toggleClass('open');return false;"><a href="">2010-2011</a></li>
+							<li onclick="$(this).parent().parent().toggleClass('open');return false;"><a href="">2011-2012</a></li>
+							<li onclick="$(this).parent().parent().toggleClass('open');return false;"><a href="">2012-2013</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="assessment_table_wrapper">
+					<table>
+						<tr>
+							<th class="sub_title lowercase">Boundary</th>
+							<th class="sub_title lowercase">Program Name</th>
+							<th class="sub_title lowercase">Assess Name</th>
+							<th class="sub_title lowercase">Schools Mapped</th>
+							<th class="sub_title lowercase">Schools Assessed</th>
+							<th class="sub_title lowercase">Students Assessed</th>
+						</tr>
+						<tr class="tabular_item">
+							<td class="tabular_item">Dharwad</td>
+							<td class="tabular_item">Anganwadi</td>
+							<td class="tabular_item">Pretest<br/>(2.5 - 4.5)</td>
+							<td class="tabular_item">109</td>
+							<td class="tabular_item">0</td>
+							<td class="tabular_item">0</td>
+						</tr>
+						<tr class="tabular_item">
+							<td >Bangalore</td>
+							<td>Anganwadi</td>
+							<td>Pretest<br/>(2.5 - 4.5)</td>
+							<td>109</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+					</table>
+				</div>
+
+				<p class="last_updated">Last updated on <span>23 September 2013</span></p>
+			</div>
+	</section>
+
+	</div>
+
+	<script type="text/javascript">
+		$(function(){
+		    $('.option_item .item_values ul').slimScroll({
+		        height: '200px',
+		        size: '6px',
+		        color: '#8d8d8d',
+		        railVisible: true,
+      			railColor: '#f6f6f6',
+      			railOpacity: 1
+		    });
+		});
+
+		function option_value_list_toggle(obj){
+			var state_open = false;
+			if($(obj).parent().find('.item_values').hasClass('open')){
+				state_open = true;
+			}
+			$('.item_values').removeClass('open');
+			if(state_open){
+				$(obj).parent().find('.item_values').removeClass('open');
+			} else {
+				$(obj).parent().find('.item_values').addClass('open');
+			}
+			//$(obj).parent().find('.item_values').toggleClass('open');
+			event.stopPropagation();
+		}
+
+		$('html').click(function() {
+			//Hide the menus if visible
+			$('.item_values').removeClass('open');
+		});
+
+		function option_item_select(obj) {
+			window.location="{{ site_url }}status_3.php";
+			// var parent_option_item = $(obj).parent().parent().parent().parent().parent();
+			// $(parent_option_item).find('.item_values').toggleClass('open');
+			// $(parent_option_item).find('.value').text($(obj).text());
+			//return false;
+		}
+	</script>
+
+{% endblock %}
