@@ -38,9 +38,11 @@ var klp = klp || {};
 
 		var $btn_close = $modal.find(".btn-modal-close");
 		var $btn_back = $modal.find(".btn-modal-back");
-		var $btn_next_step_cal = $modal.find('.btn-next-step-cal');
+		var $btn_next_step_date = $modal.find('.btn-next-step-date');
+		var $btn_next_step_opportunities = $modal.find('.btn-next-step-opportunities');
 		var $btn_next_step_login = $modal.find('.btn-next-step-login');
-		var $btn_next_step_details = $modal.find('.btn-next-step-details');
+		var $btn_next_step_confirmation = $modal.find('.btn-next-step-confirmation');
+		var $btn_next_step_submit = $modal.find('.btn-next-step-submit');
 		var $datepicker_input = $modal.find('#datepicker-input');
 
 		$datepicker_input.Zebra_DatePicker({
@@ -56,15 +58,15 @@ var klp = klp || {};
 
 		function onDateSelect(date){
 			$input_data_date.val(date);
-			$btn_next_step_cal.show();
+			$btn_next_step_date.show();
 		}
 		function onDateClear(){
 			$input_data_date.val("");
-			$btn_next_step_cal.hide();
+			$btn_next_step_date.hide();
 		}
 
-		$btn_next_step_cal.on("click", function(e){
-			show_next_step($modal, "signup");
+		$btn_next_step_date.on("click", function(e){
+			show_next_step($modal, "opportunities");
 			$btn_back.show();
 			$btn_back.off();
 			$btn_back.on("click", function(){
@@ -72,6 +74,27 @@ var klp = klp || {};
 				$btn_back.hide();
 			});
 		});
+
+		$btn_next_step_opportunities.on("click", function(e){
+			show_next_step($modal, "signup");
+			$btn_back.show();
+			$btn_back.off();
+			$btn_back.on("click", function(){
+				show_prev_step($modal, "opportunities");
+				// $btn_back.hide();
+			});
+		});
+
+		$btn_next_step_confirmation.on("click", function(e){
+			show_next_step($modal, "confirmation");
+			$btn_back.show();
+			$btn_back.off();
+			$btn_back.on("click", function(){
+				show_prev_step($modal, "opportunities");
+				// $btn_back.hide();
+			});
+		});
+
 		$btn_next_step_login.on("click", function(e){
 			show_next_step($modal, "login");
 			$btn_back.off();
@@ -79,8 +102,8 @@ var klp = klp || {};
 				show_prev_step($modal, "signup");
 			});
 		});
-		$btn_next_step_details.on("click", function(e){
-			show_next_step($modal, "confirmation");
+		$btn_next_step_submit.on("click", function(e){
+			show_next_step($modal, "submit");
 			$btn_back.hide();
 		});
 

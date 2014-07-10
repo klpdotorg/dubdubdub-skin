@@ -177,12 +177,65 @@
 		    				<div id="datepicker-wrapper"></div>
 		    			</div>
 		    			<div class="ta-c mar_top_60">
-		    				<a class="button blue clickable btn-next-step-cal" style="display:none;">Next</a>
+		    				<a class="button blue clickable btn-next-step-date" style="display:none;">Next</a>
 		    			</div>
 		    		</div> 
 		    	</div> <!-- Step End -->
 
-	    		<div class="step-item {% if date %}fadein visible{% endif %}" data-step-name="signup">
+		    	<div class="step-item {% if date %}fadein visible{% endif %}" data-step-name="opportunities">
+	    			<div class="step-opportunities">
+	    			<h3 class="bordered-heading blue">Opportunities Available <span></span></h3>
+	    			<div class="opportunities-list">
+	    				<a class="list-item teaching btn-next-step-opportunities" data-type="teaching">
+	    					<div class="available fr">
+	    						Available
+	    						<span class="count">26</span>
+	    					</div>
+	    					<div class="left-col">
+		    					<div class="title">Teaching Based</div>
+		    					<div class="detail">
+		    						Truffaut occupy Vice you probably have not heard of them, selfies roof.
+		    					</div>
+		    				</div>
+		    				<div class="clr"></div>
+	    				</a>
+
+	    				<a class="list-item activity btn-next-step-opportunities" data-type="activity">
+	    					<div class="available fr">
+	    						Available
+	    						<span class="count">17</span>
+	    					</div>
+	    					<div class="left-col">
+		    					<div class="title">Activity Based</div>
+		    					<div class="detail">
+		    						Truffaut occupy Vice you probably have not heard of them, selfies roof.
+		    					</div>
+		    				</div>
+		    				<div class="clr"></div>
+	    				</a>
+
+	    				<a class="list-item skill btn-next-step-opportunities" data-type="skill">
+	    					<div class="available fr">
+	    						Available
+	    						<span class="count">14</span>
+	    					</div>
+	    					<div class="left-col">
+		    					<div class="title">Skill Based</div>
+		    					<div class="detail">
+		    						Truffaut occupy Vice you probably have not heard of them, selfies roof.
+		    					</div>
+		    				</div>
+		    				<div class="clr"></div>
+	    				</a>
+	    				
+	    				<p class="or-text">or</p>
+
+	    				<a class="list-item show-all btn-next-step-opportunities" data-type="all">Show all</a>
+	    			</div>
+	    			</div> 
+	    		</div> <!-- Step End -->
+
+	    		<div class="step-item" data-step-name="signup">
 		    		<div class="step-details">
 		    			<h3 class="bordered-heading blue">Signup<span></span></h3>
 		    			<input type="text" class="input-text width-100p" placeholder="Name">
@@ -190,7 +243,7 @@
 		    			<input type="text" class="input-text width-100p mar_top_30" placeholder="Phone Number">
 		    			<input type="password" class="input-text width-100p mar_top_30" placeholder="Password">
 		    			<div class="ta-c mar_top_20">
-		    				<a class="button blue btn-next-step-details">Submit</a>
+		    				<a class="button blue btn-next-step-confirmation">Submit</a>
 		    			</div>
 		    			<div class="ta-c mar_top_20">
 		    				<span class="alternate-text">Already a registered user?</span> 
@@ -205,13 +258,46 @@
 		    			<input type="text" class="input-text width-100p mar_top_100" placeholder="Email">
 		    			<input type="password" class="input-text width-100p mar_top_30" placeholder="Password">
 		    			<div class="ta-c mar_top_20">
-		    				<a class="button blue btn-next-step-details">Login</a>
+		    				<a class="button blue btn-next-step-confirmation">Login</a>
 		    			</div>
 		    		</div> 
 		    	</div> <!-- Step End -->
 
 		    	<div class="step-item" data-step-name="confirmation">
 		    		<div class="step-confirmation ta-c">
+		    			<h3 class="bordered-heading blue">Confirm Details<span></span></h3>
+		    			<div class="address en-school">
+		    				<div class="en-icon bigger en-school">s</div>
+		    				<div class="name">Govt. School for Girls</div>
+		    				<div class="details">
+			    				27th Street, Koramangala,<br>
+			    				Bangalore
+		    				</div>
+		    			</div>
+		    			<div class="date">
+		    				<div class="icon-cal"></div>
+		    				<div class="value">7th June, 2014</div>
+		    			</div>
+		    			<div class="confirm-org">
+		    				<div class="confirm-org-1 fl">
+		    					<div class="org-head">Organisation</div>
+		    					<div class="text">Akshara Foundation</div>
+		    				</div>
+		    				<div class="confirm-org-2 fr">
+		    					<div class="org-head">Oppertunity</div>
+		    					<div class="text teaching">Teaching Based</div>
+		    				</div>
+		    				<div class="clr"></div>
+		    			</div>
+		    			<div class="mar_top_40">
+		    				<a class="button dark_grey btn-modal-close">Cancel</a>
+		    				<a class="button blue btn-next-step-submit">Confirm</a>
+		    			</div>
+		    		</div>
+		    	</div> <!-- Step End -->
+
+		    	<div class="step-item" data-step-name="submit">
+		    		<div class="step-submit ta-c">
 		    			<h3 class="bordered-heading blue">Teacher Based<span></span></h3>
 		    			<div class="address en-school">
 		    				<div class="en-icon bigger en-school">s</div>
@@ -234,6 +320,7 @@
 		    			</div>
 		    		</div>
 		    	</div> <!-- Step End -->
+
     		</div>
     	</div>
     </div>

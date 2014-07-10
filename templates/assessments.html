@@ -1,0 +1,268 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Assessments{% endblock %}
+{% block head %}
+    {{ parent() }}
+	<script type="text/javascript" src="js/lib/jquery.easydropdown.min.js"></script>
+
+{% endblock %}
+
+{% block content %}
+
+	<div class="page-assessments">
+		<div class="container">
+			<div class="info-wrapper">
+				<div class="en-icon big en-school school-entity-icon">S</div>
+				<h2 class="en-school">Karnataka Primary School</h2>
+
+				<div class="address-block">
+					<div class="info-item">
+						<div class="label">District</div>
+						<div class="value">Bangalore</div>
+					</div>
+					<div class="info-item">
+						<div class="label">Block</div>
+						<div class="value">North-2</div>
+					</div>
+					<div class="info-item">
+						<div class="label">Cluster</div>
+						<div class="value">Malleswaram</div>
+					</div>
+					<div class="clr"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="filter-subheader">
+			<div class="container">
+				<div class="phn-block">
+					<div class="label fl">Partner</div>
+					<div class="filter-item fl">
+						<select name="partner" class="dropdown large">
+							<option>Akshara Foundation</option>
+							<option>Akshara Foundation 2</option>
+							<option>Akshara Foundation 3</option>
+							<option>Akshara Foundation 4</option>
+						</select>
+					</div>
+					<div class="phn-clr"></div>
+				</div>
+				<div class="phn-block">
+					<div class="label fl">Programme</div>
+					<div class="filter-item fl">
+						<select name="programme" class="dropdown large">
+							<option>Akshara Gainthe</option>
+							<option>Akshara Gainthe 2</option>
+							<option>Akshara Gainthe 3</option>
+							<option>Akshara Gainthe 4</option>
+						</select>
+					</div>
+					<div class="phn-clr"></div>
+				</div>
+				<div class="phn-block">
+					<div class="label fl">Year</div>
+					<div class="filter-item fl">
+						<select name="aprtner" class="dropdown">
+							<option>2013 - 2014</option>
+							<option>Other</option>
+						</select>
+					</div>
+					<div class="clr"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<p>The focus of in-school programmes has always been on children achieving basic skills. The depressing fact that of the children enrolled in class 1, about 40% drop out before class 8 and a total of 70% drop out before class 10, makes basic literacy and numeracy an urgent social goal. Akshara’s effort began in Bangalore city in 2000 November, when Remedial programmes were implemented through neighbourhood Volunteers, who were trained to identify children with learning deficits and give them specialized inputs.</p>
+
+			<div class="table_header">
+				<span class="pad-10">Overall Pre-test median scores</span>
+				<div class="year_selector">
+					<div class="selection" onclick="$(this).parent().toggleClass('open');">
+						<span class="label">Class:</span> <span class="value png24">All</span>
+					</div>
+					<ul>
+						<li onclick="$(this).parent().parent().toggleClass('open');return false;"><a href="">All</a></li>
+						<li onclick="$(this).parent().parent().toggleClass('open');return false;"><a href="">Option 1</a></li>
+						<li onclick="$(this).parent().parent().toggleClass('open');return false;"><a href="">Option 2</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="scores-box break_in_mobile">				
+				<div class="scores-box-upr">	
+					<div class="circular_count_item fl phn-grid-full phn-mb-30">
+						<p class="count-head">Overall Median</p>
+						<p class="value">55%</p>
+					</div>
+					<div class="comparison phn-grid-full phn-mb-30">
+						<div class="heading color-gray-dark">Comparison</div>
+						<ul class="comparison-list color-gray">
+							<li>Malleswaram<span class="color-gray-dark bold fr">43%</span></li>
+							<li>North-2<span class="color-gray-dark bold fr">32%</span></li>
+							<li>Bangalore<span class="color-gray-dark bold fr">32%</span></li>
+						</ul>
+					</div>
+					<div class="clr"></div>
+				</div>
+				<div class="scores-box-btm">
+					<div class="gender-comparison fl phn-grid-full phn-mb-30">
+						<div class="stats_gender_item boy block">
+							<span class="icon png24"></span>
+							<div class="gender-detail">
+								<div class="gender-total color-gray">
+									For <span class="color-gray-dark bold">32</span> out of <span class="color-gray-dark bold">65</span> boys<span class="color-gray-dark bold fr">32%</span>
+								</div>
+								<div class="bar">
+									<div class="bar-value"></div>
+								</div>
+							</div>
+							<div class="clr"></div>
+						</div>
+						<div class="stats_gender_item girl">
+							<span class="icon png24"></span>
+							<div class="gender-detail">
+								<div class="gender-total color-gray">
+									For <span class="color-gray-dark bold">45</span> out of <span class="color-gray-dark bold">62</span> boys<span class="color-gray-dark bold fr">32%</span>
+								</div>
+								<div class="bar">
+									<div class="bar-value"></div>
+								</div>
+							</div>
+							<div class="clr"></div>
+						</div>
+					</div>
+					<div class="lang-marks fr phn-grid-full">
+						<div class="item">
+							<div class="label fl">English</div>
+							<div class="percent color-gray fl">32</div>
+							<div class="bar fr">
+								<div class="bar-value"></div>
+							</div>
+							<div class="clr"></div>
+						</div>
+						<div class="item">
+							<div class="label fl">Kannada</div>
+							<div class="percent color-green fl">47</div>
+							<div class="bar fr">
+								<div class="bar-value bg-green bar-value-47"></div>
+							</div>
+							<div class="clr"></div>
+						</div>
+						<div class="item">
+							<div class="label fl">Urdu</div>
+							<div class="percent color-gray fl">38</div>
+							<div class="bar fr">
+								<div class="bar-value bar-value-38"></div>
+							</div>
+							<div class="clr"></div>
+						</div>
+						<div class="item">
+							<div class="label fl">Others</div>
+							<div class="percent color-gray fl">23</div>
+							<div class="bar fr">
+								<div class="bar-value bar-value-23"></div>
+							</div>
+							<div class="clr"></div>
+						</div>
+					</div>
+					<div class="clr"></div>
+				</div>
+			</div>
+
+			<div class="table_header">
+				<span class="pad-10">Overall Post-test median scores</span>
+				<div class="year_selector">
+					<div class="selection" onclick="$(this).parent().toggleClass('open');">
+						<span class="label">Class:</span> <span class="value png24">All</span>
+					</div>
+					<ul>
+						<li onclick="$(this).parent().parent().toggleClass('open');return false;"><a href="">All</a></li>
+						<li onclick="$(this).parent().parent().toggleClass('open');return false;"><a href="">Option 1</a></li>
+						<li onclick="$(this).parent().parent().toggleClass('open');return false;"><a href="">Option 2</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="scores-box break_in_mobile">				
+				<div class="scores-box-upr">	
+					<div class="circular_count_item fl phn-grid-full phn-mb-30">
+						<p class="count-head">Overall Median</p>
+						<p class="value">55%</p>
+					</div>
+					<div class="comparison phn-grid-full phn-mb-30">
+						<div class="heading color-gray-dark">Comparison</div>
+						<ul class="comparison-list color-gray">
+							<li>Malleswaram<span class="color-gray-dark bold fr">43%</span></li>
+							<li>North-2<span class="color-gray-dark bold fr">32%</span></li>
+							<li>Bangalore<span class="color-gray-dark bold fr">32%</span></li>
+						</ul>
+					</div>
+					<div class="clr"></div>
+				</div>
+				<div class="scores-box-btm">
+					<div class="gender-comparison fl phn-grid-full phn-mb-30">
+						<div class="stats_gender_item boy block">
+							<span class="icon png24"></span>
+							<div class="gender-detail">
+								<div class="gender-total color-gray">
+									For <span class="color-gray-dark bold">32</span> out of <span class="color-gray-dark bold">65</span> boys<span class="color-gray-dark bold fr">32%</span>
+								</div>
+								<div class="bar">
+									<div class="bar-value"></div>
+								</div>
+							</div>
+							<div class="clr"></div>
+						</div>
+						<div class="stats_gender_item girl">
+							<span class="icon png24"></span>
+							<div class="gender-detail">
+								<div class="gender-total color-gray">
+									For <span class="color-gray-dark bold">45</span> out of <span class="color-gray-dark bold">62</span> boys<span class="color-gray-dark bold fr">32%</span>
+								</div>
+								<div class="bar">
+									<div class="bar-value"></div>
+								</div>
+							</div>
+							<div class="clr"></div>
+						</div>
+					</div>
+					<div class="lang-marks fr phn-grid-full">
+						<div class="item">
+							<div class="label fl">English</div>
+							<div class="percent color-gray fl">32</div>
+							<div class="bar fr">
+								<div class="bar-value"></div>
+							</div>
+							<div class="clr"></div>
+						</div>
+						<div class="item">
+							<div class="label fl">Kannada</div>
+							<div class="percent color-green fl">47</div>
+							<div class="bar fr">
+								<div class="bar-value bg-green bar-value-47"></div>
+							</div>
+							<div class="clr"></div>
+						</div>
+						<div class="item">
+							<div class="label fl">Urdu</div>
+							<div class="percent color-gray fl">38</div>
+							<div class="bar fr">
+								<div class="bar-value bar-value-38"></div>
+							</div>
+							<div class="clr"></div>
+						</div>
+						<div class="item">
+							<div class="label fl">Others</div>
+							<div class="percent color-gray fl">23</div>
+							<div class="bar fr">
+								<div class="bar-value bar-value-23"></div>
+							</div>
+							<div class="clr"></div>
+						</div>
+					</div>
+					<div class="clr"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
