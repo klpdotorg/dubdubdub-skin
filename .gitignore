@@ -1,0 +1,7 @@
+Thumbs.db
+*config.codekit
+*.codekit-cache
+*.sass-cache
+.DS_Store
+*node_modules
+*.map
