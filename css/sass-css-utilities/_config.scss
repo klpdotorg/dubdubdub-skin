@@ -28,10 +28,10 @@
 	$important-paddings: $important;
 	$important-margins: $important;
 
-	@if variable-exists(config-paddings-use-important) {
-		$important-paddings: if($config-paddings-use-important, " !important", "");
-	}
-	@if variable-exists(config-margins-use-important) {
-		$important-margins: if($config-margins-use-important, " !important", "");
-	}
+	// @if variable-exists(config-paddings-use-important) {
+	// 	$important-paddings: if($config-paddings-use-important, " !important", "");
+	// }
+	// @if variable-exists(config-margins-use-important) {
+	// 	$important-margins: if($config-margins-use-important, " !important", "");
+	// }
 
