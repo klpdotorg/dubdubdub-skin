@@ -761,17 +761,20 @@ a.external{
 		}
 	}
 }
-.button.dark_grey{
-	background: #898989;
-}
-.button.orange{
-	background: #f88733;
-}
-.button.green{
-	background: #39B256;
-}
-.button.green2{
-	background: #25b3b6;
+
+.button{
+	&.dark_grey{
+		background: #898989;
+	}
+	&.orange{
+		background: #f88733;
+	}
+	&.green{
+		background: #39B256;
+	}
+	&.green2{
+		background: #25b3b6;
+	}
 }
 
 .tabs{
