@@ -1,0 +1,41 @@
+.page-donate-furniture{
+	h3{
+		color: #393939; text-align: left; letter-spacing: normal; font-size: 26px; line-height: 42px;
+		font-weight: normal; text-transform: none;
+	}
+	.head{
+		font-size: 16px;
+		&.center{
+			line-height: 30px;
+		}
+	}
+	.width-half{
+		float: left; width: 49.9%;
+		&.border-right{
+			border-right: 1px solid #D8D8D8;
+		}
+		&.border-bottom{
+			border-bottom: 1px solid #D8D8D8;
+		}
+		&:last-child{
+			border-bottom: none;
+		}
+	}
+	.width-300{
+		width: 300px;
+	}
+	@include if-device(phone){
+		.width-half{
+			&.border-right{
+				border-right: none;
+			}
+		}
+	}
+}
+.progress-bar{
+	width: inherit; height: 15px;
+	background-color: #EDEDED;
+	.progress{
+		width: 40%; height: 100%; background-color: #4AC18C;
+	}
+}

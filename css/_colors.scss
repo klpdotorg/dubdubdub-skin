@@ -1,3 +1,9 @@
+.color-black{
+	color: #000;
+}
+.color-blue{
+	color: $color_blue;
+}
 .color-green{
 	color: $color_green;
 }
@@ -9,4 +15,7 @@
 }
 .color-grey-light{
 	color: #D0D0D0;
+}
+.color-grey-light-2{
+	color: #8A8B8C;
 }

@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Donation{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+
+	<section class="pb-30">
+		<div class="container">
+			<h1 class="bordered blue">Donation</h1>
+			<p class="ta-c">
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+			</p>
+		</div>
+	</section>
+
+	<section class="page-donation pb-30">
+		<h1 class="bordered blue pt-50 pb-50 mar-0">Choose a Category</h1>
+		<div class="container">	
+			<div>
+				<a class="grid_3 alpha phn-width-full phn-mar-0 phn-mb-10" href="#">
+					<div class="circle blue ma"></div>
+					<p class="color-blue ta-c mt-15">Furniture</p>
+				</a>
+				<a class="grid_3 phn-width-full phn-mar-0 phn-mb-10" href="#">
+					<div class="circle blue ma"></div>
+					<p class="color-blue ta-c mt-15">Computers &amp; Peripherals</p>
+				</a>
+				<a class="grid_3 phn-width-full phn-mar-0 phn-mb-10" href="#">
+					<div class="circle blue ma"></div>
+					<p class="color-blue ta-c mt-15">Books</p>
+				</a>
+				<a class="grid_3 omega phn-width-full phn-mar-0" href="#">
+					<div class="circle blue ma"></div>
+					<p class="color-blue ta-c mt-15">Toys</p>
+				</a>
+				<div class="clr"></div>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}

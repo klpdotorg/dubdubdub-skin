@@ -815,3 +815,29 @@ a.external{
 		}
 	}
 }
+.circle{
+	width: 100px; height: 100px;
+	@include border-radius(50%);
+	&.blue{
+		border: 4px solid #3891F3;
+	}
+}
+.input{
+	width: 100%; height: 25px;
+	border: 1px solid #CFCFCF; @include border-radius(3px);
+	&.textarea{
+		width: 98%; height: 80px;
+	}
+	&.error{
+		border-color: #eb5055;
+	}
+}
+.login, .signup, .forgot-pass{
+	width: 300px;
+	.forgot-link{
+		font-size: 14px;
+	}
+	@include if-device(phone){
+		width: 280px;
+	}
+}

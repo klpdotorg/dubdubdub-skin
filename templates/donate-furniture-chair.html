@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Donate Furniture Chair{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+
+	<section class="pb-30">
+		<div class="container">
+			<div class="circle blue ma mt-50 phn-mt-25"></div>
+			<h1 class="bordered blue mt-30 phn-mb-0">Donate Furniture</h1>
+		</div>
+	</section>
+
+	<section class="page-donate-furniture pb-50">
+		<div class="container">
+			<h3 class="fl mar-0">Chairs</h3>
+			<div class="width-300 fr phn-width-full">
+				<div class="progress-bar mb-5">
+					<div class="progress"></div>
+				</div>
+				<div>
+					<div class="head bold fl">
+						<span class="color-green-2">235</span>
+						<span class="color-grey-light-2">Donated</span>
+					</div>
+					<div class="head bold fr">
+						<span class="color-black">443</span>
+						<span class="color-grey-light-2">Needed</span>
+					</div>
+					<div class="clr"></div>
+				</div>
+			</div>
+			<div class="clr"></div>
+			<p class="mb-30">
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+			</p>
+			<form>
+				<div class="grid_6 alpha phn-width-full phn-mar-0 phn-mb-30">
+					<div class="profile-title bold uppercase mb-20">Contact information</div>
+					<div class="mb-20">
+						<label class="block bold mb-5">Name</label>
+						<input class="input" type="textbox">
+					</div>
+					<div class="mb-20">
+						<label class="block bold mb-5">Email</label>
+						<input class="input" type="textbox">
+					</div>
+					<div class="mb-20">
+						<label class="block bold mb-5">Phone Number</label>
+						<input class="input" type="textbox">
+					</div>
+					<div>
+						<label class="block bold mb-5">Address</label>
+						<textarea class="input textarea"></textarea>
+					</div>
+				</div>
+				<div class="grid_6 omega phn-width-full phn-mar-0">
+					<div class="profile-title bold uppercase mb-20">Item information</div>
+					<div class="mb-20">
+						<label class="block bold mb-5">Number of Items</label>
+						<input class="input" type="textbox">
+					</div>
+					<div>
+						<label class="block bold mb-5">Details</label>
+						<textarea class="input textarea"></textarea>
+					</div>
+				</div>
+				<div class="clr"></div>
+				<div class="ta-c">
+					<a class="button blue mt-10 phn-mt-30" href="#">Donate</a>
+				</div>
+			</form>
+		</div>
+	</section>
+
+{% endblock %}
