@@ -349,6 +349,26 @@
 		vertical-align: top;
 	}
 
+	.required{
+		border-bottom: 1px solid #ddd;
+		.icon{
+			width: 40px; height: 40px;
+			background-color: $color_blue; @include border-radius(50%);
+		}
+		// p{
+		// 	 font-size: 16px; line-height: 40px;
+		// 	&.items{
+		// 		min-width: 100px; color: $color_blue;
+		// 	}
+		// }
+		.items{
+			font-size: 16px;
+		}
+		.button{
+			margin-top: 18px;
+		}
+	}
+
 	@include if-device(phone-tablet) {
 		.fl-desktop,
 		.fr-desktop{

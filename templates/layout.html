@@ -50,8 +50,10 @@
 		<div class="subheader-wrapper">
 			<div class="subheader-content">
 				<div class="breadcrumb">
-			    	<a href="index.php">Home</a><span></span>
-			    	<a href="">{{ page_title }}</a>
+			    	{% block breadcrumb %}
+			    		<a href="index.php">Home</a><span></span>
+			    		<a href="">{{ page_title }}</a>
+			    	{% endblock %}
 			    </div>
 			</div>
 		</div>

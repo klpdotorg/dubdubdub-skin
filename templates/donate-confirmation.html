@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Donation Confirmation{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block breadcrumb %}
+	<a href="index.php">Home</a><span></span>
+	<a href="donation.php">Donation</a><span></span>
+	<a href="">{{ page_title }}</a>
+{% endblock %}
+
+{% block content %}
+
+	<section class="page-thank-you ta-c mt-60 mb-60 phn-mt-30 phn-mb-30">
+		<div class="container">
+			<div class="tick ma mb-10"></div>
+			<div class="title color-black-2 mb-10">Thank You for Donating to</div>
+			<div class="address color-green mb-60 phn-mb-30">
+				<div class="name mb-10">Govt. School for Girls</div>
+				<div class="details bold">
+    				27th Street, Koramangala,<br>
+    				Bangalore
+				</div>
+			</div>
+			<div class="title color-black-2 mb-10">Required for Library</div>
+			<div class="text small color-grey-light-2 mb-20">Donating Items</div>
+			<div class="items ma mb-60 phn-mb-30">
+				<div class="mb-20">
+					<div class="fl color-blue bold">Chairs</div>
+					<div class="fr color-grey">3</div>
+					<div class="clr"></div>
+					<div class="hr mt-10"></div>
+				</div>
+				<div class="mb-20">
+					<div class="fl color-blue bold">Tables</div>
+					<div class="fr color-grey">5</div>
+					<div class="clr"></div>
+					<div class="hr mt-10"></div>
+				</div>
+				<div class="mb-20">
+					<div class="fl color-blue bold">Cupboards</div>
+					<div class="fr color-grey">1</div>
+					<div class="clr"></div>
+					<div class="hr mt-10"></div>
+				</div>
+			</div>
+			<div class="text mb-5">
+				Enabled by <span class="color-green-2 uppercase"> Akshara Foundation</span>
+			</div>
+			<div class="text small color-grey-light-2">You will soon be connected to a person for further processs.</div>
+		</div>
+	</section>
+
+{% endblock %}

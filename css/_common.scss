@@ -736,6 +736,13 @@ a.external{
 	@include text-shadow(0px -1px 0px, rgba(0,0,0,0.50));
 	@include border-radius(3px);
 	@include box-shadow(0px -3px 0px, rgba(0,0,0,0.2) inset);
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+	outline: none;
+	border: none;
 
 	&.block{
 		display: block;
@@ -774,6 +781,9 @@ a.external{
 	}
 	&.green2{
 		background: #25b3b6;
+	}
+	&.grey{
+		background: #898989;
 	}
 }
 
@@ -840,4 +850,21 @@ a.external{
 	@include if-device(phone){
 		width: 280px;
 	}
+}
+.progress-bar{
+	width: inherit; height: 15px;
+	background-color: #EDEDED;
+	.progress{
+		width: 40%; height: 100%; background-color: #4AC18C;
+	}
+}
+.width-90{
+	width: 90%;
+}
+.width-300{
+	width: 300px;
+}
+.circled{
+	width: 32px; height: 32px; line-height: 32px; font-size: 14px;
+	border: 1px solid #424242; @include border-radius(50%);
 }

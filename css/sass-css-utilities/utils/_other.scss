@@ -16,6 +16,9 @@
 	.fr {
 		float:right#{$important};
 	}
+	.fn {
+		float:none#{$important};
+	}
 	.clr,
 	.clear {
 		clear:both;
@@ -118,6 +121,9 @@
 		.#{$config-prefix-tablet}fr {
 			float:right#{$important};
 		}
+		.#{$config-prefix-tablet}fn {
+			float:none#{$important};
+		}
 		.#{$config-prefix-tablet}clr,
 		.#{$config-prefix-tablet}clear {
 			clear:both;
@@ -213,6 +219,9 @@
 		.#{$config-prefix-phone-tablet}fr {
 			float:right#{$important};
 		}
+		.#{$config-prefix-phone-tablet}fn {
+			float:none#{$important};
+		}
 		.#{$config-prefix-phone-tablet}clr,
 		.#{$config-prefix-phone-tablet}clear {
 			clear:both;
@@ -307,6 +316,9 @@
 		}
 		.#{$config-prefix-phone}fr {
 			float:right#{$important};
+		}
+		.#{$config-prefix-phone}fn {
+			float:none#{$important};
 		}
 		.#{$config-prefix-phone}clr,
 		.#{$config-prefix-phone}clear {
