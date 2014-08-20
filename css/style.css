@@ -1278,9 +1278,10 @@ a.external { padding-right: 20px; background: url("../images/external_url_icon.p
 .circle { width: 100px; height: 100px; -webkit-border-radius: 50%; -moz-border-radius: 50%; -ms-border-radius: 50%; -o-border-radius: 50%; border-radius: 50%; }
 .circle.blue { border: 4px solid #3891F3; }
 
-.input { width: 100%; height: 25px; border: 1px solid #CFCFCF; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; }
+.input { width: 98%; height: 25px; padding: 0 1%; border: 1px solid #CFCFCF; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; }
 .input.textarea { width: 98%; height: 80px; }
 .input.error { border-color: #eb5055; }
+.input:focus { outline: none; border-color: #adadad; box-shadow: none; }
 
 .login, .signup, .forgot-pass { width: 300px; }
 .login .forgot-link, .signup .forgot-link, .forgot-pass .forgot-link { font-size: 14px; }
@@ -2186,7 +2187,6 @@ a.external { padding-right: 20px; background: url("../images/external_url_icon.p
 .page-donate-item .signup-inner { width: 450px; }
 .page-donate-item .signup-inner .label { font-size: 14px; line-height: 20px; color: #393939; }
 .page-donate-item .signup-inner .already-user { color: #898989; font-size: 14px; line-height: 30px; vertical-align: top; }
-.page-donate-item .signup-inner .input { width: 97%; }
 @media screen and (max-width: 767px), screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 1.3) { .page-donate-item .width-half.border-right { border-right: none; }
   .page-donate-item .signup-inner { width: 90%; } }
 

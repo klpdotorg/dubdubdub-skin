@@ -111,10 +111,10 @@
 			color: #898989; font-size: 14px; line-height: 30px;
 			vertical-align: top;
 		}
-		.input{
-			//@include box-sizing(border-box);
-			width: 97%;
-		}
+		// .input{
+		// 	@include box-sizing(border-box);
+		// 	width: 97%;
+		// }
 	}
 	@include if-device(phone){
 		.width-half{
