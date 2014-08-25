@@ -1603,6 +1603,30 @@ a.external { padding-right: 20px; background: url("../images/external_url_icon.p
 
 .selectize-control .selectize-input.disabled { opacity: 0.5; background-color: #fafafa; }
 
+.klp-filter-select { position: relative; display: inline-block; text-align: left; }
+.klp-filter-select .label { display: block; position: absolute; z-index: 1; font-size: 11px; line-height: 11px; color: #d8d8d8; text-transform: uppercase; left: 15px; top: 8px; }
+.klp-filter-select .select2-container { width: 100%; position: relative; z-index: 2; }
+.klp-filter-select .select2-container .select2-choice { background: transparent; border: none; border-radius: 0; padding-top: 24px; padding-left: 14px; }
+.klp-filter-select .select2-container .select2-choice > .select2-chosen { font-size: 14px; line-height: 20px; color: #6d6d6d; }
+.klp-filter-select .select2-container .select2-choice .select2-arrow { background: none; border: none; }
+.klp-filter-select .select2-container .select2-choice .select2-arrow b { margin-top: 15px; }
+.klp-filter-select .select2-container.select2-container-disabled { opacity: 0.4; filter: alpha(opacity=40); }
+.klp-filter-select .select2-container.select2-container-disabled .select2-choice { border: none; background: transparent; }
+.klp-filter-select .select2-container.select2-container-disabled .select2-choice .select2-arrow { background: none; }
+.klp-filter-select .select2-container-active .select2-choice, .klp-filter-select .select2-container-active .select2-choices { -webkit-box-shadow: none; box-shadow: none; }
+.klp-filter-select.v-border { margin-right: -3px; }
+.klp-filter-select.v-border .select2-container { border-left: 1px solid #d8d8d8; border-right: 1px solid #d8d8d8; }
+
+.select2-drop { border-color: #d8d8d8 !important; border-radius: 0 !important; -webkit-box-shadow: none !important; box-shadow: none !important; }
+
+.select2-drop-active { border-color: #d8d8d8 !important; }
+
+.select2-search input { border-color: #d8d8d8 !important; }
+
+.select2-results .select2-highlighted { background: #eee !important; color: #5f5f5f !important; }
+
+.select2-results li { color: #5f5f5f !important; }
+
 .volunteer-flow .teaching { color: #23BA89; }
 .volunteer-flow .activity { color: #FB4C2F; }
 .volunteer-flow .skill { color: #7A63D6; }
@@ -1706,6 +1730,7 @@ a.external { padding-right: 20px; background: url("../images/external_url_icon.p
 .modal-map-filter .modal-heading { margin-top: 20px; }
 .modal-map-filter .page-section-menu { margin-top: 50px; }
 .modal-map-filter .page-section-menu .sub-sections-list ul li { margin: 0 45px -4px; }
+.modal-map-filter .klp-filter-select { width: 150px; }
 
 .modal-login { width: 360px; height: 320px; margin-left: -180px; margin-top: -160px; }
 .modal-login .modal-heading { font-size: 24px; line-height: 34px; color: #000000; font-weight: bold; text-transform: none; }

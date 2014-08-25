@@ -569,6 +569,7 @@ var map_page = (function(){
     	
     	$modal_overlay.addClass("show");
     	$modal.addClass("show");
+    	$modal.find(".js-select2").select2();
     };
 
     var getUrlParam = function(key){
