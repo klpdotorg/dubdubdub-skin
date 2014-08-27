@@ -369,6 +369,21 @@
 		}
 	}
 
+	.stats_gender_item{
+		&.large{
+			width: 150px;
+		}
+	}
+
+	.tab-volunteer{
+		.title{
+			font-size: 20px; line-height: 28px;
+		}
+		.items{
+			font-size: 16px; line-height: 22px;
+		}
+	}
+
 	@include if-device(phone-tablet) {
 		.fl-desktop,
 		.fr-desktop{
