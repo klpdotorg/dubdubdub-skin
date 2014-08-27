@@ -218,6 +218,9 @@
 		h4{
 			font-size: 12px; line-height: 12px; font-weight: $bold; color: #7B7795;
 			text-align: left; margin: 0 0 10px; letter-spacing: 1px;
+			&.large{
+				font-size: 18px; line-height: 18px;
+			}
 		}
 
 		p{
@@ -376,6 +379,15 @@
 	}
 
 	.tab-volunteer{
+		.title{
+			font-size: 20px; line-height: 28px;
+		}
+		.items{
+			font-size: 16px; line-height: 22px;
+		}
+	}
+
+	.tab-items{
 		.title{
 			font-size: 20px; line-height: 28px;
 		}
