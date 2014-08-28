@@ -699,14 +699,22 @@
 		var place_data = {
 			1:  {
 					name: "Gian Jyoti Public School",
-					latlong: [51.505, -0.09]
+					latlong: [51.505, -0.09],
+					type: "school"
 				},
 			2:  {
 					name: "Karnataka Public School",
-					latlong: [51.500, -0.094]
+					latlong: [51.500, -0.094],
+					type: "school"
+				},
+			3:  {
+					name: "Konanakunte",
+					latlong: [51.498, -0.092],
+					type: "cluster"
 				}
 		};
-		var tpl_map_popup;
+		var tpl_map_popup,
+			tpl_mamp_popup_cluster;
 		var tpl_mobile_place_details;
 
 		var map_voluteer_date = false;
@@ -715,6 +723,7 @@
 			window_width = $(window).width();
 
 			tpl_map_popup = swig.compile($("#tpl-map-popup").html());
+			tpl_map_popup_cluster = swig.compile($("#tpl-map-popup-cluster").html());
 			tpl_mobile_place_details = swig.compile($("#tpl_mobile_place_details").html());
 
 
@@ -828,10 +837,19 @@
 		}
 
 		function build_popup_content(place_id){
+			var place = place_data[place_id];
+			var tpl = tpl_map_popup;
+
 			var ctx = {
 				date: map_voluteer_date
 			};
-			var html = tpl_map_popup(ctx);
+			
+			if(place.type == "cluster"){
+				tpl = tpl_map_popup_cluster;
+			}
+			
+			var html = tpl(ctx);
+
 			return html;
 		}
 		function build_mobile_details_content(place_id){
