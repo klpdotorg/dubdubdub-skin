@@ -471,6 +471,9 @@
 .stats_gender_item.no_width{
 	width: auto; min-width: 100px;
 }
+.stats_gender_item.width-150{
+	width: auto; min-width: 150px;
+}
 .stats_gender_item.boy{
 	.value{
 		color: #609adf;

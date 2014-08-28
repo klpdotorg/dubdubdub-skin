@@ -1174,6 +1174,8 @@ a:hover { text-decoration: underline; }
 
 .stats_gender_item.no_width { width: auto; min-width: 100px; }
 
+.stats_gender_item.width-150 { width: auto; min-width: 150px; }
+
 .stats_gender_item.boy .value { color: #609adf; }
 .stats_gender_item.boy .icon { background-color: #609adf; background-image: url("../images/status_boy.png"); }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) { .stats_gender_item.boy .icon { background-image: url("../images/status_boy@2x.png"); -webkit-background-size: 12px 30px; -moz-background-size: 12px 30px; -o-background-size: 12px 30px; background-size: 12px 30px; } }
@@ -2124,7 +2126,7 @@ a.external { padding-right: 20px; background: url("../images/external_url_icon.p
 .page-profile.profile-head { border-bottom: 1px solid #D8D8D8; }
 .page-profile .profile-img { width: 80px; height: 80px; -webkit-border-radius: 50%; -moz-border-radius: 50%; -ms-border-radius: 50%; -o-border-radius: 50%; border-radius: 50%; border: 2px solid #D8D8D8; }
 .page-profile .location { font-size: 12px; line-height: 18px; color: #898989; margin: 0; }
-.page-profile .verified { background-image: url("../images/icon_verified.png"); background-repeat: no-repeat; padding-left: 20px; }
+.page-profile .verified { background-image: url("../images/icon_verified.png"); background-size: auto 100%; background-repeat: no-repeat; padding-left: 20px; }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) { .page-profile .verified { background-image: url("../images/icon_verified@2x.png"); -webkit-background-size: auto 100%; -moz-background-size: auto 100%; -o-background-size: auto 100%; background-size: auto 100%; } }
 
 .stats_opportunities { margin: 10px auto; width: 140px; }
@@ -2133,9 +2135,9 @@ a.external { padding-right: 20px; background: url("../images/external_url_icon.p
 .stats_opportunities .label span { font-weight: 400; }
 .stats_opportunities .value { font-size: 22px; line-height: 22px; font-weight: 700; color: #609adf; }
 .stats_opportunities .icon { display: block; float: left; width: 48px; height: 48px; margin-right: 10px; background-color: #609adf; background-position: center center; background-repeat: no-repeat; -webkit-border-radius: 50%; -moz-border-radius: 50%; -ms-border-radius: 50%; -o-border-radius: 50%; border-radius: 50%; }
-.stats_opportunities .icon.donation { background-image: url("../images/icon_donation.png"); }
+.stats_opportunities .icon.donation { background-image: url("../images/icon_donation.png"); background-size: auto 100%; }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) { .stats_opportunities .icon.donation { background-image: url("../images/icon_donation@2x.png"); -webkit-background-size: 100% 100%; -moz-background-size: 100% 100%; -o-background-size: 100% 100%; background-size: 100% 100%; } }
-.stats_opportunities .icon.volunteer { background-image: url("../images/icon_volunteer.png"); }
+.stats_opportunities .icon.volunteer { background-image: url("../images/icon_volunteer.png"); background-size: auto 100%; }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) { .stats_opportunities .icon.volunteer { background-image: url("../images/icon_volunteer@2x.png"); -webkit-background-size: 100% 100%; -moz-background-size: 100% 100%; -o-background-size: 100% 100%; background-size: 100% 100%; } }
 
 .stats_opportunities.no_width { width: auto; min-width: 100px; }
@@ -2220,8 +2222,8 @@ a.external { padding-right: 20px; background: url("../images/external_url_icon.p
   .page-donate-item .signup-inner { width: 90%; }
   .page-donate-item .input.small { width: 38px; } }
 
-.page-thank-you .tick { width: 32px; height: 32px; background-image: url("../images/tick-green.png"); }
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) { .page-thank-you .tick { background-image: url("../images/tick-green@2x.png"); -webkit-background-size: auto 100%; -moz-background-size: auto 100%; -o-background-size: auto 100%; background-size: auto 100%; } }
+.page-thank-you .tick { width: 32px; height: 32px; background-image: url("../images/tick-green.png"); background-size: 32px; }
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) { .page-thank-you .tick { background-image: url("../images/tick-green@2x.png"); } }
 .page-thank-you .title { font-size: 20px; line-height: 28px; }
 .page-thank-you .address .name { font-size: 24px; font-weight: 300; line-height: 30px; }
 .page-thank-you .address .details { font-size: 12px; line-height: 15px; letter-spacing: 2px; text-transform: uppercase; }
@@ -2680,7 +2682,8 @@ button.Zebra_DatePicker_Icon_Inside { margin: 0 3px 0 0; }
 .school-details .tab-content { display: none; }
 .school-details .tab-content.current { display: block; }
 .school-details .tab-content h4 { font-size: 12px; line-height: 12px; font-weight: 700; color: #7B7795; text-align: left; margin: 0 0 10px; letter-spacing: 1px; }
-.school-details .tab-content h4.large { font-size: 18px; line-height: 18px; }
+.school-details .tab-content h4.large { font-size: 20px; line-height: 20px; text-transform: none; font-weight: 400; }
+.school-details .tab-content h4.black { color: #393939; }
 .school-details .tab-content p { font-size: 13px; line-height: 20px; margin: 0; }
 .school-details .tab-content a.black { color: #4D4D4D; font-size: 13px; line-height: 24px; }
 .school-details .tab-content .green { color: #1DA84B; }
