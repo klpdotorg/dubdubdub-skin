@@ -10,6 +10,89 @@
 
 {% block content %}
 
+	<section id="compare_modal" class="modal school-comparison-flow is-modal">
+		<div class="content">
+			<div class="compare-box">
+				<a href="#" class="button-close js-comparison-close" title="Close"><span></span></a>
+
+				<div class="vs-separator">
+					<a href="" class="label fl js-comparison-clear-left">clear</a>
+					<div class="label bg fl">Comparing</div>
+					<a href="" class="label fl js-comparison-clear-right">clear</a>
+					<div class="vr"></div>
+					<div class="vs-label">vs</div>
+				</div>
+
+				<div class="info school left-align js-comparison-option-left">
+					<div class="en-icon big en-school fl">S</div>
+					<div class="ml">
+						<h2 class="name en-school">Gian Jyoti Public School</h2>
+						<div class="item">
+							<div class="label">District</div>
+							<div class="value">Bangalore</div>
+						</div>
+						<div class="item">
+							<div class="label">Block</div>
+							<div class="value">North-2</div>
+						</div>
+						<div class="item">
+							<div class="label">Cluster</div>
+							<div class="value">Malleswaram</div>
+						</div>
+					</div>
+					<div class="clr"></div>
+				</div>
+
+				<div class="info school-district right-align hide js-comparison-option-right">
+					<div class="en-icon big en-school-district fr">SD</div>
+					<div class="mr">
+						<h2 class="name en-school-district ta-r">Bangalore</h2>
+						<div class="item">
+							<div class="label">State</div>
+							<div class="value">Karnataka</div>
+						</div>
+					</div>
+					<div class="clr"></div>
+				</div>
+
+				<div class="info default right-align js-comparison-default-right">
+					<a href="" class="title-select ta-r mar_top_15 js-comparison-show-options-right">Click to select an entity</a>
+					<div class="text-select ta-r">or select one by clicking a pin on the map below</div>
+
+					<div class="clr"></div>
+				</div>
+				<div class="clr"></div>
+
+				<a href="" class="btn compare-now js-btn-compare">Compare now</a>
+				<a href="" class="btn cancel js-btn-cancel js-comparison-close show">Cancel</a>
+			</div>
+
+			<div class="comparison-result-wrapper js-comparison-result-wrapper">
+
+			</div>
+				
+		</div>
+		
+		<div class="dropdown-wrapper" id="dropdown_wrapper">
+			<div class="triangle"></div>
+			<div class="search-box">
+				<input type="text" class="input-search" placeholder="Search"/>
+				<a href="" class="icon"><i class="icon-search"></i></a>
+				<div class="clr"></div>
+			</div>
+			
+			<a href="" class="info school js-dropdown-option-right">
+				<div class="en-icon small en-school fl">S</div>
+				<div class="name en-school">Delhi Public School</div>
+				<div class="clr"></div>
+			</a>
+			<a href="" class="info school-district js-dropdown-option-right">
+				<div class="en-icon small en-school-district fl">SD</div>
+				<div class="name en-school-district">Bangalore</div>
+				<div class="clr"></div>
+			</a>
+	</section>
+
 	<section class="school-page">
 		<div class="page-header">
 			<div class="map-canvas"></div>
@@ -37,7 +120,7 @@
 						</div>
 					</div>
 					<div class="buttons-wrapper">
-						<a class="button dark_grey btn-compare js-trigger-compare" href="">Compare to</a>
+						<a class="button dark_grey btn-compare js-trigger-compare" href="#">Compare to</a>
 						<a class="button js-trigger-volunteer" href="volunteer_register.php">Volunteer here</a>
 					</div>
 					<div class="clr"></div>
@@ -701,6 +784,16 @@
     		}
     		return ht;
     	}
+
+    	function show_compare_modal(){
+    		$("#modal_overlay").addClass("show");
+    		$("#compare_modal").addClass("show");
+    	}
+
+    	$(document).on("click", ".js-trigger-compare", function(e){
+    		e.preventDefault();
+    		show_compare_modal();
+    	});
 
     	$(document).ready(function(){
 			init_tabs();
