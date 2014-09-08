@@ -4,6 +4,10 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 @import url("html5-doctor-reset.css");
 @import url("fontello.css");
+.color-red { color: #cb0012; }
+
+.color-red-2 { color: #ec6608; }
+
 .color-black { color: #000; }
 
 .color-black-2 { color: #393939; }
@@ -1258,7 +1262,7 @@ a.external { padding-right: 20px; background: url("../images/external_url_icon.p
 .button { display: inline-block; margin: 25px 0 0; height: 30px; overflow: hidden; padding: 0 18px; font-size: 12px; line-height: 30px; letter-spacing: 1px; font-weight: 700; color: white !important; text-transform: uppercase; background: #3891E3; cursor: pointer; text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.5); -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0px -3px 0px rgba(0, 0, 0, 0.2) inset; -moz-box-shadow: 0px -3px 0px rgba(0, 0, 0, 0.2) inset; box-shadow: 0px -3px 0px rgba(0, 0, 0, 0.2) inset; -webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; -o-appearance: none; appearance: none; outline: none; border: none; }
 .button.block { display: block; }
 .button.no-mar { margin: 0; }
-.button:hover { text-decoration: none; line-height: 32px; -webkit-box-shadow: 0px -3px 0px transparent inset; -moz-box-shadow: 0px -3px 0px transparent inset; box-shadow: 0px -3px 0px transparent inset; }
+.button:hover { text-decoration: none; line-height: 32px; -webkit-box-shadow: 0px -3px 0px rgba(0, 0, 0, 0) inset; -moz-box-shadow: 0px -3px 0px rgba(0, 0, 0, 0) inset; box-shadow: 0px -3px 0px rgba(0, 0, 0, 0) inset; }
 .button.small { height: 24px; padding: 0 9px; font-size: 10px; line-height: 24px; }
 .button.small:hover { line-height: 26px; }
 
@@ -1649,6 +1653,11 @@ a.external { padding-right: 20px; background: url("../images/external_url_icon.p
 .volunteer-flow .step-confirmation .confirm-org .org-head { font-size: 12px; text-transform: uppercase; color: #8D8D8D; }
 .volunteer-flow .step-confirmation .confirm-org .text { font-size: 16px; font-weight: bold; }
 .volunteer-flow .step-confirmation .btn-modal-close { margin-right: 10px; }
+.volunteer-flow .step-submit .confirm-org { width: 100%; margin-top: 50px; }
+.volunteer-flow .step-submit .confirm-org .confirm-org-1 { width: 48%; padding-right: 2%; }
+.volunteer-flow .step-submit .confirm-org .confirm-org-2 { width: 48%; padding-left: 2%; }
+.volunteer-flow .step-submit .confirm-org .org-head { font-size: 12px; text-transform: uppercase; color: #8D8D8D; }
+.volunteer-flow .step-submit .confirm-org .text { font-size: 16px; font-weight: bold; }
 .volunteer-flow .cal { width: 320px; height: 280px; margin: 30px auto 0; }
 .volunteer-flow .input-wrapper { position: relative; }
 .volunteer-flow .input-wrapper .icon-location { position: absolute; right: 0; top: 0; width: 36px; height: 36px; text-align: center; background-repeat: no-repeat; background-position: center; background-image: url("../images/volunteer/icon_location.png"); opacity: 0.5; filter: alpha(opacity=50); }
@@ -1997,7 +2006,6 @@ a.external { padding-right: 20px; background: url("../images/external_url_icon.p
   .page-programme-details .img_fl { margin-right: 20px; } }
 @media screen and (max-width: 979px) and (max-width: 767px), screen and (max-width: 979px) and (-webkit-min-device-pixel-ratio: 1.3) and (max-width: 767px), screen and (max-width: 979px) and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 1.3), screen and (max-width: 979px) and (-webkit-min-device-pixel-ratio: 1.3) and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 1.3) { .page-programme-details .container img { width: 100%; }
   .page-programme-details .img_fr, .page-programme-details .img_fl { float: none; margin-left: 0; margin-right: 0; } }
-
 .page-programme-details h3 { color: #393939; text-align: left; letter-spacing: normal; font-size: 18px; font-weight: 700; margin: 50px 0 25px; }
 .page-programme-details ul.levels { list-style: none; margin: 0; padding: 0; zoom: 1; }
 .page-programme-details ul.levels:before, .page-programme-details ul.levels:after { content: ""; display: table; }
@@ -2222,14 +2230,15 @@ a.external { padding-right: 20px; background: url("../images/external_url_icon.p
   .page-donate-item .signup-inner { width: 90%; }
   .page-donate-item .input.small { width: 38px; } }
 
-.page-thank-you .tick { width: 32px; height: 32px; background-image: url("../images/tick-green.png"); background-size: 32px; }
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) { .page-thank-you .tick { background-image: url("../images/tick-green@2x.png"); } }
 .page-thank-you .title { font-size: 20px; line-height: 28px; }
 .page-thank-you .address .name { font-size: 24px; font-weight: 300; line-height: 30px; }
 .page-thank-you .address .details { font-size: 12px; line-height: 15px; letter-spacing: 2px; text-transform: uppercase; }
 .page-thank-you .text { font-size: 16px; line-height: 22px; }
 .page-thank-you .text.small { font-size: 14px; line-height: 20px; }
 .page-thank-you .items { width: 220px; font-size: 16px; line-height: 22px; }
+
+.tick { width: 32px; height: 32px; background-image: url("../images/tick-green.png"); background-size: 32px; }
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) { .tick { background-image: url("../images/tick-green@2x.png"); } }
 
 .Zebra_DatePicker *, .Zebra_DatePicker *:after, .Zebra_DatePicker *:before { -moz-box-sizing: content-box !important; -webkit-box-sizing: content-box !important; box-sizing: content-box !important; }
 
@@ -2335,7 +2344,7 @@ button.Zebra_DatePicker_Icon_Inside { margin: 0 3px 0 0; }
 .en-preschool-project { color: #de3212; }
 
 .en-icon { font-weight: 700; text-align: center; text-transform: uppercase; -webkit-border-radius: 50%; -moz-border-radius: 50%; -ms-border-radius: 50%; -o-border-radius: 50%; border-radius: 50%; }
-.en-icon.bigger-2 { height: 48px; width: 48px; font-size: 22px; line-height: 50px; border: 1px solid transparent; }
+.en-icon.bigger-2 { height: 46px; width: 46px; font-size: 22px; line-height: 48px; border: 1px solid transparent; }
 .en-icon.bigger { height: 30px; width: 30px; font-size: 16px; line-height: 32px; border: 1px solid transparent; }
 .en-icon.big { height: 28px; width: 28px; font-size: 14px; line-height: 28px; border: 2px solid transparent; }
 .en-icon.small { height: 22px; width: 22px; font-size: 12px; line-height: 24px; border: 1px solid transparent; }
@@ -2629,7 +2638,7 @@ button.Zebra_DatePicker_Icon_Inside { margin: 0 3px 0 0; }
 .map_page .mobile-details-wrapper .map-pin-details { width: auto; }
 .map_page .mobile-details-wrapper .map-pin-details .info { margin: 0; padding: 15px; }
 .map_page .mobile-details-wrapper .map-pin-details .info .icon { height: 20px; width: 20px; margin-top: 0; }
-.map_page .mobile-details-wrapper .map-pin-details .info .icon-close { width: 40px; height: 35px; margin-top: -15px; margin-right: -10px; background-repeat: no-repeat; background-position: bottom center; background-image: url("../images/close_icon.png"); opacity: 0.6; filter: alpha(opacity=60); cursor: pointer; -webkit-touch-callout: none; /* prevent callout to copy image, etc when tap to hold */ -webkit-text-size-adjust: none; /* prevent webkit from resizing text to fit */ -webkit-tap-highlight-color: transparent; /* prevent tap highlight color / shadow */ -webkit-user-select: none; }
+.map_page .mobile-details-wrapper .map-pin-details .info .icon-close { width: 40px; height: 35px; margin-top: -15px; margin-right: -10px; background-repeat: no-repeat; background-position: bottom center; background-image: url("../images/close_icon.png"); opacity: 0.6; filter: alpha(opacity=60); cursor: pointer; -webkit-touch-callout: none; /* prevent callout to copy image, etc when tap to hold */ -webkit-text-size-adjust: none; /* prevent webkit from resizing text to fit */ -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* prevent tap highlight color / shadow */ -webkit-user-select: none; }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) { .map_page .mobile-details-wrapper .map-pin-details .info .icon-close { background-image: url("../images/close_icon@2x.png"); -webkit-background-size: 15px 15px; -moz-background-size: 15px 15px; -o-background-size: 15px 15px; background-size: 15px 15px; } }
 .map_page .mobile-details-wrapper .map-pin-details .info .icon-close:hover, .map_page .mobile-details-wrapper .map-pin-details .info .icon-close:focus { opacity: 1; filter: alpha(opacity=100); }
 .map_page .mobile-details-wrapper .map-pin-details .info .name { line-height: 22px; }
@@ -2824,6 +2833,13 @@ button.Zebra_DatePicker_Icon_Inside { margin: 0 3px 0 0; }
   .page-assessments .phn-clr { clear: both; }
   .page-assessments .comparison { font-size: 14px; }
   .page-assessments .stats_gender_item, .page-assessments .lang-marks .label { font-size: 12px; } }
+
+.page-volunteer-map.sidebar-wrapper { width: 400px; }
+.page-volunteer-map .place_item { padding: 20px !important; }
+.page-volunteer-map .place_item .stats { width: 49%; }
+.page-volunteer-map .place_item .stats .school { line-height: 20px; }
+.page-volunteer-map .place_item .details { width: 49%; }
+.page-volunteer-map .place_item .info { color: #8C8C8C; }
 
 .guide-item-bordered { border-bottom: 1px solid #d8d8d8; margin: 30px 0; }
 
