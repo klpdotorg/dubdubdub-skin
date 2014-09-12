@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% block page_title %}Edit Organisation{% endblock %}
+{% block page_title %}Manage Organisation{% endblock %}
 {% block head %}
     {{ parent() }}
     
@@ -10,7 +10,7 @@
 
 	<section class="phn-pb-30">
 		<div class="container">
-			<h1 class="bordered blue">Edit Organisation</h1>
+			<h1 class="bordered blue">Manage Organisation</h1>
 
 			<div class="font-20">
 				Editing <span class="color-green-2"> Akshara Foundation</span>
@@ -82,14 +82,14 @@
 
 			<div class="tab-heading">Members</div>
 			<div class="tab-content container members-list" data-tab="members">
-				<div class="title-purple fl mr-20">Members</div>
+				<div class="title-purple fl mr-20">214 Members</div>
 				<a class="button blue fr mt-0" href="#">Add New Member</a>
 				<div class="clr"></div>
 				<div class="div-table mt-30">
 					<div class="div-table-row table-head">
-						<div class="div-table-cell name uppercase">Name</div>
+						<div class="div-table-cell name uppercase">Title</div>
 						<div class="div-table-cell status uppercase">Status</div>
-						<div class="div-table-cell action uppercase">Action</div>
+						<div class="div-table-cell action uppercase ta-r">Action</div>
 					</div>
 					<div class="div-table-row">
 						<div class="div-table-cell name">
@@ -161,15 +161,14 @@
 				<div>
 					<table class="tbl-common ta-l">
 						<tr>
-							<th class="cell-width-40">Name</th>
-							<th class="cell-width-25">School Details</th>
+							<th class="cell-width-40">Title</th>
+							<th class="cell-width-25">School</th>
 							<th class="cell-width-15">Volunteers</th>
-							<th class="cell-width-20">Status</th>
+							<th class="cell-width-20 ta-r">Action</th>
 						</tr>
 						<tr>
 							<td>
-								<a href="#" class="color-red bold">Activity Based</a>
-								<br/>
+								<div class="color-red bold">Activity Based</div>
 								<div class="color-grey-light-2 mt-5">In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam.</div>
 							</td>
 							<td>
@@ -177,11 +176,10 @@
 								<div class="color-grey-light-2 mt-5">Street No-4, Banasawadi, Bangalore</div>
 							</td>
 							<td>
-								<a href="#" class="font-14 color-blue">5 volunteers</a>
+								<a href="volunteer-opportunities-edit.php" class="font-14 color-blue">5 volunteers</a>
 							</td>
-							<td>
-								<a href="volunteer-opportunities-edit.php" class="button-hollow fl mt-0 mr-10">Edit</a>
-								<div class="action-dropdown fl">
+							<td class="ta-r">
+								<div class="action-dropdown fr">
 									<a href="#" class="dropdown-trigger small"></a>
 									<ul class="action-dropdown-list ta-l">
 										<li>
@@ -198,13 +196,13 @@
 										</li>
 									</ul>
 								</div>
+								<a href="volunteer-opportunities-edit.php" class="button-hollow fr mt-0 mr-10">Edit</a>
 								<div class="clr"></div>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<a href="#" class="color-red bold">Activity Based</a>
-								<br/>
+								<div class="color-red bold">Activity Based</div>
 								<div class="color-grey-light-2 mt-5">In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam.</div>
 							</td>
 							<td>
@@ -212,11 +210,10 @@
 								<div class="color-grey-light-2 mt-5">Street No-4, Banasawadi, Bangalore</div>
 							</td>
 							<td>
-								<a href="#" class="font-14 color-blue">5 volunteers</a>
+								<a href="volunteer-opportunities-edit.php" class="font-14 color-blue">5 volunteers</a>
 							</td>
-							<td>
-								<a href="#" class="button-hollow fl mt-0 mr-10">Inactive</a>
-								<div class="action-dropdown fl">
+							<td class="ta-r">
+								<div class="action-dropdown fr">
 									<a href="#" class="dropdown-trigger small"></a>
 									<ul class="action-dropdown-list ta-l">
 										<li>
@@ -233,6 +230,7 @@
 										</li>
 									</ul>
 								</div>
+								<a href="volunteer-opportunities-edit.php" class="button-hollow fr mt-0 mr-10">Edit</a>
 								<div class="clr"></div>
 							</td>
 						</tr>
@@ -245,10 +243,10 @@
 				<div>
 					<table class="tbl-common ta-l">
 						<tr>
-							<th class="cell-width-40">Name</th>
-							<th class="cell-width-25">School Details</th>
+							<th class="cell-width-40">Title</th>
+							<th class="cell-width-25">School</th>
 							<th class="cell-width-20">Volunteers</th>
-							<th class="cell-width-15">Status</th>
+							<th class="cell-width-15 ta-r">Status</th>
 						</tr>
 						<tr>
 							<td>
@@ -261,21 +259,20 @@
 							</td>
 							<td class="font-14">
 								<div>
-									<span class="color-blue">Chairs</span> X 5
+									5 X <span class="color-blue">Chairs</span>
 								</div>
 								<div>
-									<span class="color-blue">Tables</span> X 3
+									3 X <span class="color-blue">Tables</span>
 								</div>
 								<div>
-									<span class="color-blue">Cupboards</span> X 1
+									1 X <span class="color-blue">Cupboards</span>
 								</div>
 								<div>
-									<span class="color-blue">Books</span> X 8
+									8 X <span class="color-blue">Books</span>
 								</div>
 							</td>
-							<td>
-								<a href="donation-requests-edit.php" class="button-hollow fl mt-0 mr-10">Edit</a>
-								<div class="action-dropdown fl">
+							<td class="ta-r">
+								<div class="action-dropdown fr">
 									<a href="#" class="dropdown-trigger small"></a>
 									<ul class="action-dropdown-list ta-l">
 										<li>
@@ -292,6 +289,7 @@
 										</li>
 									</ul>
 								</div>
+								<a href="donation-requests-edit.php" class="button-hollow fr mt-0 mr-10">Edit</a>
 								<div class="clr"></div>
 							</td>
 						</tr>
@@ -306,21 +304,20 @@
 							</td>
 							<td>
 								<div>
-									<span class="color-blue">Chairs</span> X 5
+									5 X <span class="color-blue">Chairs</span>
 								</div>
 								<div>
-									<span class="color-blue">Tables</span> X 3
+									3 X <span class="color-blue">Tables</span>
 								</div>
 								<div>
-									<span class="color-blue">Cupboards</span> X 1
+									1 X <span class="color-blue">Cupboards</span>
 								</div>
 								<div>
-									<span class="color-blue">Books</span> X 8
+									8 X <span class="color-blue">Books</span>
 								</div>
 							</td>
-							<td>
-								<a href="#" class="button-hollow fl mt-0 mr-10">Inactive</a>
-								<div class="action-dropdown fl">
+							<td class="ta-r">
+								<div class="action-dropdown fr">
 									<a href="#" class="dropdown-trigger small"></a>
 									<ul class="action-dropdown-list ta-l">
 										<li>
@@ -337,6 +334,7 @@
 										</li>
 									</ul>
 								</div>
+								<a href="donation-requests-edit.php" class="button-hollow fr mt-0 mr-10">Edit</a>
 								<div class="clr"></div>
 							</td>
 						</tr>
