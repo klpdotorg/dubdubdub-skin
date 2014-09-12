@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% block page_title %}Users{% endblock %}
+{% block page_title %}Volunteer Opportunities Edit{% endblock %}
 {% block head %}
     {{ parent() }}
     
@@ -10,14 +10,71 @@
 
 	<section class="phn-pb-30">
 		<div class="container">
-			<h1 class="bordered blue">Users</h1>
+			<h1 class="bordered blue">Volunteer Opportunities Edit</h1>
+
+			<div class="mb-30">
+				<div class="fl">
+					<div class="font-20 color-red">Activity Based</div>
+					<div>
+						<span class="color-grey-light-2">For </span>
+						<span class="color-green-2 uppercase"> Akshara Foundation</span>
+					</div>
+				</div>
+				<div class="fr ta-r">
+					<div class="font-20 color-green">Gian Jyoti Public School</div>
+					<div>Malleswaram, North-2, Bangalore</div>
+				</div>
+				<div class="clr"></div>
+			</div>
+
+			<ul class="tabs phn-hide">
+				<li data-tab="details" class="js-tab-link current">Edit Details</li>
+				<li data-tab="volunteers" class="js-tab-link">Volunteers</li>
+			</ul>
 		</div>
 	</section>
 
-	<section class="pb-30 phn-pt-0">
-		<div class="container members-list">
+	<div class="hr"></div>
 
-			<table class="tbl-common va-m users-list ta-l">
+	<section class="pt-30 pb-60 phn-pt-0">
+		<div class="js-tabs-wrapper">
+
+			<div class="tab-heading">Edit Details</div>
+			<div class="tab-content container current" data-tab="details">
+				<div>
+					<form class="width-400">
+						<div class="mb-30">
+							<label class="block bold mb-5">Activity Type</label>
+							<input type="text" class="input">
+						</div>
+						<div class="mb-30">
+							<label class="block bold mb-5">School</label>
+							<select class="select2 width-full">
+								<option>Gian Jyoti Public School</option>
+								<option>Manav Mangal School</option>
+								<option>Dav Public School</option>
+							</select>
+						</div>
+						<div class="mb-30">
+							<label class="block bold mb-5">Date</label>
+							<input type="text" class="input">
+						</div>
+						<div class="mb-30">
+							<label class="block bold mb-5">Text</label>
+							<textarea class="input textarea"></textarea>
+						</div>
+						<div class="mb-30">
+							<input type="submit" value="Submit" class="button blue">
+						</div>
+					</form>
+				</div>
+				<div class="clr"></div>
+			</div>	<!-- Edit Details Tab END -->
+
+			<div class="tab-heading">Volunteer Opportunities</div>
+			<div class="tab-content container" data-tab="volunteers">
+				<div>
+					<table class="tbl-common va-m users-list ta-l">
 				<tr>
 					<th class="cell-width-25">Name</th>
 					<th>Address</th>
@@ -26,7 +83,7 @@
 				<tr>
 					<td>
 						<img class="profile-img fl mr-10" src="images/thumb_reading_programme.jpg">
-						<a href="#" class="user-name color-blue bold">Gurliv Sembhi</a>
+						<a href="profile.php" class="user-name color-blue bold">Gurliv Sembhi</a>
 						<div class="clr"></div>
 					</td>
 					<td>
@@ -55,7 +112,7 @@
 				<tr>
 					<td>
 						<img class="profile-img fl mr-10" src="images/thumb_reading_programme.jpg">
-						<a href="#" class="user-name color-blue bold">Gurliv Sembhi</a>
+						<a href="profile.php" class="user-name color-blue bold">Gurliv Sembhi</a>
 						<div class="clr"></div>
 					</td>
 					<td>
@@ -82,6 +139,8 @@
 					</td>
 				</tr>
 			</table>
+				</div>
+			</div>	<!-- Volunteer Tab END -->
 
 		</div>
 	</section>
