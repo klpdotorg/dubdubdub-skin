@@ -1274,7 +1274,7 @@ a.external { padding-right: 20px; background: url("../images/external_url_icon.p
 .button.green2 { background: #25b3b6; }
 .button.grey { background: #898989; }
 
-.button-hollow { display: inline-block; margin: 25px 0 0; height: 22px; overflow: hidden; padding: 0 9px; font-size: 10px; line-height: 22px; letter-spacing: 1px; font-weight: 700; color: #adadad; text-transform: uppercase; background: transparent; cursor: pointer; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; -webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; -o-appearance: none; appearance: none; outline: none; border: 1px solid #adadad; }
+.button-hollow { display: inline-block; margin: 25px 0 0; height: 22px; overflow: hidden; padding: 0 9px; font-size: 10px; line-height: 20px; letter-spacing: 1px; font-weight: 700; color: #adadad; text-transform: uppercase; background: transparent; cursor: pointer; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; -webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; -o-appearance: none; appearance: none; outline: none; border: 1px solid #adadad; }
 .button-hollow.large { height: 30px; font-size: 12px; line-height: 30px; }
 .button-hollow:hover { color: #898989; border-color: #898989; text-decoration: none; }
 

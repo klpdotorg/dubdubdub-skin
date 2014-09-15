@@ -792,7 +792,7 @@ a.external{
 
 .button-hollow{
 	display: inline-block; margin: 25px 0 0; height: 22px; overflow: hidden; padding: 0 9px;
-	font-size: 10px; line-height: 22px; letter-spacing: 1px;
+	font-size: 10px; line-height: 20px; letter-spacing: 1px;
 	font-weight: $bold; color: #adadad; text-transform: uppercase;
 	background: transparent; cursor:pointer;
 	@include border-radius(3px);
