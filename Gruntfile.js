@@ -15,9 +15,9 @@ module.exports = function(grunt) {
 		concat: {
 	        prod : {
 	        	src : [
-	                'js/klp/klp.volunteer-initial.js',
-	                'js/klp/klp.volunteer-map.js',
-	                'js/klp/klp.volunteer-confirm.js'
+	                'js/klp/src/klp.volunteer-initial.js',
+	                'js/klp/src/klp.volunteer-map.js',
+	                'js/klp/src/klp.volunteer-confirm.js'
 	            ],
 	            dest : 'js/klp/klp.js'
 	        }
@@ -39,6 +39,10 @@ module.exports = function(grunt) {
 			css: {
 				files: ['css/**/*.scss', 'css/**/*.css'],
 				tasks: ['sass']
+			},
+			js: {
+				files: ['js/klp/src/**/*.js'],
+				tasks: ['concat', 'uglify']
 			}
 		}
     });
@@ -51,4 +55,5 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['concat', 'uglify', 'sass']);
     grunt.registerTask('watch-all', ['watch']);
     grunt.registerTask('watch-css', ['watch:css']);
+    grunt.registerTask('watch-js', ['watch:js']);
 };
