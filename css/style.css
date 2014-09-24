@@ -1397,7 +1397,7 @@ table.tbl-common.va-m th, table.tbl-common.va-m td { vertical-align: middle; }
 .add-member .token-input-list li.token-input-token:last-of-type { border-bottom: none; }
 .add-member .member-input-box { background: #fff; border: 1px solid #CFCFCF; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; }
 .add-member .member-input-box input { width: 94%; height: 32px; padding: 0 3%; border: none; outline: none; }
-.add-member .member-input-box .token-input-delete-token { font-weight: bold; font-size: 16px; cursor: pointer; color: #26649B; position: absolute; height: 26px; top: 0; right: 0; padding: 0 10px; line-height: 21px; text-align: center; text-decoration: none; }
+.add-member .member-input-box .token-input-delete-token { font-weight: bold; font-size: 16px; cursor: pointer; color: #26649B; position: absolute; height: 26px; top: 0; right: 0; padding: 0 10px; line-height: 24px; text-align: center; text-decoration: none; }
 .add-member .member-input-box .token-input-delete-token:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
 .add-member .tile-head { font-size: 16px; font-weight: normal; }
 
