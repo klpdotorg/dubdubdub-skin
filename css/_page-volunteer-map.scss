@@ -1,6 +1,10 @@
 .page-volunteer-map{
 
-	&.sidebar-wrapper{
+	.map_canvas_full {
+		left: 400px;
+	}
+
+	.sidebar-wrapper{
 		width: 400px;
 	}
 
