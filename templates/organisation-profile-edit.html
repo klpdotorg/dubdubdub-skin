@@ -3,7 +3,40 @@
 {% block page_title %}Manage Organisation{% endblock %}
 {% block head %}
     {{ parent() }}
-    
+    <script type="text/javascript" src="http://loopj.com/jquery-tokeninput/src/jquery.tokeninput.js"></script>
+
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		$(document).on("click", ".js-trigger-add-member", function(e){
+		        if($(document).width() < 768){
+		            return true;
+		        }
+
+		        e.preventDefault();
+
+		        if(!$(".add-member-wrapper").hasClass("show")) {
+		        	$(".add-member-wrapper").addClass("show");
+		        	$(".js-trigger-add-member").hide();
+		        	
+		        }
+		    });
+
+		    $(document).on("click", ".js-trigger-close-members", function(e){
+		        if($(document).width() < 768){
+		            return true;
+		        }
+
+		        e.preventDefault();
+
+		        if($(".add-member-wrapper").hasClass("show")) {
+		        	$(".add-member-wrapper").removeClass("show");
+		        	$(".js-trigger-add-member").show();
+		        	
+		        }
+		    });
+		});
+    </script>
+
 {% endblock %}
 
 {% block content %}
@@ -17,8 +50,8 @@
 			</div>
 
 			<ul class="tabs phn-hide">
-				<li data-tab="details" class="js-tab-link current">Edit Details</li>
-				<li data-tab="members" class="js-tab-link">Members</li>
+				<li data-tab="details" class="js-tab-link">Edit Details</li>
+				<li data-tab="members" class="js-tab-link current">Members</li>
 				<li data-tab="volunteer" class="js-tab-link">Volunteer Opportunities</li>
 				<li data-tab="donation" class="js-tab-link">Donation Requests</li>
 			</ul>
@@ -31,7 +64,7 @@
 		<div class="js-tabs-wrapper">
 
 			<div class="tab-heading">Edit Details</div>
-			<div class="tab-content container current" data-tab="details">
+			<div class="tab-content container " data-tab="details">
 				<div class="grid_6 alpha">
 					<form class="edit-profile-form">
 						<div class="mb-30">
@@ -81,10 +114,218 @@
 			</div>	<!-- Details Tab END -->
 
 			<div class="tab-heading">Members</div>
-			<div class="tab-content container members-list" data-tab="members">
+			<div class="tab-content container current members-list" data-tab="members">
 				<div class="title-purple fl mr-20">214 Members</div>
-				<a class="button blue fr mt-0" href="#">Add New Member</a>
+				<a class="button blue js-trigger-add-member fr mt-0" href="#">Add New Member</a>
 				<div class="clr"></div>
+
+				<div class="add-member-wrapper">
+					<div class="add-member ma pad-30 mt-30 mb-60">
+						<h2 class="tile-head blue mb-30">Add New Member</h2>
+						<form>
+							<div class="member-input-box">
+								<!-- <ul class="token-input-list selected-members-list mt-5 mb-5">
+									<li>
+										<a class="button-delete clickable fr">x</a>
+										<div class="name mr-30">Arjan Kingra</div>
+									</li>
+									<li>
+										<a class="button-delete clickable fr">x</a>
+										<div class="name mr-30">Arjan Kingra</div>
+									</li>
+									<li>
+										<a class="button-delete clickable fr">x</a>
+										<div class="name mr-30">Arjan Kingra</div>
+									</li>
+								</ul> -->
+								<input type="text" id="add-mem" placeholder="Search Member ..." onkeyup="myFunction()">
+							</div>
+							<div class="ta-c mt-30">
+								<input type="submit" value="Confirm" class="button blue mt-0 mr-30">
+								<input type="submit" value="Cancel" class="button blue js-trigger-close-members mt-0">
+							</div>
+						</form>	
+					</div>
+				</div>
+
+				<script type="text/javascript">
+			        $(document).ready(function() {
+			            $("#add-mem").tokenInput([{
+			                "first_name": "Arthur",
+			                "last_name": "Godfrey",
+			                "email": "arthur_godfrey@nccu.edu",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Adam",
+			                "last_name": "Johnson",
+			                "email": "wravo@yahoo.com",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Jeff",
+			                "last_name": "Johnson",
+			                "email": "bballnine@hotmail.com",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Adriana",
+			                "last_name": "Jameson",
+			                "email": "adriana.jameson@gmail.com",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Adriano",
+			                "last_name": "Pooley",
+			                "email": "adrianolpooley@lautau.com.br",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Alcir",
+			                "last_name": "Reis",
+			                "email": "alcirreis@yahoo.com",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Jack",
+			                "last_name": "Cunningham",
+			                "email": "jcunningham@hotmail.com",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Alejandro",
+			                "last_name": "Forbes",
+			                "email": "alejandforbes@gmail.com",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Alessandra",
+			                "last_name": "Mineiro",
+			                "email": "alc_mineiro@aol.com",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Alex",
+			                "last_name": "Frazo",
+			                "email": "alex.frazo@yahoo.com",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Alexandre",
+			                "last_name": "Crawford",
+			                "email": "xandycrawford@gmail.com",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Alexandre",
+			                "last_name": "Lalwani",
+			                "email": "alexandrelalwani@globo.com",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Alexandre",
+			                "last_name": "Jokos",
+			                "email": "alex.jokos@gmail.com.br",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Alexandre",
+			                "last_name": "Paro",
+			                "email": "alexandre.paro@uol.com.br",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Andre",
+			                "last_name": "Niemeyer",
+			                "email": "a.niemeyer@globo.com",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Alyssa",
+			                "last_name": "Fortes",
+			                "email": "afort287@yahoo.com",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Amit",
+			                "last_name": "Alvarenga",
+			                "email": "amit.alva@gmail.com",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Ana Bia",
+			                "last_name": "Borges",
+			                "email": "abborges@gmail.com",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Ana",
+			                "last_name": "Akamine",
+			                "email": "ana.akamine@uol.com.br",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Anderson",
+			                "last_name": "Tovoros",
+			                "email": "alvarenga.tovoros@gmail.com",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Andre",
+			                "last_name": "Borges",
+			                "email": "andreborges@hotmail.com",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Andre",
+			                "last_name": "Wexler",
+			                "email": "andre.wexler@aol.com.br",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Andre",
+			                "last_name": "Williams",
+			                "email": "awilly@yahoo.com",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Andre",
+			                "last_name": "Sanford",
+			                "email": "andre.sanford@gmail.com",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Andre",
+			                "last_name": "Wayne",
+			                "email": "andrewayne@uol.com.br",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Andre",
+			                "last_name": "Jackson",
+			                "email": "andre.jackson@yahoo.com",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Andre",
+			                "last_name": "Jolly",
+			                "email": "andre.jolly@uol.com.br",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            },
+			            {
+			                "first_name": "Andre",
+			                "last_name": "Henderson",
+			                "email": "andre.henderson@globo.com",
+			                "url": "https://si0.twimg.com/sticky/default_profile_images/default_profile_2_normal.png"
+			            }
+			          ], {
+			              propertyToSearch: "first_name",
+			              resultsFormatter: function(item){ return "<li>" + "<img src='" + item.url + "' title='" + item.first_name + " " + item.last_name + "' height='25px' width='25px' />" + "<div style='display: inline-block; padding-left: 10px;'><div class='full_name'>" + item.first_name + " " + item.last_name + "</div><div class='email'>" + item.email + "</div></div></li>" },
+			              tokenFormatter: function(item) { return "<li><div class='name mr-30'>" + item.first_name + " " + item.last_name + "</div></li>" }
+			          });
+			        });
+			        </script>
+
 				<div class="div-table mt-30">
 					<div class="div-table-row table-head">
 						<div class="div-table-cell name uppercase">Title</div>
@@ -158,12 +399,14 @@
 
 			<div class="tab-heading">Volunteer Opportunities</div>
 			<div class="tab-content container" data-tab="volunteer">
+				<a class="button blue fr mt-0 mb-30" href="volunteer-opportunities-add.php">Add</a>
 				<div>
 					<table class="tbl-common ta-l">
 						<tr>
-							<th class="cell-width-40">Title</th>
+							<th class="cell-width-35">Title</th>
 							<th class="cell-width-25">School</th>
 							<th class="cell-width-15">Volunteers</th>
+							<th>Status</th>
 							<th class="cell-width-20 ta-r">Action</th>
 						</tr>
 						<tr>
@@ -177,6 +420,9 @@
 							</td>
 							<td>
 								<a href="volunteer-opportunities-edit.php" class="font-14 color-blue">5 volunteers</a>
+							</td>
+							<td>
+								<div class="color-green">Verified</div>
 							</td>
 							<td class="ta-r">
 								<div class="action-dropdown fr">
@@ -211,6 +457,9 @@
 							</td>
 							<td>
 								<a href="volunteer-opportunities-edit.php" class="font-14 color-blue">5 volunteers</a>
+							</td>
+							<td>
+								<div>Not Verified</div>
 							</td>
 							<td class="ta-r">
 								<div class="action-dropdown fr">
@@ -240,13 +489,15 @@
 
 			<div class="tab-heading">Donation Requests</div>
 			<div class="tab-content container" data-tab="donation">
+				<a class="button blue fr mt-0 mb-30" href="donation-requests-add.php">Add</a>
 				<div>
 					<table class="tbl-common ta-l">
 						<tr>
-							<th class="cell-width-40">Title</th>
+							<th class="cell-width-35">Title</th>
 							<th class="cell-width-25">School</th>
-							<th class="cell-width-20">Volunteers</th>
-							<th class="cell-width-15 ta-r">Status</th>
+							<th class="cell-width-15">Items</th>
+							<th>Status</th>
+							<th class="cell-width-15 ta-r">Action</th>
 						</tr>
 						<tr>
 							<td>
@@ -270,6 +521,9 @@
 								<div>
 									8 X <span class="color-blue">Books</span>
 								</div>
+							</td>
+							<td>
+								<div class="color-green">Verified</div>
 							</td>
 							<td class="ta-r">
 								<div class="action-dropdown fr">
@@ -302,7 +556,7 @@
 								<div class="color-green bold">Gian Jyoti Public School</div>
 								<div class="color-grey-light-2 mt-5">Street No-4, Banasawadi, Bangalore</div>
 							</td>
-							<td>
+							<td class="font-14">
 								<div>
 									5 X <span class="color-blue">Chairs</span>
 								</div>
@@ -315,6 +569,9 @@
 								<div>
 									8 X <span class="color-blue">Books</span>
 								</div>
+							</td>
+							<td>
+								<div>Not Verified</div>
 							</td>
 							<td class="ta-r">
 								<div class="action-dropdown fr">
