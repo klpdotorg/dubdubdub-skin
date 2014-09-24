@@ -119,7 +119,7 @@ var klp = klp || {};
 			var location = $input_data_location.val();
 			var date = $input_data_date.val();
 			var type = $(this).data("type");
-			var url = "map.php?location="+location+"&date="+date+"&type="+type;
+			var url = "volunteer-map.php?location="+location+"&date="+date+"&type="+type;
 			window.location.href = url;
 		}
 	};
