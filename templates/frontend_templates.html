@@ -336,6 +336,117 @@
     </div>
 </script>
 
+<script type="text/template" id="tpl-volunteer-modal-confirm">
+	<div class="modal volunteer-flow modal-volunteer js-volunteer-modal-confirmation-step">
+
+		<a class="button-back btn-modal-back"></a>
+    	<a class="button-close btn-modal-close"></a>
+    	<div class="content">
+    		<h2 class="modal-heading">Volunteer</h2>
+
+    		<div class="steps-wrapper">
+
+	    		<div class="step-item fadein visible" data-step-name="signup">
+		    		<div class="step-details">
+		    			<h3 class="bordered-heading blue">Signup<span></span></h3>
+		    			<input type="text" class="input-text width-100p" placeholder="Name">
+		    			<input type="text" class="input-text width-100p mar_top_30" placeholder="Email">
+		    			<input type="text" class="input-text width-100p mar_top_30" placeholder="Phone Number">
+		    			<input type="password" class="input-text width-100p mar_top_30" placeholder="Password">
+		    			<div class="ta-c mar_top_20">
+		    				<a class="button blue btn-next-step-confirmation">Submit</a>
+		    			</div>
+		    			<div class="ta-c mar_top_20">
+		    				<span class="alternate-text">Already a registered user?</span> 
+		    				<a class="button no-mar filled-shadow small clickable dark_grey btn-next-step-login">Login</a>
+		    			</div>
+		    		</div> 
+		    	</div> <!-- Step End -->
+
+		    	<div class="step-item" data-step-name="login">
+		    		<div class="step-details">
+		    			<h3 class="bordered-heading blue">Login<span></span></h3>
+		    			<input type="text" class="input-text width-100p mar_top_100" placeholder="Email">
+		    			<input type="password" class="input-text width-100p mar_top_30" placeholder="Password">
+		    			<div class="ta-c mar_top_20">
+		    				<a class="button blue btn-next-step-confirmation">Login</a>
+		    			</div>
+		    		</div> 
+		    	</div> <!-- Step End -->
+
+		    	<div class="step-item" data-step-name="confirmation">
+		    		<div class="step-confirmation ta-c">
+		    			<h3 class="bordered-heading blue">Confirm Details<span></span></h3>
+		    			<div class="address en-school">
+		    				<div class="en-icon bigger en-school">s</div>
+		    				<div class="name">Govt. School for Girls</div>
+		    				<div class="details">
+			    				27th Street, Koramangala,<br>
+			    				Bangalore
+		    				</div>
+		    			</div>
+		    			<div class="date">
+		    				<div class="icon-cal"></div>
+		    				<div class="value">7th June, 2014</div>
+		    			</div>
+		    			<div class="confirm-org">
+		    				<div class="confirm-org-1 fl">
+		    					<div class="org-head">Organisation</div>
+		    					<div class="text color-green-2">Akshara Foundation</div>
+		    				</div>
+		    				<div class="confirm-org-2 fr">
+		    					<div class="org-head">Oppertunity</div>
+		    					<div class="text color-red-2">Teaching Based</div>
+		    				</div>
+		    				<div class="clr"></div>
+		    			</div>
+		    			<div class="mar_top_40">
+		    				<a class="button dark_grey btn-modal-close">Cancel</a>
+		    				<a class="button blue btn-next-step-submit">Confirm</a>
+		    			</div>
+		    		</div>
+		    	</div> <!-- Step End -->
+
+		    	<div class="step-item" data-step-name="submit">
+		    		<div class="step-submit ta-c">
+		    			<h3 class="bordered-heading blue mb-40">Details<span></span></h3>
+		    			<div class="address en-school">
+		    				<div class="tick ma mb-10"></div>
+		    			<div class="message mt-10">
+		    				Thank You for Volunteering at
+		    			</div>
+		    				<div class="name mb-5">Govt. School for Girls</div>
+		    				<div class="details">
+			    				27th Street, Koramangala,<br>
+			    				Bangalore
+		    				</div>
+		    			</div>
+		    			<div class="date mt-40 mb-40">
+		    				<div class="icon-cal"></div>
+		    				<div class="value">7th June, 2014</div>
+		    			</div>
+		    			<div class="confirm-org mt-0">
+		    				<div class="confirm-org-1 fl">
+		    					<div class="org-head">Organisation</div>
+		    					<div class="text color-green-2">Akshara Foundation</div>
+		    				</div>
+		    				<div class="confirm-org-2 fr">
+		    					<div class="org-head">Oppertunity</div>
+		    					<div class="text color-red-2">Teaching Based</div>
+		    				</div>
+		    				<div class="clr"></div>
+		    			</div>
+		    			<div class="mt-20">
+		    				<a class="button blue btn-modal-close">Close</a>
+		    			</div>
+		    		</div>
+		    	</div> <!-- Step End -->
+
+    		</div>
+    	</div>
+    </div>
+</script>
+
 <script type="text/template" id="tpl-map-popup">
 	<div class="map-pin-details">
 		<div class="content">
@@ -551,7 +662,7 @@
 				<div class="vol-oppor-count ta-c">3 opportunities available</div>
 				<div class="vol-oppor-item">
 					<img class="thumb fl" src="images/volunteer/activity.png"/>
-					<a class="button blue small fr js-trigger-volunteer-map" href="volunteer_register.php">Volunteer</a>
+					<a class="button blue small clickable fr js-trigger-volunteer-confirm">Volunteer</a>
 					<div class="item-info">
 						<div class="item-title bold color-red">Activity Based</div>
 						<div class="item-org">For <span class="uppercase color-green-2">Akshara Foundation</span></div>
@@ -563,7 +674,7 @@
 				</div>
 				<div class="vol-oppor-item">
 					<img class="thumb fl" src="images/volunteer/activity.png"/>
-					<a class="button blue small fr js-trigger-volunteer-map" href="volunteer_register.php">Volunteer</a>
+					<a class="button blue small clickable fr js-trigger-volunteer-confirm">Volunteer</a>
 					<div class="item-info">
 						<div class="item-title bold color-red">Activity Based</div>
 						<div class="item-org">For <span class="uppercase color-green-2">Akshara Foundation</span></div>
