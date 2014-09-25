@@ -25,10 +25,6 @@
     <script type="text/javascript">
     	$(document).ready(function(){
     		$(document).on("click", ".profile-options-wrapper .profile-options", function(e){
-		        if($(document).width() < 768){
-		            return true;
-		        }
-
 		        e.preventDefault();
 
 		        if(!$(".profile-options-wrapper").hasClass("show-drop")) {

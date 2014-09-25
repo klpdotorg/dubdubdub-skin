@@ -1732,9 +1732,9 @@ table.tbl-common.va-m th, table.tbl-common.va-m td { vertical-align: middle; }
 
 .select2-results li { color: #5f5f5f !important; }
 
-.volunteer-flow .teaching { color: #23BA89; }
-.volunteer-flow .activity { color: #FB4C2F; }
-.volunteer-flow .skill { color: #7A63D6; }
+.volunteer-flow .teaching { color: #26b262; }
+.volunteer-flow .activity { color: #cb0012; }
+.volunteer-flow .skill { color: #7676bc; }
 .volunteer-flow .steps-wrapper { position: relative; height: 500px; overflow: hidden; overflow-y: scroll; }
 .volunteer-flow .step-item { position: absolute; top: 0; left: 0; right: 0; visibility: hidden; opacity: 0; filter: alpha(opacity=0); -webkit-transform: translateX(0) translateY(0); -moz-transform: translateX(0) translateY(0); -ms-transform: translateX(0) translateY(0); -o-transform: translateX(0) translateY(0); transform: translateX(0) translateY(0); }
 .volunteer-flow .step-item.visible { visibility: visible; }
@@ -1769,13 +1769,13 @@ table.tbl-common.va-m th, table.tbl-common.va-m td { vertical-align: middle; }
 .volunteer-flow .opportunities-list .list-item .available .count { display: block; font-size: 24px; line-height: 32px; font-weight: 700; }
 .volunteer-flow .opportunities-list .list-item.teaching { background-image: url("../images/volunteer/teaching.png"); }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) { .volunteer-flow .opportunities-list .list-item.teaching { background-image: url("../images/volunteer/teaching@2x.png"); -webkit-background-size: 72px 72px; -moz-background-size: 72px 72px; -o-background-size: 72px 72px; background-size: 72px 72px; } }
-.volunteer-flow .opportunities-list .list-item.teaching .title, .volunteer-flow .opportunities-list .list-item.teaching .available .count { color: #23BA89; }
+.volunteer-flow .opportunities-list .list-item.teaching .title, .volunteer-flow .opportunities-list .list-item.teaching .available .count { color: #26b262; }
 .volunteer-flow .opportunities-list .list-item.activity { background-image: url("../images/volunteer/activity.png"); }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) { .volunteer-flow .opportunities-list .list-item.activity { background-image: url("../images/volunteer/activity@2x.png"); -webkit-background-size: 72px 72px; -moz-background-size: 72px 72px; -o-background-size: 72px 72px; background-size: 72px 72px; } }
-.volunteer-flow .opportunities-list .list-item.activity .title, .volunteer-flow .opportunities-list .list-item.activity .available .count { color: #FB4C2F; }
+.volunteer-flow .opportunities-list .list-item.activity .title, .volunteer-flow .opportunities-list .list-item.activity .available .count { color: #cb0012; }
 .volunteer-flow .opportunities-list .list-item.skill { background-image: url("../images/volunteer/skill.png"); }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) { .volunteer-flow .opportunities-list .list-item.skill { background-image: url("../images/volunteer/skill@2x.png"); -webkit-background-size: 72px 72px; -moz-background-size: 72px 72px; -o-background-size: 72px 72px; background-size: 72px 72px; } }
-.volunteer-flow .opportunities-list .list-item.skill .title, .volunteer-flow .opportunities-list .list-item.skill .available .count { color: #7A63D6; }
+.volunteer-flow .opportunities-list .list-item.skill .title, .volunteer-flow .opportunities-list .list-item.skill .available .count { color: #7676bc; }
 .volunteer-flow .opportunities-list .list-item.show-all { padding: 10px; color: #6D6D6D; font-size: 16px; text-align: center; text-decoration: none; }
 .volunteer-flow .opportunities-list .list-item.active, .volunteer-flow .opportunities-list .list-item:hover { background-color: #fff; }
 .volunteer-flow .opportunities-list.organizations-list .list-item { padding: 15px; }
