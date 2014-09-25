@@ -17,13 +17,15 @@
 {% endblock %}
 
 {% block subheader %}
-	<div class="map-subheader-wrapper show-volunteer-filters">
+	<div class="map-subheader-wrapper volunteer-map-subheader-wrapper show-volunteer-filters">
 		<div class="subheader-content">
 			<input type="text" name="search" placeholder="Search" class="search-input fl"/>
+			<a class="button no-mar filled-shadow clickable grey mt-10 mr-10 fr hide phn-block js-toggle-vol-mobile-filters">Filters</a>
+			<div class="phn-clr"></div>
 
 			<div class="volunteer-filters-wrapper fl">
 				<div class="label fl">Location</div>
-				<div class="filter-item fl">
+				<div class="filter-item fl phn-fr">
 					<select name="location" class="dropdown">
 						<option>Banaswadi</option>
 						<option>Malleswaram</option>
@@ -31,9 +33,10 @@
 						<option>Malleswaram</option>
 					</select>
 				</div>
+				<div class="hide phn-block phn-clr"></div>
 
 				<div class="label fl">Date</div>
-				<div class="filter-item fl">
+				<div class="filter-item fl phn-fr">
 					<span class="js-volunter-date-input-wrapper">
 						<input type="text" name="date" readonly="readonly" value="15-07-2014" class="input date-input" id="vol-date-input">
 					</span>
@@ -84,9 +87,10 @@
 
 					</script>
 				</div>
+				<div class="hide phn-block phn-clr"></div>
 
 				<div class="label fl">Organization</div>
-				<div class="filter-item fl">
+				<div class="filter-item fl phn-fr">
 					<select name="organization" class="dropdown">
 						<option selected>All</option>
 						<option>Akshara Foundation</option>
@@ -95,9 +99,10 @@
 						<option>NUEPA</option>
 					</select>
 				</div>
+				<div class="hide phn-block phn-clr"></div>
 
 				<div class="label fl">Opportunity</div>
-				<div class="filter-item fl">
+				<div class="filter-item fl phn-fr">
 					<select name="activity" class="dropdown">
 						<option selected>All</option>
 						<option>Teaching Based</option>
@@ -111,6 +116,15 @@
 			<div class="clr"></div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		$(function(){
+			console.log("here 1");
+			$(document).on("click", ".js-toggle-vol-mobile-filters", function(){
+				console.log("here 2");
+				$(".volunteer-filters-wrapper").toggleClass("show-mobile");
+			});
+		});
+	</script>
 {% endblock %}
 
 {% block content %}
@@ -164,7 +178,7 @@
 
 		<section id="sidebar_wrapper" class="sidebar-wrapper">
 			<ul>
-				<li class="place_item">
+				<li class="place_item js-trigger-volunteer-confirm">
 					<div class="stats">
 						<div class="school bold color-green ellipsis">Gian Jyoti Public School</div>
 					</div>
@@ -183,7 +197,7 @@
 						Lorem Ipsum is simply dummy text of the printing and typesetting industry of the printing and typesetting industry.
 					</div>
 				</li>
-				<li class="place_item">
+				<li class="place_item js-trigger-volunteer-confirm">
 					<div class="stats">
 						<div class="school bold color-green ellipsis">Gian Jyoti Public School</div>
 					</div>
@@ -202,7 +216,7 @@
 						Lorem Ipsum is simply dummy text of the printing and typesetting industry of the printing and typesetting industry.
 					</div>
 				</li>
-				<li class="place_item">
+				<li class="place_item js-trigger-volunteer-confirm">
 					<div class="stats">
 						<div class="school bold color-green ellipsis">Gian Jyoti Public School</div>
 					</div>

@@ -81,7 +81,7 @@
 			padding: 0 3%; width: auto;
 		}
 		.breadcrumb{
-			font-size: 8px; line-height: 22px;
+			font-size: 8px;
 			text-transform: uppercase; letter-spacing: normal;
 			@media (-webkit-min-device-pixel-ratio:3.0){
 				font-size: 10px;
@@ -427,7 +427,7 @@
 
 .facility-items{
 	.icon{
-		@include inline-block; margin: 10px 25px 10px 0;
+		@include inline-block; margin: 10px 12px;
 		width: 30px;  height: 20px;
 		background-repeat: no-repeat; background-position: center;
 
