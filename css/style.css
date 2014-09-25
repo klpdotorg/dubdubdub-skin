@@ -1075,7 +1075,7 @@ a:hover { text-decoration: underline; }
 .subheader-wrapper .breadcrumb a { color: #6d6d6d; }
 .subheader-wrapper .breadcrumb span { padding: 0 10px; background: url("../images/breadcrumb_icon.png") no-repeat center center; }
 @media screen and (max-width: 979px), screen and (max-width: 979px) and (-webkit-min-device-pixel-ratio: 1.3) { .subheader-wrapper .subheader-content { padding: 0 3%; width: auto; }
-  .subheader-wrapper .breadcrumb { font-size: 8px; line-height: 22px; text-transform: uppercase; letter-spacing: normal; } }
+  .subheader-wrapper .breadcrumb { font-size: 8px; text-transform: uppercase; letter-spacing: normal; } }
 @media screen and (max-width: 979px) and (-webkit-min-device-pixel-ratio: 3), screen and (max-width: 979px) and (-webkit-min-device-pixel-ratio: 1.3) and (-webkit-min-device-pixel-ratio: 3) { .subheader-wrapper .breadcrumb { font-size: 10px; } }
 
 .full_width .subheader-wrapper .subheader-content { width: auto; padding: 0 25px; }
