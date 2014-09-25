@@ -145,6 +145,16 @@
 			cursor: pointer;
 		}
 
+		.date-input-wrapper{
+			position: relative;
+
+			.dropdown-icon{
+				position: absolute; right: 5px; top: 50%; margin-top: -2px;
+				border: 6px solid transparent; border-top: 6px solid #CACACA;
+				z-index: 1; @include transform-origin(50% 20%);
+			}
+		}
+
 		.dropdown{
 			width: 80px; padding: 0 15px 0 5px;
 			float: none; height: 26px;
