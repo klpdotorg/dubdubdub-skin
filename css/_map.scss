@@ -152,6 +152,7 @@
 				position: absolute; right: 5px; top: 50%; margin-top: -2px;
 				border: 6px solid transparent; border-top: 6px solid #CACACA;
 				z-index: 1; @include transform-origin(50% 20%);
+				cursor: pointer;
 			}
 		}
 
