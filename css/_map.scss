@@ -240,7 +240,7 @@
 
 	.calendar-wrapper{
 		display: none;
-		position:absolute; top:51px; left: -125px;
+		position:absolute; z-index:10; top:51px; left: -125px;
 		width: 350px; height: 310px;
 		background: #f4f4f4;
 		@include border-radius-bottom-left(5px);
