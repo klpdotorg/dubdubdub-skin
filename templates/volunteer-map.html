@@ -38,7 +38,7 @@
 				<div class="label fl">Date</div>
 				<div class="filter-item fl phn-fr">
 					<span class="js-volunter-date-input-wrapper date-input-wrapper">
-						<input type="text" name="date" readonly="readonly" value="15-07-2014" class="input date-input" id="vol-date-input">
+						<input type="text" name="date" readonly="readonly" svalue="15-07-2014" class="input date-input" id="vol-date-input">
 						<span class="dropdown-icon"></span>
 					</span>
 
@@ -57,11 +57,12 @@
 
 							$date_input.Zebra_DatePicker({
 							    always_visible: $datepicker_wrapper,
-							    format: 'd-m-Y',
+							    format: 'Y-m-d',
 							    first_day_of_week: 0,
 							    show_clear_date: false,
 							    show_select_today: false,
-							    disabled_dates: ['1,3,4,5,12,13,14,22,24'],
+							    disabled_dates: ['* * *'],
+							    enabled_dates: ['28 09 2014', '29 09 2014'],
 							    onSelect: onDateSelect,
 							    onClear: onDateClear
 							});
