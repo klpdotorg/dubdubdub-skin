@@ -2605,7 +2605,7 @@ button.Zebra_DatePicker_Icon_Inside { margin: 0 3px 0 0; }
 .map_page .map-pin-details .details .button.dark_grey { width: 144px; margin-right: 10px; }
 .map_page .map-pin-details .details .last { margin-right: 0 !important; }
 .map_page .map-pin-details .vol-oppor-count { background: #f6f6f6; padding: 5px; }
-.map_page .map-pin-details .vol-oppor-wrapper { height: 180px; overflow-y: scroll; }
+.map_page .map-pin-details .vol-oppor-wrapper { height: 250px; overflow-y: scroll; }
 .map_page .map-pin-details .vol-oppor-item { border-top: 1px solid #dedede; padding: 15px 0; }
 .map_page .map-pin-details .vol-oppor-item .thumb { width: 32px; height: 32px; }
 .map_page .map-pin-details .vol-oppor-item .button { margin: 4px 0 0; }
