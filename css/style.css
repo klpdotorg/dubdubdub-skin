@@ -1835,6 +1835,9 @@ table.tbl-common.va-m th, table.tbl-common.va-m td { vertical-align: middle; }
 
 .modal-volunteer { width: 420px; height: 540px; margin-left: -210px; margin-top: -270px; }
 .modal-volunteer .modal-heading { margin-top: 20px; }
+@media screen and (max-width: 767px), screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 1.3) { .modal-volunteer { width: 100%; height: 100%; left: 0; top: 0; margin: 0; overflow-y: scroll; }
+  .modal-volunteer .steps-wrapper { height: 100%; }
+  .modal-volunteer .step-details { width: 90%; } }
 
 .modal-map-filter { width: 800px; height: 400px; margin-left: -400px; margin-top: -200px; }
 .modal-map-filter .modal-heading { margin-top: 20px; }
