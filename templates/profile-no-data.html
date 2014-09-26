@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Profile{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block breadcrumb %}
+	<a href="index.php">Home</a><span></span>
+	Gurliv Sembhi
+{% endblock %}
+
+{% block content %}
+
+	<section class="page-profile profile-head pt-30 pb-30">
+		<div class="container">
+			<div class="grid_8 alpha phn-tab-width-full phn-tab-mar-0">
+				<img class="profile-img fl mr-10" src="images/thumb_reading_programme.jpg">
+				<div class="fl mt-5 mr-10">
+					<h3 class="desc-title">Gurliv Sembhi</h3>
+					<p class="location mb-5">
+						Malleswaram, Bangalore, India
+					</p>
+					<a href="profile-edit.php" class="button-hollow mt-0">Edit Profile</a>
+				</div>
+				<div class="clr"></div>
+				<p class="profile-description">
+					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+				</p>
+			</div>
+			<div class="grid_4 omega phn-tab-width-full phn-tab-mar-0">
+				<div class="profile-title bold uppercase">Activities</div>
+				<div class="stats_opportunities fl">
+					<span class="icon donation"></span>
+					<p class="label">Donation</p>
+					<p class="value">0</p>
+				</div>
+				<div class="stats_opportunities fl">
+					<span class="icon volunteer"></span>
+					<p class="label">Volunteer</p>
+					<p class="value">0</p>
+				</div>
+				<div class="clr mb-20"></div>
+				<div class="profile-title bold uppercase mb-5">Organisation</div>
+				<a class="desc-title" href="organisation-profile.php">Akshara Foundation</a>
+			</div>
+			<div class="clr"></div>
+		</div>
+	</section>
+
+	<section class="page-profile profile-content">
+		<div class="container">
+			<div class="left-column fl pt-30 pb-30 phn-width-full phn-pl-0">
+				<div class="profile-title bold uppercase ta-c">Volunteering Activities</div>
+				
+				<div class="mt-30 mb-60 ta-c">
+					No recent volunteer activity.
+				</div>
+			</div>
+			<div class="right-column fr pt-30 pb-30 phn-width-full phn-pl-0 phn-pt-0">
+				<div class="profile-title bold uppercase ta-c">Donation Activities</div>
+				
+				<div class="mt-30 mb-60 ta-c">
+					No recent donation activity.
+				</div>
+			</div>
+			<div class="clr"></div>
+		</div>
+	</section>
+
+{% endblock %}

@@ -1,0 +1,679 @@
+{% extends "layout.html" %}
+
+{% block page_title %}School{% endblock %}
+{% block head %}
+    {{ parent() }}
+	<script src="js/highcharts/highcharts.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script>
+	<script type="text/javascript" src="js/selectBoxIt.min.js"></script>
+{% endblock %}
+
+{% block content %}
+
+	<section id="compare_modal" class="modal school-comparison-flow is-modal">
+		<div class="content">
+			<div class="compare-box">
+				<a href="#" class="button-close js-comparison-close" title="Close"><span></span></a>
+
+				<div class="vs-separator">
+					<a href="" class="label fl js-comparison-clear-left">clear</a>
+					<div class="label bg fl">Comparing</div>
+					<a href="" class="label fl js-comparison-clear-right">clear</a>
+					<div class="vr"></div>
+					<div class="vs-label">vs</div>
+				</div>
+
+				<div class="info school left-align js-comparison-option-left">
+					<div class="en-icon big en-school fl">S</div>
+					<div class="ml">
+						<h2 class="name en-school">Gian Jyoti Public School</h2>
+						<div class="item">
+							<div class="label">District</div>
+							<div class="value">Bangalore</div>
+						</div>
+						<div class="item">
+							<div class="label">Block</div>
+							<div class="value">North-2</div>
+						</div>
+						<div class="item">
+							<div class="label">Cluster</div>
+							<div class="value">Malleswaram</div>
+						</div>
+					</div>
+					<div class="clr"></div>
+				</div>
+
+				<div class="info school-district right-align hide js-comparison-option-right">
+					<div class="en-icon big en-school-district fr">SD</div>
+					<div class="mr">
+						<h2 class="name en-school-district ta-r">Bangalore</h2>
+						<div class="item">
+							<div class="label">State</div>
+							<div class="value">Karnataka</div>
+						</div>
+					</div>
+					<div class="clr"></div>
+				</div>
+
+				<div class="info default right-align js-comparison-default-right">
+					<a href="" class="title-select ta-r mar_top_15 js-comparison-show-options-right">Click to select an entity</a>
+					<div class="text-select ta-r">or select one by clicking a pin on the map below</div>
+
+					<div class="clr"></div>
+				</div>
+				<div class="clr"></div>
+
+				<a href="" class="btn compare-now js-btn-compare">Compare now</a>
+				<a href="" class="btn cancel js-btn-cancel js-comparison-close show">Cancel</a>
+			</div>
+
+			<div class="comparison-result-wrapper js-comparison-result-wrapper">
+
+			</div>
+				
+		</div>
+		
+		<div class="dropdown-wrapper" id="dropdown_wrapper">
+			<div class="triangle"></div>
+			<div class="search-box">
+				<input type="text" class="input-search" placeholder="Search"/>
+				<a href="" class="icon"><i class="icon-search"></i></a>
+				<div class="clr"></div>
+			</div>
+			
+			<a href="" class="info school js-dropdown-option-right">
+				<div class="en-icon small en-school fl">S</div>
+				<div class="name en-school">Delhi Public School</div>
+				<div class="clr"></div>
+			</a>
+			<a href="" class="info school-district js-dropdown-option-right">
+				<div class="en-icon small en-school-district fl">SD</div>
+				<div class="name en-school-district">Bangalore</div>
+				<div class="clr"></div>
+			</a>
+	</section>
+
+	<section class="school-page">
+		<div class="page-header">
+			<div class="map-canvas"></div>
+
+			<div class="school-info">
+				<div class="container">
+					<div class="info-wrapper">
+						<div class="en-icon big en-school school-entity-icon">S</div>
+						<h2 class="en-school">Karnataka Primary School</h2>
+
+						<div class="address-block">
+							<div class="info-item">
+								<div class="label">District</div>
+								<div class="value">Bangalore</div>
+							</div>
+							<div class="info-item">
+								<div class="label">Block</div>
+								<div class="value">North-2</div>
+							</div>
+							<div class="info-item">
+								<div class="label">Cluster</div>
+								<div class="value">Malleswaram</div>
+							</div>
+							<div class="clr"></div>
+						</div>
+					</div>
+					<div class="buttons-wrapper">
+						<a class="button dark_grey btn-compare js-trigger-compare" href="#">Compare to</a>
+					</div>
+					<div class="clr"></div>
+
+					<ul class="tabs">
+						<li data-tab="info" class="current js-tab-link">Info</li>
+						<li data-tab="demographics" class="js-tab-link">Demographics</li>
+						<li data-tab="programmes" class="js-tab-link">Programmes</li>
+						<li data-tab="finances" class="js-tab-link">Finances</li>
+						<li data-tab="infrastructure" class="js-tab-link">Infrastructure</li>
+						<li data-tab="library" class="js-tab-link">Library</li>
+						<li data-tab="nutrition" class="js-tab-link">Nutrition</li>
+						<li data-tab="donate" class="js-tab-link">Donate</li>
+						<li data-tab="volunteer" class="js-tab-link">Volunteer</li>
+						<li data-tab="share-story" class="js-tab-link">Share your story</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="school-details js-tabs-wrapper">
+			<div class="tab-heading">Info</div>
+			<div class="tab-content container current" data-tab="info">
+				<div class="fl-desktop">
+					<h4>Address</h4>
+					<p>1st Main Road, 2nd Cross, Yeshwanthura, <strong>Bangalore</strong> - 560022</p>
+					
+					<h4 class="mar_top_25">Landmark</h4>
+					<p>Near St. Francis Church</p>
+
+					<h4 class="mar_top_25">School Information</h4>
+					<table class="info_data_table">
+						<tr>
+							<td>Category</td>
+							<td>Model Primary</td>
+						</tr>
+						<tr>
+							<td>Buses</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>Gender</td>
+							<td>Co-ed</td>
+						</tr>
+						<tr>
+							<td>Medium</td>
+							<td>Kannada</td>
+						</tr>
+						<tr>
+							<td>DSIE</td>
+							<td>290200050050007</td>
+						</tr>
+					</table>
+
+					<h4 class="mar_top_25">Constituency Information</h4>
+					<table class="info_data_table">
+						<tr>
+							<td>MLA Constituency</td>
+							<td>Malleswaram</td>
+						</tr>
+						<tr>
+							<td>MLA Details</td>
+							<td>Dr. Ashwath Narayan (BJP)</td>
+						</tr>
+						<tr>
+							<td>MLA Constituency</td>
+							<td>Malleswaram</td>
+						</tr>
+						<tr>
+							<td>MLA Details</td>
+							<td>DB Chandre Gowada (BJP)</td>
+						</tr>
+					</table>
+				</div>
+				<div class="photos-block fr-desktop">
+					<h4>Photos</h4>
+					<a href=""><img src="images/map_photo.jpg" alt=""></a>
+					<a href=""><img src="images/map_photo.jpg" alt=""></a>
+					<a href=""><img src="images/map_photo.jpg" alt=""></a>
+					<a href=""><img src="images/map_photo.jpg" alt=""></a>
+					<a href=""><img src="images/map_photo.jpg" alt=""></a>
+					<a href=""><img src="images/map_photo.jpg" alt=""></a>
+					<a href=""><img src="images/map_photo.jpg" alt=""></a>
+					<a href=""><img src="images/map_photo.jpg" alt=""></a>
+					<div class="clr"></div>
+				</div>
+				<div class="clr"></div>
+			</div>	<!-- Info Tab END -->
+			
+			<div class="tab-heading">Demographics</div>
+			<div class="tab-content container" data-tab="demographics">
+				
+				<div class="pb-60 mb-60">No data available.</div>
+
+			</div>	<!-- Demographics Tab END -->
+
+			<div class="tab-heading">Programmes</div>
+			<div class="tab-content container" data-tab="programmes">
+				
+				<div class="pb-60 mb-60">No data available.</div>
+
+			</div>	<!-- Programme Tab END -->
+
+			<div class="tab-heading">Finances</div>
+			<div class="tab-content container" data-tab="finances">
+				
+				<div class="pb-60 mb-60">No data available.</div>
+
+			</div>	<!-- Finances Tab END -->
+			
+			<div class="tab-heading">Infrastructure</div>
+			<div class="tab-content container" data-tab="infrastructure">
+				
+				<div class="pb-60 mb-60">No data available.</div>
+
+			</div>	<!-- Infrastructure Tab END -->
+
+			<div class="tab-heading">Library</div>
+			<div class="tab-content container" data-tab="library">
+
+				<div class="pb-60 mb-60">No data available.</div>
+
+			</div>	<!-- Library Tab END -->
+			
+			<div class="tab-heading">Nutrition</div>
+			<div class="tab-content container" data-tab="nutrition">
+				
+				<div class="pb-60 mb-60">No data available.</div>
+
+			</div>	<!-- Nutrition Tab END -->
+
+			<div class="tab-heading">Donate</div>
+			<div class="tab-content container" data-tab="donate">
+				
+				<div class="pb-60 mb-60">No donation requests available.</div>
+
+			</div>	<!-- Donate Tab END -->
+
+			<div class="tab-heading">Volunteer</div>
+			<div class="tab-content container" data-tab="volunteer">
+				
+				<div class="pb-60 mb-60">No volunteering opportunities available.</div>
+
+			</div>	<!-- Volunteer Tab END -->
+			
+			<div class="tab-heading">Share your story</div>
+			<div class="tab-content container" data-tab="share-story">
+				<div class="fl-desktop-tablet width-48p-desktop-tablet">
+					<h4>Information from schools visits</h4>
+
+					<p>
+						This data is gathered from vistors sharing their experiences. It indicates whether or not the school has facilities under the headings below:
+					</p>
+
+					<table class="info_data_table label_longer mar_top_25 mar_btm_25">
+						<tr>
+							<td>Play Material or Sports Equipment</td>
+							<td class="green">Yes</td>
+						</tr>
+						<tr>
+							<td>Separate Room For Headmaster</td>
+							<td class="red">No or Unknown</td>
+						</tr>
+						<tr>
+							<td>Separate Toilet for Boys and Girls</td>
+							<td class="green">Yes</td>
+						</tr>
+						<tr>
+							<td>Library</td>
+							<td class="green">Yes</td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="fr-desktop-tablet width-48p-desktop-tablet">
+					<div class="share-your-story">
+						<a href="" id="trigger_share_story_modal" class="button orange">Share you story</a>
+						<br/>
+						<div class="stats first">
+							<div class="number">4</div>
+							<div class="text">Number of School Visits</div>
+						</div>
+						<div class="stats">
+							<div class="number">4</div>
+							<div class="text">Shared Stories</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="clr-phone-tablet"></div> -->
+
+				<div class="fr-desktop-tablet width-48p-desktop-tablet">
+					
+					<div class="comments mar_top_25">
+						<h4>Visitor Comments</h4>
+						<div class="comment-item first">
+							<div class="name">Saheem Fatima</div>
+							<p class="text">No electricity and no water supply.</p>
+							<div class="timestamp">Shared on : July,21 2013</div>
+						</div>
+						<div class="comment-item">
+							<div class="name">Saheem Fatima</div>
+							<p class="text">No electricity and no water supply.</p>
+							<div class="timestamp">Shared on : July,21 2013</div>
+						</div>
+						<div class="comment-item last">
+							<div class="name">Saheem Fatima</div>
+							<p class="text">No electricity and no water supply.</p>
+							<div class="timestamp">Shared on : July,21 2013</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="clr"></div>
+
+				<div class="top_bordered_block">
+					<p>
+						Directly access this page from here <a href=""><b>http://klp.org.in/schoolpage/school/33175?tab=nutrition</b></a>
+					</p>
+				</div>
+			</div>	<!-- Share your story Tab END -->
+
+		</div>
+
+	</section>
+
+	<script type="text/javascript">
+		var container_width = 960;
+
+		function init_tabs(){
+    		$(document).on("click", ".js-tab-link", function(e){
+    			var $wrapper = $(".js-tabs-wrapper");
+				var $trigger = $(this).closest(".js-tab-link");
+				var tab_id = $trigger.attr('data-tab');
+
+				// Change current tab link
+				$trigger.parent().find("li.current").removeClass('current');
+				$trigger.addClass("current");
+
+				// Change current tab content
+				$wrapper.find(".tab-content.current").removeClass('current');
+				$wrapper.find('.tab-content[data-tab="'+ tab_id +'"]').addClass('current');
+			});
+    	}
+
+    	function init_selects(){
+    		
+    		$(".apply-selectboxit").selectBoxIt({
+				autoWidth: true
+			});
+    	}
+
+    	function init_library_view_toggle(){
+    		var $toggler = $("#library_graph_table_switch");
+    		var $graph = $("#graph_library");
+    		var $table = $("#table_library");
+
+    		$toggler.on("click", function(e){
+    			e.preventDefault();
+
+    			if($graph.is(":visible") ){
+    				$graph.hide();
+    				$table.show();
+    				$toggler.text("Switch to Graph View");
+    			} else {
+    				$graph.show();
+    				$table.hide();
+    				$toggler.text("Switch to Table View");
+    			}
+
+    		});
+    	}
+
+	    function get_relative_height(width, height, min_height){
+    		var ht = (height/width)*container_width;
+    		ht = parseInt(ht,10);
+
+    		if(ht<min_height){
+    			return min_height;
+    		}
+
+    		// If number is odd, convert to even
+    		if(Math.abs(ht) % 2 == 1){
+    			ht++;
+    		}
+    		return ht;
+    	}
+
+    	function show_compare_modal(){
+    		$("#modal_overlay").addClass("show");
+    		$("#compare_modal").addClass("show");
+    	}
+
+    	$(document).on("click", ".js-trigger-compare", function(e){
+    		e.preventDefault();
+    		show_compare_modal();
+    	});
+
+    	$(document).ready(function(){
+			init_tabs();
+			init_selects();
+			init_library_view_toggle();
+
+			container_width = $(document).find(".container:first").width();
+			container_width = parseInt(container_width,10);
+
+			var chart_gradient_param = [0, 0, 0, 300];
+
+			if(container_width<960){
+				chart_gradient_param = [0, 0, 0, 200];
+			}
+			if(container_width<600){
+				chart_gradient_param = [0, 0, 0, 110];
+			}
+
+			$('#pie_chart_1').highcharts({
+		        chart: {
+		            height: 170,
+		            width:170,
+		            plotBackgroundColor: null,
+		            plotBorderWidth: 0,
+		            plotShadow: false
+		        },
+		        title: {
+		            text: null
+		        },
+		        plotOptions: {
+		            pie: {
+		                dataLabels: {
+		                    enabled: false
+		                },
+		                startAngle: 0,
+		                endAngle: 360,
+		                center: ['50%', '50%'],
+		                colors: ['#609adf', '#f87c84']
+		            }
+		        },
+		        series: [{
+		            type: 'pie',
+		            name: 'Count',
+		            innerSize: '80%',
+		            data: [
+		                ['Boys', 65.0],
+		                ['Girls', 35.0]
+		            ]
+		        }],
+		        credits:{
+		        	enabled:false
+		        },
+		        tooltip:{
+		        	enabled:true,
+		        	formatter: function() {
+		                return '<b>'+ this.y +'%</b>';
+		            }
+		        },
+		        exporting:{
+		        	enabled:false
+		        }
+		    });
+
+			$('#pie_chart_finance').highcharts({
+		        chart: {
+		        	width: container_width,
+		            height: 200,
+		            plotBackgroundColor: null,
+		            plotBorderWidth: 0,
+		            plotShadow: false
+		        },
+		        title: {
+		            text: null
+		        },
+		        plotOptions: {
+		            pie: {
+		                dataLabels: {
+		                    enabled: true
+		                },
+		                startAngle: 0,
+		                endAngle: 360,
+		                center: ['50%', '50%'],
+		                colors: ['#329186', '#c8273e', '#f68300']
+		            }
+		        },
+		        series: [{
+		            type: 'pie',
+		            name: 'Count',
+		            innerSize: '60%',
+		            data: [
+		                ['TLM', 46],
+		                ['SMG', 24],
+		                ['SG', 30]
+		            ]
+		        }],
+		        credits:{
+		        	enabled:false
+		        },
+		        tooltip:{
+		        	enabled:true,
+		        	formatter: function() {
+		                return '<b>'+ this.y +'%</b>';
+		            }
+		        },
+		        exporting:{
+		        	enabled:false
+		        }
+		    });
+
+			$('#graph_library').highcharts({
+	            chart: {
+	                type: 'area',
+	                width: container_width,
+	                height: get_relative_height(960,400, 200)
+	            },
+	            title: {
+	                text: null
+	            },
+	            xAxis: {
+	            },
+	            yAxis: {
+	                title: {
+	                    text: 'Avg. No. of transations per student'
+	                },
+	                labels: {
+	                    formatter: function() {
+	                        return this.value;
+	                        // return this.value / 1000 +'k';
+	                    }
+	                }
+	            },credits:{
+		        	enabled:false
+		        },
+	            tooltip: {
+	                // pointFormat: '{series.name} produced <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
+	            },
+	            plotOptions: {
+	                area: {
+	                	fillOpacity:1
+	                }
+	            },
+	            series: [{
+	                name: 'Easy',
+	                data: [0.2, 0.3, 0.4, 0.5, 0.8, 0.4 , 0.6, 0.4, 0.6, 0.4, 0.2, 0 ],
+	                color: '#56af31',
+	                fillColor: {
+	                    linearGradient: chart_gradient_param,
+	                    stops: [
+	                        [0, '#e5f3e0'],
+	                        [1, 'rgba(255,255,255,0.3)']
+	                    ]
+	                }
+	            }, {
+	                name: 'Medium',
+	                data: [0, 0.2, 0.4, 0.4, 0.5, 0.8, 0.2 , 0.3, 0.4, 0.3, 0.4, 0.2 ],
+	                color: '#3892e3',
+	                fillColor: {
+	                    linearGradient: chart_gradient_param,
+	                    stops: [
+	                        [0, '#92c3ef'],
+	                        [1, 'rgba(255,255,255,0.3)']
+	                    ]
+	                }
+	            }, {
+	                name: 'Hard',
+	                data: [0, 0.2, 0.4, 0.2, 0.2, 0.4, 0.3 , 0.2, null, null, null, null ],
+	                color: '#cb0012',
+	                fillColor: {
+	                    linearGradient: chart_gradient_param,
+	                    stops: [
+	                        [0, '#de69c4'],
+	                        [1, 'rgba(255,255,255,0.3)']
+	                    ]
+	                }
+	            }]
+	        });
+
+			$('#graph_nutrition').highcharts({
+	            chart: {
+	                type: 'area',
+	                width: container_width,
+	                height: get_relative_height(960,400, 230)
+	            },
+	            title:{
+	            	text: null
+	            },
+	            subtitle: {
+	                text: "'Food Indent' vs 'Attendance Tracking'"
+	            },
+	            xAxis: {
+	            	// categories: ['Easy', 'Medium', 'Hard']
+	                // allowDecimals: false,
+	                // labels: {
+	                //     formatter: function() {
+	                //         return this.value; // clean, unformatted number for year
+	                //     }
+	                // }
+	            },
+	            yAxis: {
+	                title: {
+	                    text: 'Number of children'
+	                },
+	                labels: {
+	                    formatter: function() {
+	                        return this.value;
+	                        // return this.value / 1000 +'k';
+	                    }
+	                }
+	            },
+	            credits:{
+		        	enabled:false
+		        },
+	            tooltip: {
+	                // pointFormat: '{series.name} produced <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
+	            },
+	            plotOptions: {
+	                area: {
+	                	fillOpacity:1
+	                }
+	            },
+	            series: [{
+	                name: 'Easy',
+	                data: [0.2, 0.3, 0.4, 0.5, 0.8, 0.4 , 0.6, 0.4, 0.6, 0.4, 0.2, 0 ],
+	                color: '#56af31',
+	                fillColor: {
+	                    linearGradient: chart_gradient_param,
+	                    stops: [
+	                        [0, '#e5f3e0'],
+	                        [1, 'rgba(255,255,255,0.3)']
+	                    ]
+	                }
+	            }, {
+	                name: 'Medium',
+	                data: [0, 0.2, 0.4, 0.4, 0.5, 0.8, 0.2 , 0.3, 0.4, 0.3, 0.4, 0.2 ],
+	                color: '#3892e3',
+	                fillColor: {
+	                    linearGradient: chart_gradient_param,
+	                    stops: [
+	                        [0, '#92c3ef'],
+	                        [1, 'rgba(255,255,255,0.3)']
+	                    ]
+	                }
+	            }, {
+	                name: 'Hard',
+	                data: [0, 0.2, 0.4, 0.2, 0.2, 0.4, 0.3 , 0.2, null, null, null, null ],
+	                color: '#cb0012',
+	                fillColor: {
+	                    linearGradient: chart_gradient_param,
+	                    stops: [
+	                        [0, '#de69c4'],
+	                        [1, 'rgba(255,255,255,0.3)']
+	                    ]
+	                }
+	            }]
+	        });
+		});
+
+	</script>
+
+{% endblock %}
