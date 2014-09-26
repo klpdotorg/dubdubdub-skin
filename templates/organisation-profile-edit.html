@@ -39,6 +39,12 @@
 
 {% endblock %}
 
+{% block breadcrumb %}
+	<a href="index.php">Home</a><span></span>
+	<a href="organisation-profile.php">Akshara Foundation</a><span></span>
+	Manage
+{% endblock %}
+
 {% block content %}
 
 	<section class="phn-pb-30">
@@ -50,8 +56,8 @@
 			</div>
 
 			<ul class="tabs phn-hide">
-				<li data-tab="details" class="js-tab-link">Edit Details</li>
-				<li data-tab="members" class="js-tab-link current">Members</li>
+				<li data-tab="details" class="js-tab-link current">Edit Details</li>
+				<li data-tab="members" class="js-tab-link">Members</li>
 				<li data-tab="volunteer" class="js-tab-link">Volunteer Opportunities</li>
 				<li data-tab="donation" class="js-tab-link">Donation Requests</li>
 			</ul>
@@ -64,7 +70,7 @@
 		<div class="js-tabs-wrapper">
 
 			<div class="tab-heading">Edit Details</div>
-			<div class="tab-content container " data-tab="details">
+			<div class="tab-content container current" data-tab="details">
 				<div class="grid_6 alpha">
 					<form class="edit-profile-form">
 						<div class="mb-30">
@@ -114,7 +120,7 @@
 			</div>	<!-- Details Tab END -->
 
 			<div class="tab-heading">Members</div>
-			<div class="tab-content container current members-list" data-tab="members">
+			<div class="tab-content container members-list" data-tab="members">
 				<div class="title-purple fl mr-20">214 Members</div>
 				<a class="button blue js-trigger-add-member fr mt-0" href="#">Add New Member</a>
 				<div class="clr"></div>
