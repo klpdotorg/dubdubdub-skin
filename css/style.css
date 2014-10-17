@@ -1402,6 +1402,9 @@ table.tbl-common.va-m th, table.tbl-common.va-m td { vertical-align: middle; }
 .add-member .member-input-box .token-input-delete-token:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
 .add-member .tile-head { font-size: 16px; font-weight: normal; }
 
+.verified { background-image: url("../images/icon_verified.png"); background-size: auto 100%; background-repeat: no-repeat; padding-left: 20px; }
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) { .verified { background-image: url("../images/icon_verified@2x.png"); -webkit-background-size: auto 100%; -moz-background-size: auto 100%; -o-background-size: auto 100%; background-size: auto 100%; } }
+
 .page-section-menu .container { text-align: center; }
 .page-section-menu .container .heading { position: absolute; top: -35px; left: 0; width: 100%; text-align: center; }
 .page-section-menu .container .heading h2 { display: inline-block; text-align: center; *display: block !important; line-height: 40px; padding: 0 20px; color: #7B7795; text-transform: uppercase; font-weight: 400; font-size: 22px; background: #fff; border: 1px solid #d8d8d8; -webkit-box-shadow: 0px 1px 1px 0px #d8d8d8; -moz-box-shadow: 0px 1px 1px 0px #d8d8d8; box-shadow: 0px 1px 1px 0px #d8d8d8; }
@@ -2366,7 +2369,8 @@ ul.tabs li.current, ul.tabs li:hover { background: #fff; border: 1px solid #d8d8
 .page-donate-item .info-item .value { text-transform: none; color: #393939; letter-spacing: normal; font-size: 12px; }
 @media screen and (min-width: 768px) and (max-width: 979px) { .page-donate-item .info-item { margin-right: 25px; } }
 .page-donate-item .quant-item { font-size: 14px; line-height: 32px; color: #393939; }
-.page-donate-item .items-wrapper { width: 350px; }
+.page-donate-item .needed { font-size: 14px; line-height: 32px; }
+.page-donate-item .items-wrapper { width: 450px; }
 .page-donate-item .dropdown { height: 30px; border: 1px solid #D7D7D7; background-color: #F6F6F6; padding: 0 40px 0 10px; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; }
 .page-donate-item .dropdown .selected { color: #898989; font-size: 14px; line-height: 30px; }
 .page-donate-item .dropdown .carat { border-top: 6px solid #898989; }

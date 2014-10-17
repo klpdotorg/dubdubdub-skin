@@ -1217,3 +1217,8 @@ table.tbl-common{
 		font-size: 16px; font-weight: normal;
 	}
 }
+
+.verified{
+	@include bg-image-2x("../images/icon_verified", png, auto, 100%); background-size: auto 100%; background-repeat: no-repeat;
+	padding-left: 20px;
+}
