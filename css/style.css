@@ -2370,7 +2370,7 @@ ul.tabs li.current, ul.tabs li:hover { background: #fff; border: 1px solid #d8d8
 @media screen and (min-width: 768px) and (max-width: 979px) { .page-donate-item .info-item { margin-right: 25px; } }
 .page-donate-item .quant-item { font-size: 14px; line-height: 32px; color: #393939; }
 .page-donate-item .needed { font-size: 14px; line-height: 32px; }
-.page-donate-item .items-wrapper { width: 450px; }
+.page-donate-item .items-wrapper { width: 500px; }
 .page-donate-item .dropdown { height: 30px; border: 1px solid #D7D7D7; background-color: #F6F6F6; padding: 0 40px 0 10px; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; }
 .page-donate-item .dropdown .selected { color: #898989; font-size: 14px; line-height: 30px; }
 .page-donate-item .dropdown .carat { border-top: 6px solid #898989; }
@@ -3010,6 +3010,17 @@ button.Zebra_DatePicker_Icon_Inside { margin: 0 3px 0 0; }
 .school-details .tab-volunteer .items { font-size: 16px; line-height: 22px; }
 .school-details .tab-items .title { font-size: 20px; line-height: 28px; }
 .school-details .tab-items .items { font-size: 16px; line-height: 22px; }
+.school-details .lang-marks { width: 350px; }
+.school-details .lang-marks .item { margin-bottom: 15px; zoom: 1; }
+.school-details .lang-marks .label { width: 30%; text-transform: uppercase; font-weight: 700; color: #393939; font-size: 13px; }
+.school-details .lang-marks .percent { width: 8%; font-weight: bold; text-align: center; }
+@media screen and (max-width: 767px), screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 1.3) { .school-details .lang-marks .percent { text-align: left; } }
+.school-details .bar { width: 62%; height: 15px; background: #EDEDED; }
+.school-details .bar .bar-value { width: 32%; height: 100%; background-color: #5f5f5f; }
+.school-details .bar .bar-value.bar-value-47 { width: 47%; }
+.school-details .bar .bar-value.bar-value-38 { width: 38%; }
+.school-details .bar .bar-value.bar-value-23 { width: 23%; }
+.school-details .bar .bar-value.bg-green { background-color: #4AC18D; }
 @media screen and (max-width: 979px), screen and (max-width: 979px) and (-webkit-min-device-pixel-ratio: 1.3) { .school-details .fl-desktop, .school-details .fr-desktop { float: none; }
   .school-details .clr-phone-tablet { clear: both; }
   .school-details .photos-block { width: auto; margin: 25px 0 0 -10px; }
