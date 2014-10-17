@@ -690,6 +690,10 @@
 
 .color-red-2 { color: #ec6608; }
 
+.color-red-3 { color: #C8273E !important; }
+
+.color-orange { color: #F68300 !important; }
+
 .color-black { color: #000; }
 
 .color-black-2 { color: #393939; }
@@ -698,9 +702,13 @@
 
 .color-purple { color: #7145d2; }
 
+.color-purple-2 { color: #3D486C !important; }
+
 .color-green { color: #26b262 !important; }
 
 .color-green-2 { color: #25b3b6; }
+
+.color-green-3 { color: #4BAA9F !important; }
 
 .color-grey { color: #6d6d6d; }
 
@@ -1407,6 +1415,10 @@ table.tbl-common.va-m th, table.tbl-common.va-m td { vertical-align: middle; }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) { .verified { background-image: url("../images/icon_verified@2x.png"); -webkit-background-size: auto 100%; -moz-background-size: auto 100%; -o-background-size: auto 100%; background-size: auto 100%; } }
 
 .sub-section-heading { padding: 10px 20px; background: #f6f6f6; color: #7B7795; border-top: 1px solid #d8d8d8; border-bottom: 1px solid #d8d8d8; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+
+ul.comparison_list { width: 50%; color: #6d6d6d; list-style: none; font-size: 16px; font-weight: bold; }
+ul.comparison_list li { padding: 5px 0; border-bottom: 1px solid #d8d8d8; }
+ul.comparison_list li span { color: #393939; }
 
 .page-section-menu .container { text-align: center; }
 .page-section-menu .container .heading { position: absolute; top: -35px; left: 0; width: 100%; text-align: center; }

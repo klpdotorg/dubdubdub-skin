@@ -317,7 +317,16 @@
 			<div class="tab-content container" data-tab="finances">
 				<h4>SSA GRANTS ALLOCATION</h4>
 
-				<div class="ta_c" id="pie_chart_finance">{ Chart here }</div>
+				<div class="ta_c width-400 fl" id="pie_chart_finance">{ Chart here }</div>
+
+				<ul class="comparison_list fl mt-40">
+					<li>School Maintence Grant (SMG)<span class="color-red-3 bold fr">43</span></li>
+					<li>School Grant (SG)<span class="color-orange bold fr">32</span></li>
+					<li>Teacher Learning Material Grant (TLM)<span class="color-green-3 bold fr">32</span></li>
+					<li>Total<span class="color-purple-2 bold fr">105</span></li>
+				</ul>
+
+				<div class="clr"></div>
 
 				<table class="info_data_table label_longer mar_top_25 mar_btm_25">
 					<tr>
@@ -985,8 +994,8 @@
 
 			$('#pie_chart_finance').highcharts({
 		        chart: {
-		        	width: container_width,
-		            height: 200,
+		        	width: 300,
+		            height: 250,
 		            plotBackgroundColor: null,
 		            plotBorderWidth: 0,
 		            plotShadow: false

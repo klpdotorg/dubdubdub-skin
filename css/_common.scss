@@ -1234,3 +1234,17 @@ table.tbl-common{
 	border-top: 1px solid #d8d8d8; border-bottom: 1px solid #d8d8d8;
 	text-transform: uppercase; letter-spacing: 1px; font-weight: 700;
 }
+
+ul.comparison_list {
+	width: 50%; color: #6d6d6d;
+	list-style: none;
+	font-size: 16px; font-weight: bold;
+
+	li{
+		padding: 5px 0; border-bottom: 1px solid #d8d8d8;
+
+		span{
+			color: #393939;
+		}
+	}
+}
