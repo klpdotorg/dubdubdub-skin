@@ -25,6 +25,11 @@
 		}
 	}
 
+	.header-options{
+		line-height: 18px; margin: 16px 10px;
+		cursor: pointer;
+	}
+
 	&.fixed{
 		position: fixed; z-index: 10;
 	}
@@ -1221,4 +1226,11 @@ table.tbl-common{
 .verified{
 	@include bg-image-2x("../images/icon_verified", png, auto, 100%); background-size: auto 100%; background-repeat: no-repeat;
 	padding-left: 20px;
+}
+
+.sub-section-heading{
+	padding: 10px 20px;
+	background: #f6f6f6; color: #7B7795;
+	border-top: 1px solid #d8d8d8; border-bottom: 1px solid #d8d8d8;
+	text-transform: uppercase; letter-spacing: 1px; font-weight: 700;
 }

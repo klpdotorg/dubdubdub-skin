@@ -1062,6 +1062,7 @@ a:hover { text-decoration: underline; }
 .main-header .header-content .mobile_icon { display: none; float: right; height: 40px; width: 40px; background-repeat: no-repeat; background-position: center center; background-image: url("../images/top_menu_mobile_icon.png"); }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) { .main-header .header-content .mobile_icon { background-image: url("../images/top_menu_mobile_icon@2x.png"); -webkit-background-size: 22px 15px; -moz-background-size: 22px 15px; -o-background-size: 22px 15px; background-size: 22px 15px; } }
 .main-header .header-content > h1 { display: none; }
+.main-header .header-options { line-height: 18px; margin: 16px 10px; cursor: pointer; }
 .main-header.fixed { position: fixed; z-index: 10; }
 .main-header.full_width .header-content { width: 100%; }
 @media screen and (max-width: 979px), screen and (max-width: 979px) and (-webkit-min-device-pixel-ratio: 1.3) { .main-header .header-content { width: 100%; min-height: 40px; }
@@ -1404,6 +1405,8 @@ table.tbl-common.va-m th, table.tbl-common.va-m td { vertical-align: middle; }
 
 .verified { background-image: url("../images/icon_verified.png"); background-size: auto 100%; background-repeat: no-repeat; padding-left: 20px; }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) { .verified { background-image: url("../images/icon_verified@2x.png"); -webkit-background-size: auto 100%; -moz-background-size: auto 100%; -o-background-size: auto 100%; background-size: auto 100%; } }
+
+.sub-section-heading { padding: 10px 20px; background: #f6f6f6; color: #7B7795; border-top: 1px solid #d8d8d8; border-bottom: 1px solid #d8d8d8; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
 
 .page-section-menu .container { text-align: center; }
 .page-section-menu .container .heading { position: absolute; top: -35px; left: 0; width: 100%; text-align: center; }
