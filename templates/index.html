@@ -11,6 +11,111 @@
 
 {% block content %}
 
+	<!-- LOGIN - SIGNUP - FORGOT PASSWORD Modal -->
+	<div class="modal modal-login-signup show">
+		<a class="button-close btn-modal-close"></a>
+		<div class="content">
+			<!-- HTML FOR SIGNUP STEP -->
+			<div class="js-step-signup pad-20">
+    			<h3 class="bordered-heading blue mb-30">Signup<span class="mt-10"></span></h3>
+
+    			<form id="signupForm" class="mh-20">
+    				<div class="pos-relative">
+                    	<input type="text" id="signupFirstName" data-required="true" class="input-text input width-100p error" placeholder="First Name">
+                    	<div class="error-message mt-5">This field is required.</div>
+                    </div>
+
+                    <div class="pos-relative mt-30">
+                    	<input type="text" id="signupLastName" class="input-text input width-100p" placeholder="Last Name">
+                    </div>
+
+                    <div class="pos-relative mt-30">
+                    	<input type="text" id="signupEmail" data-required="true" class="input-text input width-100p" placeholder="Email">
+                    </div>
+
+                    <div class="pos-relative mt-30">
+                    	<input type="text" id="signupPhone" data-required="true" class="input-text input width-100p" placeholder="Phone Number">
+                    </div>
+
+                    <div class="pos-relative mt-30">
+                    	<input type="password" id="signupPassword" data-required="true" class="input-text input width-100p" placeholder="Password">
+                    </div>
+
+                    <div class="mt-30">
+                    	<input type="checkbox" name="terms" checked class="fl mar-0">
+                    	<div class="fl ml-10">Receive updates from KLP and its partners</div>
+                    	<div class="clr"></div>
+                    </div>
+
+                    <div class="ta-c">
+                        <input type="submit" value="Submit" class="button blue btn-next-step-confirmation js-submit-btn" id="signupFormSubmit">
+                        
+                        <div class="js-submit-loading" style="display:none;">
+                            Sending...
+                        </div>
+                    </div>
+                </form>
+
+                <div class="ta-c mar_top_20">
+                    <span class="alternate-text">Already a registered user?</span>
+                    <a class="button no-mar filled-shadow small clickable dark_grey btn-next-step-login js-showLogin">Login</a>
+                </div>
+    		</div>
+
+    		<!-- HTML FOR LOGIN STEP -->
+			<div class="js-step-login pad-20" style="display:none;">
+    			<h3 class="bordered-heading blue mb-30">Login<span class="mt-10"></span></h3>
+
+    			<form id="loginForm" class="mh-20 mt-120">
+
+                    <div class="pos-relative mt-30">
+                    	<input type="text" id="loginEmail" data-required="true" class="input-text input width-100p" placeholder="Email">
+                    </div>
+
+                    <div class="pos-relative mt-30">
+                    	<input type="password" id="loginPassword" data-required="true" class="input-text input width-100p" placeholder="Password">
+                    </div>
+
+                    <div class="mt-30">
+                    	<a href="" class="alternate-text fl">Forgot Password?</a>
+                    	<div class="fr">
+                    		<input type="submit" value="Submit" class="button blue mt-0 js-submit-btn" id="signupFormSubmit">
+                    		<div class="js-submit-loading" style="display:none;">
+	                            Sending...
+	                        </div>
+                    	</div>
+                    	<div class="clr"></div>
+                    </div>
+                </form>
+
+                <div class="ta-c mt-60">
+                    <span class="alternate-text">Not a registered user?</span>
+                    <a class="button no-mar filled-shadow small clickable dark_grey js-showSignup">Signup</a>
+                </div>
+    		</div>
+
+    		<!-- HTML FOR FORGOT PASSWORD STEP -->
+			<div class="js-step-forgot-password pad-20" style="display:none;">
+    			<h3 class="bordered-heading blue mb-30">Forgot Password<span class="mt-10"></span></h3>
+
+    			<form id="forgotPasswordForm" class="mh-20 mt-120">
+
+    				<div class="ta-c mt-30">
+    					Please enter your email address below and we will send you an email with a link to reset your password.
+    				</div>
+
+                    <div class="pos-relative mt-30">
+                    	<input type="text" id="forgotPasswordEmail" data-required="true" class="input-text input width-100p" placeholder="Email">
+                    </div>
+
+                    <div class="ta-c mt-30">
+                    	<input type="submit" value="Reset Password" class="button blue mt-0 js-submit-btn" id="forgotPasswordFormSubmit">
+                    </div>
+                </form>
+    		</div>
+    	</div>
+	</div>
+
 	<section class="home-section how-you-can-help">
 		<div class="container">
 			<h2>How you can help<span></span></h2>
