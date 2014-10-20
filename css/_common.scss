@@ -857,7 +857,7 @@ a.external{
 	}
 }
 .circle{
-	width: 100px; height: 100px;
+	width: 106px; height: 106px;
 	@include border-radius(50%);
 	&.blue{
 		border: 4px solid #3891F3;
