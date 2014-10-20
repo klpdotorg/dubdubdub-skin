@@ -1104,6 +1104,9 @@ table.tbl-common{
 	td{
 		padding: 10px 15px; vertical-align: top;
 	}
+	.cell-width-5{
+		width: 5%;
+	}
 	.cell-width-10{
 		width: 10%;
 	}
@@ -1134,6 +1137,16 @@ table.tbl-common{
 	&.cell-pr-10{
 		th, td{
 			padding-right: 10px;
+		}
+	}
+	&.cell-pl-20{
+		th, td{
+			padding-left: 20px;
+		}
+	}
+	&.cell-pr-20{
+		th, td{
+			padding-right: 20px;
 		}
 	}
 

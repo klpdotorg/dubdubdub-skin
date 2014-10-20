@@ -8,4 +8,48 @@
 	p.link-text{
 		font-size: 18px;
 	}
+
+	.dropdown{
+		width: inherit; padding: 0 30px 0 5px;
+		float: none; height: 26px;
+		background-color: #F6F6F6;
+		border:1px solid #CACACA;
+		@include border-radius(3px);
+
+		&.open{
+			border-color: #adadad;
+		}
+
+		.selected{
+			color:#5f5f5f; line-height: 26px; text-transform: none;
+			text-overflow:ellipsis;
+		}
+
+		.carat, .carat:after{
+			border-top: 6px solid #CACACA;
+			right:5px;
+		}
+
+		> div{
+			width: 160px;
+			margin-top: 2px; overflow: hidden;
+			background: #fff;
+			border: 1px solid #CACACA;
+			@include border-radius(3px);
+		}
+
+		li{
+			color:#5f5f5f; border-bottom: 0px solid #CACACA;
+			text-transform: none;
+			height: 30px;
+			line-height: 30px;
+
+			&.focus{
+				background: #f6f6f6;
+			}
+			&.active{
+				background: darken(#f6f6f6, 3%);
+			}
+		}
+	}
 }
