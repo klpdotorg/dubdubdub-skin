@@ -506,7 +506,7 @@
 	.icon{
 		background-color: #3D486C;
 		// /*background-image: url("../images/status_girl.png");*/
-		@include bg-image-2x("../images/status_girl", png, 14px, 30px);
+		@include bg-image-2x("../images/status_total", png, 26px, 30px);
 	}
 }
 

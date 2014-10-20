@@ -360,6 +360,16 @@
 
 .mr-60, .mh-60 { margin-right: 60px !important; }
 
+.mar-120 { margin: 120px !important; }
+
+.mt-120, .mv-120 { margin-top: 120px !important; }
+
+.mb-120, .mv-120 { margin-bottom: 120px !important; }
+
+.ml-120, .mh-120 { margin-left: 120px !important; }
+
+.mr-120, .mh-120 { margin-right: 120px !important; }
+
 @media only screen and (min-width: 768px) and (max-width: 979px) { .tab-ma, .tab-mar-auto { margin-left: auto !important; margin-right: auto !important; }
   .tab-ml-a, .tab-ml-auto { margin-left: auto !important; }
   .tab-mr-a, .tab-mr-auto { margin-right: auto !important; }
@@ -412,7 +422,12 @@
   .tab-mt-60, .tab-mv-60 { margin-top: 60px !important; }
   .tab-mb-60, .tab-mv-60 { margin-bottom: 60px !important; }
   .tab-ml-60, .tab-mh-60 { margin-left: 60px !important; }
-  .tab-mr-60, .tab-mh-60 { margin-right: 60px !important; } }
+  .tab-mr-60, .tab-mh-60 { margin-right: 60px !important; }
+  .tab-mar-120 { margin: 120px !important; }
+  .tab-mt-120, .tab-mv-120 { margin-top: 120px !important; }
+  .tab-mb-120, .tab-mv-120 { margin-bottom: 120px !important; }
+  .tab-ml-120, .tab-mh-120 { margin-left: 120px !important; }
+  .tab-mr-120, .tab-mh-120 { margin-right: 120px !important; } }
 @media only screen and (max-width: 979px) { .phn-tab-ma, .phn-tab-mar-auto { margin-left: auto !important; margin-right: auto !important; }
   .phn-tab-ml-a, .tab-ml-auto { margin-left: auto !important; }
   .phn-tab-mr-a, .tab-mr-auto { margin-right: auto !important; }
@@ -465,7 +480,12 @@
   .phn-tab-mt-60, .phn-tab-mv-60 { margin-top: 60px !important; }
   .phn-tab-mb-60, .phn-tab-mv-60 { margin-bottom: 60px !important; }
   .phn-tab-ml-60, .phn-tab-mh-60 { margin-left: 60px !important; }
-  .phn-tab-mr-60, .phn-tab-mh-60 { margin-right: 60px !important; } }
+  .phn-tab-mr-60, .phn-tab-mh-60 { margin-right: 60px !important; }
+  .phn-tab-mar-120 { margin: 120px !important; }
+  .phn-tab-mt-120, .phn-tab-mv-120 { margin-top: 120px !important; }
+  .phn-tab-mb-120, .phn-tab-mv-120 { margin-bottom: 120px !important; }
+  .phn-tab-ml-120, .phn-tab-mh-120 { margin-left: 120px !important; }
+  .phn-tab-mr-120, .phn-tab-mh-120 { margin-right: 120px !important; } }
 @media only screen and (max-width: 767px) { .phn-ma, .phn-mar-auto { margin-left: auto !important; margin-right: auto !important; }
   .phn-ml-a, .tab-ml-auto { margin-left: auto !important; }
   .phn-mr-a, .tab-mr-auto { margin-right: auto !important; }
@@ -518,7 +538,12 @@
   .phn-mt-60, .phn-mv-60 { margin-top: 60px !important; }
   .phn-mb-60, .phn-mv-60 { margin-bottom: 60px !important; }
   .phn-ml-60, .phn-mh-60 { margin-left: 60px !important; }
-  .phn-mr-60, .phn-mh-60 { margin-right: 60px !important; } }
+  .phn-mr-60, .phn-mh-60 { margin-right: 60px !important; }
+  .phn-mar-120 { margin: 120px !important; }
+  .phn-mt-120, .phn-mv-120 { margin-top: 120px !important; }
+  .phn-mb-120, .phn-mv-120 { margin-bottom: 120px !important; }
+  .phn-ml-120, .phn-mh-120 { margin-left: 120px !important; }
+  .phn-mr-120, .phn-mh-120 { margin-right: 120px !important; } }
 .pos-relative { position: relative !important; }
 
 .pos-absolute { position: absolute !important; }
@@ -1202,8 +1227,8 @@ a:hover { text-decoration: underline; }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) { .stats_gender_item.girl .icon { background-image: url("../images/status_girl@2x.png"); -webkit-background-size: 14px 30px; -moz-background-size: 14px 30px; -o-background-size: 14px 30px; background-size: 14px 30px; } }
 
 .stats_gender_item.total .value { color: #3D486C; }
-.stats_gender_item.total .icon { background-color: #3D486C; background-image: url("../images/status_girl.png"); }
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) { .stats_gender_item.total .icon { background-image: url("../images/status_girl@2x.png"); -webkit-background-size: 14px 30px; -moz-background-size: 14px 30px; -o-background-size: 14px 30px; background-size: 14px 30px; } }
+.stats_gender_item.total .icon { background-color: #3D486C; background-image: url("../images/status_total.png"); }
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) { .stats_gender_item.total .icon { background-image: url("../images/status_total@2x.png"); -webkit-background-size: 26px 30px; -moz-background-size: 26px 30px; -o-background-size: 26px 30px; background-size: 26px 30px; } }
 
 .info_data_table { border: none; border-collapse: collapse; }
 .info_data_table tr td { font-size: 13px; line-height: 24px; text-align: left; }
