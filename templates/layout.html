@@ -82,8 +82,6 @@
 
 <body>
 
-	{% if not homepage %}
-
 	<header class="main-header {% if header_full_width %}full_width{% endif %} {% if header_fixed %}fixed{% endif %}">
 		<div class="header-content">
 			<a href="index.php" class="header_mobile_logo"></a>
@@ -123,13 +121,9 @@
 		{% endblock %}
 	</header>
 
-	{% else %}
+	{% if homepage %}
 
-	<header class="home-header" role="banner">
-		<div class="mobile_header">
-			<a href="index.php" class="header_mobile_logo"></a>
-			<a class="mobile_icon" onclick="toggle_mobile_nav();"></a>
-		</div>
+	<div class="home-header" role="banner">
 		<div class="blackboard_wrapper">
 			<div class="content png24">
 				<h1 class="disable-text-select png24">Karnataka Learning Partnership</h1>
@@ -141,12 +135,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="main-header full_width">
-			<nav class="top-nav home" role="navigation">
-				{% include "_top_navigation.html" ignore missing %}
-			</nav>
-		</div>
-	</header>
+	</div>
+
+	{% endif %}
 
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -193,8 +184,6 @@
 		});
 
 	</script>
-
-	{% endif %}
 
 	{% block content %} {% endblock %}
 
