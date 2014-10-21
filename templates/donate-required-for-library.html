@@ -53,6 +53,7 @@
 
 			<div class="font-14 color-black-2 mt-20">Needed By: <span class="color-blue bold">15 Aug, 2014</span></div>
 
+			<form method="post">
 			<div class="items-wrapper ma mt-60 phn-width-full phn-mt-30">
 				<div class="circled bold ma ta-c mb-10">1</div>
 				<div class="ta-c color-black-2 bold uppercase mb-30">Enter quantities</div>
@@ -115,66 +116,41 @@
 					<div class="hr mt-20 mb-10"></div>
 				</div>
 			</div>
-			<div class="hr mt-60 mb-60 phn-mt-30 phn-mb-30"></div>
-			<div class="circled bold ma ta-c mb-10">2</div>
-			<div class="ta-c bold uppercase mb-30">Fill details</div>
 
 			{% if not logged_in %}
-			<div class="signup-wrapper ma pt-30 pb-30 phn-width-full">
-				<h2 class="bordered blue">Please Signup to continue</h2>
-				<form method="post">
-				<input type="hidden" name="submit" value="true"/>
-				<div class="signup-inner ma">
-					<div class="mb-30">
-						<div class="label bold color-black-2 mb-5">Name</div>
-						<input class="input" type="text">
-					</div>
-					<div class="mb-30">
-						<div class="label bold color-black-2 mb-5">Email</div>
-						<input class="input" type="text">
-					</div>
-					<div class="mb-30">
-						<div class="label bold color-black-2 mb-5">Phone No</div>
-						<input class="input" type="text">
-					</div>
-					<div class="mb-30">
-						<div class="label bold color-black-2 mb-5">Password</div>
-						<input class="input" type="password">
-					</div>
-					<div class="ta-c">
-						<input type="submit" name="signup" value="Sign up" class="button blue mt-0 mb-30" />
-						<br/>
-						<span class="already-user color-grey mt-0 mr-20">Already a user?</span>
-						<input type="submit" name="login" value="Login" class="button grey mt-0" />
-					</div>
+				<div class="mt-30 ta-c">
+					<input type="submit" name="submit" value="Continue" class="button grey" />
 				</div>
-				</form>
-			</div>
-
 			{% else %}
+
+			<div class="hr mt-60 mb-60 phn-mt-30 phn-mb-30"></div>
+			<div class="circled bold ma ta-c mb-10">2</div>
+			<div class="ta-c bold uppercase mb-20">Fill details</div>
+			<div class="ta-c mb-30">You may provide alternate contact details</div>
 
 			<div class="signup-inner ma">
 				<div class="mb-30">
 					<div class="label bold color-black-2 mb-5">Name</div>
-					<input class="input" type="text">
+					<input class="input" type="text" value="{{user_details.name}}">
 				</div>
 				<div class="mb-30">
 					<div class="label bold color-black-2 mb-5">Email</div>
-					<input class="input" type="text">
+					<input class="input" type="text" value="{{user_details.email}}">
 				</div>
 				<div class="mb-30">
 					<div class="label bold color-black-2 mb-5">Phone No</div>
-					<input class="input" type="text">
+					<input class="input" type="text" value="{{user_details.phone}}">
 				</div>
 				<div class="mb-30">
 					<div class="label bold color-black-2 mb-5">Address</div>
-					<textarea class="input textarea"></textarea>
+					<textarea class="input textarea">{{user_details.address}}</textarea>
 				</div>
 				<div class="ta-c">
 					<a class="button blue phn-mt-0" href="donate-confirmation.php">Submit</a>
 				</div>
 			</div>
 			{% endif %}
+			</form>
 		</div>
 	</section>
 
