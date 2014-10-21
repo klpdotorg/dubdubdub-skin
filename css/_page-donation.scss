@@ -52,4 +52,52 @@
 			}
 		}
 	}
+
+	&.recently_shared_stories{
+		width: 100%; padding: 50px 0;
+		background: #f6f6f6;
+		h2{
+			color: #393939; margin-bottom: 25px;
+			span{
+				background: #393939;
+			}
+		}
+
+		.column_item{
+			width:420px; padding: 25px 0;
+			border-bottom: 1px solid $primary-border-color;
+			float:left;
+			margin-right:60px;
+			&:nth-of-type(odd){
+				margin-right:60px;
+			}
+			&:nth-of-type(even){
+				margin-left:60px;
+				margin-right:0;
+			}
+		}
+
+		h3{
+			color: $color_database; text-align: left; text-transform:none ; margin: 0;
+			font-size: 20px; line-height: 26px; font-weight: $regular; letter-spacing: normal;
+		}
+
+		.date{
+			color: #adadad;
+		}
+
+		p.text{
+			margin:15px 0; line-height: 24px;
+		}
+
+		a.rm{
+			color: $base-text-color; font-weight: $bold; font-size: 14px;
+		}
+
+		@include if-device(phone-tablet) {
+			.column_item{
+				width: 100%; float: none; margin: 0 !important; padding: 15px 0;
+			}
+		}
+	}
 }
