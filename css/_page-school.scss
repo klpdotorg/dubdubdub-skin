@@ -424,7 +424,7 @@
 			width: 30%; text-transform: uppercase; font-weight: 700; color: #393939; font-size: 13px;
 		}
 		.percent{
-			width: 8%; font-weight: bold; text-align: center;
+			width: 2%; font-weight: bold; text-align: center; padding-right: 2%; text-align: left;
 		}
 		
 		@include if-device(phone){
