@@ -868,7 +868,7 @@ a.external{
 	width: 98%; height: 25px; padding: 0 1%;
 	border: 1px solid #CFCFCF; @include border-radius(3px);
 	&.textarea{
-		width: 98%; height: 80px;
+		width: 98%; height: 80px; color: #000;
 	}
 	&.error{
 		border-color: #eb5055;
