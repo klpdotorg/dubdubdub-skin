@@ -879,7 +879,7 @@ a:hover { text-decoration: underline; }
 
 /* Grid >> Global
 ----------------------------------------------------------------------------------------------------*/
-.grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12 { display: inline; float: left; position: relative; margin-left: 2%; margin-right: 2%; }
+.grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12, .grid_one_fifth { display: inline; float: left; position: relative; margin-left: 2%; margin-right: 2%; }
 
 /* Grid >> 12 Columns
 ----------------------------------------------------------------------------------------------------*/
@@ -906,6 +906,8 @@ a:hover { text-decoration: underline; }
 .container .grid_11 { width: 89.667%; }
 
 .container .grid_12 { width: 98.0%; }
+
+.container .grid_one_fifth { width: 16.8%; }
 
 /* Prefix Extra Space >> 12 Columns
 ----------------------------------------------------------------------------------------------------*/
@@ -1451,6 +1453,8 @@ ul.comparison_list li { padding: 5px 0; border-bottom: 1px solid #d8d8d8; }
 ul.comparison_list li span { color: #393939; }
 
 .error-page .error-img { width: 240px; }
+
+.section-donate-icons img { width: 106px; }
 
 .page-section-menu .container { text-align: center; }
 .page-section-menu .container .heading { position: absolute; top: -35px; left: 0; width: 100%; text-align: center; }
